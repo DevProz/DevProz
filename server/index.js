@@ -57,10 +57,10 @@ app.use(session({
 }));
 
 //passport.serializeUser((user, done) => done(null, user.id))
-app.use(passport.initialize());
-app.use(passport.session());
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+// app.use(passport.initialize());
+// app.use(passport.session());
+// passport.serializeUser(User.serializeUser());
+// passport.deserializeUser(User.deserializeUser());
 
 // routes
 app.use("/api", require("./api")); 
