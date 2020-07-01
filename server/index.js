@@ -39,6 +39,7 @@ mongoose.connect(uri, {
     useCreateIndex: true,  
     useUnifiedTopology: true 
 });
+console.log(uri)
 const connection = mongoose.connection;
 connection.on("error", console.error.bind(console, "connection error:"));
 connection.once("open", ()  => {
@@ -67,9 +68,9 @@ app.use("/api", require("./api"));
 
 
 // sends index.html
-app.use('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'public/index.html'))
-  })
+// app.use('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, '..', 'public/index.html'))
+//   })
 
 // error handling middleware
 app.use((err, req, res, next) => {
