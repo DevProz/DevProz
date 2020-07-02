@@ -7,12 +7,13 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const MongoStore = require("connect-mongo")(session);
 const mongoose = require("mongoose");
-const socketio = require('socket.io')
+const PORT = process.env.SERVER_PORT || 5000;
+const server = app.listen(PORT, () => console.log(`Connected to ${PORT}`));
+const socketio = require('socket.io')(server)
 
 //secrets file
 require("dotenv").config();
 
-const PORT = process.env.SERVER_PORT || 5000;
 
 // logging middleware
 app.use(morgan("dev"));
@@ -75,8 +76,8 @@ app.use((err, req, res, next) => {
     res.status(err.status || 500).send(err.message || "Internal server error.");
 });
 
-app.listen(PORT, () =>
-    console.log(`Connected to ${PORT}`)
-);
+// app.listen(PORT, () =>
+//     console.log(`Connected to ${PORT}`)
+// );
 
 module.exports = app;
