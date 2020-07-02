@@ -1,28 +1,36 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
-const Schema = mongoose.Schema
+const Schema = mongoose.Schema;
 
-const gameSchema = new Schema({ 
-    players: [{
-        type: Schema.Types.ObjectId, 
-        ref: 'Players'
-    }],
-    pictureCards: [{
+const gameSchema = new Schema(
+  {
+    player: [
+      {
         type: Schema.Types.ObjectId,
-        ref: 'PictureCards'
-    }], 
-    sentenceCards: [{
+        ref: "Player",
+      },
+    ],
+    imageCard: [
+      {
         type: Schema.Types.ObjectId,
-        ref: 'SentenceCards'
-    }], 
-    entranceCode: { 
-        type: String,
-        required: true,
-        unique: true, 
-        minlength: 4, 
-        maxlength: 4
-    }
-},
-    { timestamps: true
-    }
+        ref: "ImageCard",
+      },
+    ],
+    sentenceCard: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "SentenceCard",
+      },
+    ],
+    entranceCode: {
+      type: String,
+      required: true,
+      unique: true,
+      minlength: 4,
+      maxlength: 4,
+    },
+  },
+  { timestamps: true }
 );
+const Game = mongoose.model("Game", gameSchema)
+module.exports = {Game}

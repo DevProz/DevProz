@@ -57,20 +57,10 @@ app.use(session({
     store: new MongoStore({mongooseConnection: connection})
 }));
 
-//passport.serializeUser((user, done) => done(null, user.id))
-// app.use(passport.initialize());
-// app.use(passport.session());
-// passport.serializeUser(User.serializeUser());
-// passport.deserializeUser(User.deserializeUser());
-
 // routes
 app.use("/api", require("./api")); 
 
 
-// sends index.html
-// app.use('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, '..', 'public/index.html'))
-//   })
 
 // error handling middleware
 app.use((err, req, res, next) => {
