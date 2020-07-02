@@ -14,7 +14,6 @@ const socketio = require('socket.io')(server)
 //secrets file
 require("dotenv").config();
 
-
 // logging middleware
 app.use(morgan("dev"));
 
@@ -61,7 +60,9 @@ app.use(session({
 // routes
 app.use("/api", require("./api")); 
 
-
+app.use("/", (req, res, next) => {
+    res.sendFile(path.join(__dirname, '..', 'public/index.html'))
+})
 
 // error handling middleware
 app.use((err, req, res, next) => {
