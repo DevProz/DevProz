@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { Player } = require('../db/models/player');
-const { Db } = require('mongodb');
 
 //get all players
 router.get('/', async(req, res, next) => {
@@ -34,9 +33,6 @@ router.post('/', async(req, res, next) => {
         next(error) 
     }
 })
-
-
-
 
 
 module.exports = router;
