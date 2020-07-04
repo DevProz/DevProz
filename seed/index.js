@@ -5,7 +5,7 @@ const Game = require('../server/db/models/game');
 
 (async () => {
   try {
-    await mongoose.connect("mongodb+srv://marybelousova:Iamsohappy@cluster0.3nd7f.mongodb.net/devproz?retryWrites=true&w=majority", {
+    await mongoose.connect("mongodb://localhost:27017/devproz", {
       useNewUrlParser: true,
       useCreateIndex: true,
       useUnifiedTopology: true,

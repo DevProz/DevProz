@@ -6,19 +6,19 @@ const gameSchema = new Schema(
   {
     player: [
       {
-        type: Schema.Types.ObjectId,
+        type: String,
         ref: "Player",
       },
     ],
     imageCard: [
       {
-        type: Schema.Types.ObjectId,
+        type: String,
         ref: "ImageCard",
       },
     ],
     sentenceCard: [
       {
-        type: Schema.Types.ObjectId,
+        type: String,
         ref: "SentenceCard",
       },
     ],
