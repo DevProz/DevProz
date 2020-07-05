@@ -4,9 +4,6 @@ const Player = require('../server/db/models/player');
 const ImageCard = require('../server/db/models/imageCard');
 const SentenceCard = require('../server/db/models/sentenceCard');
 const chalk = require('chalk');
-// const games  = require('./games')
-// const imageCards = require('./imageCards')
-// const players = require('./players')
 
 const seed = async() => {
   try {
