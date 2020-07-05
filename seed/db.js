@@ -1,17 +1,23 @@
 // const mongoose = require('mongoose');
-// // const Game = require('../server/db/models/game');
+// const Game = require('../server/db/models/game');
+// // const Player = require('../server/db/models/player');
+// // const ImageCard = require('../server/db/models/imageCard');
+// const chalk = require('chalk');
 // // const games = require('./game')
-// // const uri = process.env.NODE_ENV === "development" ? "mongodb://localhost:27017/devproz" : process.env.DB_SECRET;
+// // const imageCards = require('./imageCard')
+// // const players = require('./Player')
 
-// export async function seed () {
+// const seed = async() => {
 //   try {
 //     await mongoose.connect("mongodb://localhost:27017/devproz", {
 //       useNewUrlParser: true,
 //       useCreateIndex: true,
 //       useUnifiedTopology: true,
 //     });
-//     console.log('Connected to seed')
+//     console.log(chalk.green('Connected to seed'))
 //   } catch (error) {
 //     console.error(error.message)
 //   }
-// }
+// }; 
+
+// export default seed

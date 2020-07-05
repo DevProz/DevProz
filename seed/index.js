@@ -2,10 +2,13 @@ const mongoose = require('mongoose');
 const Game = require('../server/db/models/game');
 const Player = require('../server/db/models/player');
 const ImageCard = require('../server/db/models/imageCard');
+const SentenceCard = require('../server/db/models/sentenceCard');
 const chalk = require('chalk');
-// const uri = process.env.NODE_ENV === "development" ? "mongodb://localhost:27017/devproz" : process.env.DB_SECRET;
+// const games  = require('./games')
+// const imageCards = require('./imageCards')
+// const players = require('./players')
 
-(async function seed () {
+const seed = async() => {
   try {
     await mongoose.connect("mongodb://localhost:27017/devproz", {
       useNewUrlParser: true,
@@ -16,7 +19,8 @@ const chalk = require('chalk');
   } catch (error) {
     console.error(error.message)
   }
-}()); 
+}; 
+seed();
 
   const games = [
     new Game({
@@ -96,19 +100,38 @@ const chalk = require('chalk');
         sentenceCard: "Last test!",
     })];
 
-(async () => {
+    const sentenceCards = [
+      new SentenceCard ({
+      sentence: "Test1",
+      }),
+      new SentenceCard ({
+      sentence: "Tes2",
+      }),
+      new SentenceCard ({
+      sentence: "Test3",
+      }),
+      new SentenceCard ({
+      sentence: "Test4",
+      })]
+
+
+const runSeed = async() => {
   try {
     await Game.create(games, () => {
-      console.log('Game data have been seeded successfully')
+      console.log(chalk.green('Game data have been seeded successfully'))
     });
     await Player.create(players, () => {
-      console.log('Player data have been seeded successfully')
+      console.log(chalk.green('Player data have been seeded successfully'))
     });
     await ImageCard.create(imageCards, () => {
-      console.log('ImageCard data have been seeded successfully')
+      console.log(chalk.green('ImageCard data have been seeded successfully'))
+    });
+    await SentenceCard.create(sentenceCards, () => {
+      console.log(chalk.green('SentenceCard data have been seeded successfully'))
     });
   }
   catch (error) {
     console.error(chalk.red('ERROR HANDLED', error.message))
   }
-})();
+};
+runSeed()
