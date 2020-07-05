@@ -1,27 +1,24 @@
-const mongoose = require("mongoose");
+const { Schema, model, Types } = require("mongoose");
 
-const Schema = mongoose.Schema;
+// const Schema = mongoose.Schema;
 
 const gameSchema = new Schema(
   {
-    player: [
+    player: 
       {
-        type: Schema.Types.ObjectId,
+        type: String,
         ref: "Player",
       },
-    ],
-    imageCard: [
+    imageCard: 
       {
-        type: Schema.Types.ObjectId,
+        type: String,
         ref: "ImageCard",
       },
-    ],
-    sentenceCard: [
+    sentenceCard:
       {
-        type: Schema.Types.ObjectId,
+        type: String,
         ref: "SentenceCard",
       },
-    ],
     entranceCode: {
       type: String,
       required: true,
@@ -32,5 +29,5 @@ const gameSchema = new Schema(
   },
   { timestamps: true }
 );
-const Game = mongoose.model("Game", gameSchema)
-module.exports = {Game}
+// const Game = mongoose.model("Game", gameSchema)
+module.exports = model("Game", gameSchema);

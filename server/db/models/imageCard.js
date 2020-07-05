@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+const { Schema, model, Types } = require("mongoose");
 
-const Schema = mongoose.Schema;
+// const Schema = mongoose.Schema;
 
 const imageCardSchema = new Schema({
     image:{
@@ -8,10 +8,8 @@ const imageCardSchema = new Schema({
         required: true,       
     }
 },
-
 {timestamps:true}
-
 );
 
-const ImageCard = mongoose.model("ImageCard",imageCardSchema );
-module.exports = { ImageCard };
+// const ImageCard = mongoose.model("ImageCard",imageCardSchema );
+module.exports = model("ImageCard",imageCardSchema );
