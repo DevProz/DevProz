@@ -4,24 +4,21 @@ const { Schema, model, Types } = require("mongoose");
 
 const gameSchema = new Schema(
   {
-    player: [
+    player: 
       {
         type: String,
         ref: "Player",
       },
-    ],
-    imageCard: [
+    imageCard: 
       {
         type: String,
         ref: "ImageCard",
       },
-    ],
-    sentenceCard: [
+    sentenceCard:
       {
         type: String,
         ref: "SentenceCard",
       },
-    ],
     entranceCode: {
       type: String,
       required: true,
