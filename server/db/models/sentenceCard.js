@@ -1,7 +1,5 @@
 const { Schema, model, Types } = require("mongoose");
 
-// const Schema = mongoose.Schema;
-
 const sentenceCardSchema = new Schema({
     sentence:{
         type: String, 
@@ -13,5 +11,4 @@ const sentenceCardSchema = new Schema({
 
 );
 
-// const SentenceCard = mongoose.model("SentenceCard", sentenceCardSchema);
 module.exports = model("SentenceCard", sentenceCardSchema);

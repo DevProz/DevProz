@@ -1,7 +1,5 @@
 const { Schema, model, Types } = require("mongoose");
 
-// const Schema = mongoose.Schema;
-
 const playerSchema = new Schema(
   {
     name: {
@@ -22,6 +20,6 @@ const playerSchema = new Schema(
   },
   { timestamps: true }
 );
-// const Player = mongoose.model("Player", playerSchema)
+
 module.exports = model("Player", playerSchema)
 
