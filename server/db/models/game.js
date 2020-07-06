@@ -21,7 +21,7 @@ const gameSchema = new Schema(
       },
     entranceCode: {
       type: String,
-      required: true,
+      //required: true,
       unique: true,
       minlength: 4,
       maxlength: 4,

@@ -9,6 +9,7 @@ const imageCards = require('./imageCards');
 const sentenceCards = require('./sentenceCards');
 const chalk = require('chalk');
 
+
 const seed = async() => {
   try {
     await mongoose.connect("mongodb://localhost:27017/devproz", {
