@@ -41,6 +41,7 @@ app.use("/static", express.static(path.join(__dirname, "../public")));
 app.use(cookieParser());
 
 //connecting to database
+console.log(process.env.NODE_ENV)
 const uri = process.env.NODE_ENV === "development" ? "mongodb://localhost:27017/devproz" : process.env.DB_SECRET;
 mongoose.connect(uri, { 
     useNewUrlParser: true, 
