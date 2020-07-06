@@ -18,7 +18,7 @@ export const getPlayers = (players) => {
 
 //thunk
 export const fetchPlayers = () => async (dispatch) => {
-    const { data } = await axios.get('/api/players')
+    const {data} = await axios.get('/api/players')
     dispatch(getPlayers(data))
 }
 
