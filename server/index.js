@@ -8,8 +8,18 @@ const cookieParser = require("cookie-parser");
 const MongoStore = require("connect-mongo")(session);
 const mongoose = require("mongoose");
 const PORT = process.env.SERVER_PORT || 5000;
-const server = app.listen(PORT, () => console.log(`Connected to ${PORT}`));
-const socketio = require('socket.io')(server)
+//we need http for the configuration process of socket.io
+const server = require('http').createServer(app).listen(PORT)
+const io = require('socket.io').listen(server)
+
+/////////
+//testing with socket.io
+require('./socket')(io)
+
+/////////////
+
+
+
 
 //secrets file
 require("dotenv").config();
