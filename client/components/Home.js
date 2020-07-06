@@ -1,11 +1,44 @@
 import React from "react";
+import { fetchPlayers } from "../store";
+import { connect } from "react-redux";
 
-function Home() {
-    return (
-        <div>
-            <h1>HIIIIII</h1>
-        </div>
-    )
+class Home extends React.Component {
+
+    componentDidMount(){
+        this.props.getPlayers()
+    }
+
+    render() {
+        console.log(this.props)
+        return (
+            <div>
+                <h1>
+                    This is the home page:)
+                </h1>
+                <h3>
+                    Players: 
+                </h3>
+                {this.props.players.map((player) => {
+                    return <li>{player.name}</li>
+                })}
+
+            </div>
+        )
+    }
 }
 
-export default Home;
+
+const mapState = (state) => {
+    return {
+        players: state.players
+    }
+}
+
+const mapDispatch = (dispatch) => {
+    return {
+        getPlayers : () => dispatch(fetchPlayers())
+    }
+}
+
+
+export default connect(mapState, mapDispatch)(Home)

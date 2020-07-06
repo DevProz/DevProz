@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node server",
     "start-dev": "webpack -w & nodemon server",
+    "seed": "node seed",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,6 +29,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.10.4",
+    "axios": "^0.19.2",
     "compression": "^1.7.4",
     "connect-mongo": "^3.2.0",
     "cookie-parser": "^1.4.5",
@@ -42,6 +44,8 @@
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "save": "^2.4.0",
     "socket.io": "^2.3.0"
   }
