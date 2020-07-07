@@ -1,6 +1,8 @@
 import React from "react";
 import { addPlayer } from "../store";
 import { connect } from "react-redux";
+import history from '../history'
+
 
 class Home extends React.Component {
     constructor(props) {
@@ -24,6 +26,7 @@ class Home extends React.Component {
             this.setState({
                 name: " "
             })
+            this.props.history.push('/join')
         }
       
       render() {
