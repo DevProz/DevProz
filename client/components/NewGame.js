@@ -12,8 +12,8 @@ class NewGame extends React.Component {
     handleSubmit(event){
         console.log('clicked!')
         event.preventDefault()
+        console.log("HERE", event.target.game)
         this.props.getGame(event.target.game)
-
     }
 
 

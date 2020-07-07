@@ -1,5 +1,14 @@
 const router = require('express').Router();
 const Player  = require('../db/models/player');
+const SentenceCard = require('../db/models/sentenceCard');
+
+async function checkPlayer(req, res, next) {
+    if (!req.session.player) {
+        req.session.player = new Player();
+        await req.session.player.save();
+    }
+    next();
+}
 
 //get all players
 router.get('/', async(req, res, next) => {
@@ -12,25 +21,18 @@ router.get('/', async(req, res, next) => {
 })
 
 //checks if there's an existing player, if not create player
-router.post('/', async(req, res, next) => {
-    console.log("router", req.body)
+router.post('/', checkPlayer, async(req, res, next) => {
+  
     try {
-        const {name, score} = req.body
-
-        const alreadyExisting = await Player.findOne({
-            name: name,
-            score: score
+        // const sentenceCards = await SentenceCard.find()
+        const newPlayer = new Player({
+            name: req.body.name,
+            score: req.body.score,
+            // sentenceCards: sentenceCards
         })
-        if (alreadyExisting){
-            res.json(alreadyExisting)
-        } else {
-            const newPlayer = new Player({
-                name: name,
-                score: score
-            })
-            console.log("this is player", newPlayer)
-            await newPlayer.save()
-        } 
+    
+        await newPlayer.save()
+        Player.findOne({_id: newPlayer._id}).populate("sentenceCards").then(populatedSentenceCards => res.json(populatedSentenceCards))
     } catch (error) {
         next(error) 
     }
