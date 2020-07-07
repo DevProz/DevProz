@@ -16,7 +16,7 @@ async function checkPlayer(req, res, next) {
 router.post('/', checkPlayer, async(req, res, next) => {
  
     try {
-        console.log('this is the req.session', req.session)
+       
         const player = await Player.findOne({_id: req.session.player._id})
         const imageCards = await ImageCard.find()
         const sentenceCards = await SentenceCard.find()
@@ -27,7 +27,7 @@ router.post('/', checkPlayer, async(req, res, next) => {
             sentenceCards: sentenceCards,
             entranceCode: code
         })
-        console.log('this is the newGame', newGame)
+      
         await newGame.save()
         Game.findOne({_id: newGame._id}).populate("players", "sentenceCards", "imageCards").then(populatedGame => res.json(populatedGame))
         

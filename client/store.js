@@ -2,15 +2,12 @@ import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import axios from 'axios'
 
-
-
 //action types
 const GET_PLAYERS = 'GET_PLAYERS'
 const ADD_PLAYER = 'ADD_PLAYER'
 const CREATE_NEW_GAME = 'CREATE_NEW_GAME';
 
 
-action creator
 export const getPlayers = (players) => {
     return {
         type: GET_PLAYERS,
@@ -36,7 +33,6 @@ export const addedPlayer = (player) => {
 // thunk
 export const fetchPlayers = () => async (dispatch) => {
     const { data } = await axios.get('/api/players')
-    console.log(data)
     dispatch(getPlayers(data))
 }
 
@@ -63,11 +59,9 @@ export const addPlayer = (player) => async (dispatch) => {
 
 
 const initialState = {
-    game: {}
-    player: {}; 
-
+    game: {},
+    player: {}
 }
-
 
 //reducer
 const reducer = (state = initialState, action) => {
