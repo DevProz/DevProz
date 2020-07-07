@@ -1,45 +1,71 @@
 import React from "react";
-import { fetchPlayers } from "../store";
+import { addPlayer } from "../store";
 import { connect } from "react-redux";
 
 class Home extends React.Component {
-
-    componentDidMount(){
-        this.props.getPlayers()
-    }
-
-    render() {
+    constructor(props) {
+        super(props);
+        this.state = {
+          name: '',
+        };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+      }
     
+      handleChange(event) {
+        this.setState({
+          name: event.target.value,
+        });
+      }
+    
+      async handleSubmit(event) {
+            event.preventDefault()
+            this.props.addPlayer(this.state);
+            this.setState({
+                name: " "
+            })
+        }
+      
+      render() {
+          console.log(this.props)
         return (
-            <div>
-                <h1>
-                    This is the home page:)
-                </h1>
-                <h3>
-                    Players: 
-                </h3>
-                {this.props.players.map((player) => {
-                    return <li>{player.name}</li>
-                })}
+            <form onSubmit={this.handleSubmit}>
+                <label>
+                Your  name:
+                <input type="text"  name="title" onChange={this.handleChange}
+                value={this.state.name}
+                />
+                
+                </label>
+                <button type="submit">Submit</button>
+            </form>
+            );
+            }
+        }
 
-            </div>
-        )
+        const mapDispatchToProps = (dispatch) => {
+            return {
+                addPlayer:(player) => dispatch(addPlayer(player))
+        }
     }
-}
+// <<<<<<< vm01
+// =======
+// }
 
 
-const mapState = (state) => {
-    console.log('this is state', state)
-    return {
-        players: state.players
-    }
-}
+// const mapState = (state) => {
+//     console.log('this is state', state)
+//     return {
+//         players: state.players
+//     }
+// }
 
-const mapDispatch = (dispatch) => {
-    return {
-        getPlayers : () => dispatch(fetchPlayers())
-    }
-}
+// const mapDispatch = (dispatch) => {
+//     return {
+//         getPlayers : () => dispatch(fetchPlayers())
+//     }
+// }
 
+// >>>>>>> master
 
-export default connect(mapState, mapDispatch)(Home)
+        export default connect(null, mapDispatchToProps)(Home)
