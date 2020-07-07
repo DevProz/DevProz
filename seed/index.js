@@ -11,7 +11,7 @@ const chalk = require('chalk');
 
 const seed = async() => {
   try {
-    await mongoose.connect("mongodb://localhost:27017/devproz", {
+    await mongoose.connect("mongodb://127.0.0.1:27017/devproz", {
       useNewUrlParser: true,
       useCreateIndex: true,
       useUnifiedTopology: true,

@@ -5,7 +5,7 @@ import axios from 'axios'
 
 //action types
 const GET_PLAYERS = 'GET_PLAYERS'
-
+const ADD_PLAYER = "ADD_PLAYER"
 //action creator
 export const getPlayers = (players) => {
     return {
@@ -14,6 +14,12 @@ export const getPlayers = (players) => {
     }
 }
 
+export const addedPlayer = (player) => {
+    return {
+        type: ADD_PLAYER,
+        player, 
+    }
+}
 
 
 //thunk
@@ -23,8 +29,16 @@ export const fetchPlayers = () => async (dispatch) => {
 }
 
 
+export const addPlayer = () => async (dispatch) => {
+    const { data } = await axios.post(`/api/players`)
+    dispatch(addedPlayer(data))
+}
+
+
+
 const initialState = {
-    players: []
+    players: [],
+    player: {},
 }
 
 
@@ -33,6 +47,8 @@ const reducer = (state = initialState, action) => {
     switch(action.type) {
         case GET_PLAYERS:
             return {...state, players: action.players}
+        case ADD_PLAYER:
+            return [...state, action.player]
         default:
             return state
     }
