@@ -11,9 +11,14 @@ class Home extends React.Component {
     name: '',
     }; 
 
+ 
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+  //  componentDidMount(){
+  //   this.props.addPlayer()
+  // }
 
 
   handleChange(event) {

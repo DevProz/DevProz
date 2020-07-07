@@ -15,6 +15,7 @@ router.get('/', async(req, res, next) => {
 router.post('/', async(req, res, next) => {
     try {
         const {name, score} = req.body
+
         const alreadyExisting = await Player.findOne({
             name: name,
             score: score
