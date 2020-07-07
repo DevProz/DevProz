@@ -26,7 +26,6 @@ export const addedPlayer = (player) => {
 //thunk
 export const fetchPlayers = () => async (dispatch) => {
     const {data} = await axios.get('/api/players')
-    console.log(data)
     dispatch(getPlayers(data))
 }
 
@@ -34,7 +33,6 @@ export const fetchPlayers = () => async (dispatch) => {
 export const addPlayer = (player) => async (dispatch) => {
     try {
     const {data} = await axios.post('/api/players', player)
-    console.log(data)
     dispatch(addedPlayer(data))
     } catch(error) {
         console.log(error)
