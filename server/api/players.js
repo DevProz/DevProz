@@ -21,9 +21,9 @@ router.post('/', async(req, res, next) => {
             name: name,
             score: score
         })
-        if(alreadyExisting){
+        if (alreadyExisting){
             res.json(alreadyExisting)
-        }else{
+        } else {
             const newPlayer = new Player({
                 name: name,
                 score: score

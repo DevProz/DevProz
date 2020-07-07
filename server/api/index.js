@@ -3,7 +3,7 @@ const router = require("express").Router();
 
 router.use('/players', require('./players'));
 router.use('/cards', require('./cards'));
-
+router.use('/newGame', require('./newGame'))
 
 router.use((req, res, next) => {
     const error = new Error('Not Found');

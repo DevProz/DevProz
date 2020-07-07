@@ -48,5 +48,24 @@ class Home extends React.Component {
                 addPlayer:(player) => dispatch(addPlayer(player))
         }
     }
+// <<<<<<< vm01
+// =======
+// }
+
+
+// const mapState = (state) => {
+//     console.log('this is state', state)
+//     return {
+//         players: state.players
+//     }
+// }
+
+// const mapDispatch = (dispatch) => {
+//     return {
+//         getPlayers : () => dispatch(fetchPlayers())
+//     }
+// }
+
+// >>>>>>> master
 
         export default connect(null, mapDispatchToProps)(Home)
