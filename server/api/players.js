@@ -13,6 +13,7 @@ router.get('/', async(req, res, next) => {
 
 //checks if there's an existing player, if not create player
 router.post('/', async(req, res, next) => {
+    console.log("router", req.body)
     try {
         const {name, score} = req.body
 
@@ -27,6 +28,7 @@ router.post('/', async(req, res, next) => {
                 name: name,
                 score: score
             })
+            console.log("this is player", newPlayer)
             await newPlayer.save()
         } 
     } catch (error) {
