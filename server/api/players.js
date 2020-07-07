@@ -30,7 +30,7 @@ router.post('/', checkPlayer, async(req, res, next) => {
             score: req.body.score,
             // sentenceCards: sentenceCards
         })
-    
+        console.log('this is the new player', newPlayer)
         await newPlayer.save()
         Player.findOne({_id: newPlayer._id}).populate("sentenceCards").then(populatedSentenceCards => res.json(populatedSentenceCards))
     } catch (error) {
