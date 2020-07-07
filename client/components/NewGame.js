@@ -11,7 +11,6 @@ class NewGame extends React.Component {
 
     handleSubmit(event){
         console.log('clicked!')
-        console.log('this is the event.target', event.target)
         event.preventDefault()
         this.props.getGame(event.target.game)
 

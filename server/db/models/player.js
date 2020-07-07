@@ -4,7 +4,7 @@ const playerSchema = new Schema(
   {
     name: {
       type: String,
-      required: true,
+      //required: true,
       trim: true,
     },
     score: {
