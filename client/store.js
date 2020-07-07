@@ -51,13 +51,9 @@ export const fetchPlayers = () => async (dispatch) => {
     
 }
 
-export const fetchNewGame = (player) => async (dispatch) => {
+export const fetchNewGame = (player) => async () => {
     try {
-        //const { data } = await axios.post('/api/newGame', game)
         socket.emit("new_game", {playerId: player._id})
-        //dispatch(createNewGame(data))
-        
-        
     } catch (error) {
         console.log('this is the error!', error)
         
