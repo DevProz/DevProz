@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from 'react-bootstrap'
-import { fetchNewGame } from '../store'
+import { fetchNewGame, me } from '../store'
 import { connect } from 'react-redux'
 
 class NewGame extends React.Component {
@@ -8,11 +8,14 @@ class NewGame extends React.Component {
         super()
         this.handleSubmit = this.handleSubmit.bind(this)
     }
+    componentWillMount() {
+        this.props.getMe()
+    }
 
     handleSubmit(event){
         console.log('clicked!')
         event.preventDefault()
-        this.props.getGame(this.props.game)
+        this.props.getGame(this.props.player)
     }
 
 
@@ -33,17 +36,17 @@ class NewGame extends React.Component {
 const mapState = (state) => {
     console.log(state)
     return {
-        game: state.game
+        game: state.game,
+        player: state.player
     }
 }
 
 const mapDispatch = (dispatch) => {
     return {
-        getGame: (game) => dispatch(fetchNewGame(game))
+        getGame: (game) => dispatch(fetchNewGame(game)),
+        getMe: () => dispatch(me())
     }
 }
-
-
 
 
 
