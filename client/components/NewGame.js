@@ -12,13 +12,11 @@ class NewGame extends React.Component {
     handleSubmit(event){
         console.log('clicked!')
         event.preventDefault()
-        console.log("HERE", event.target.game)
-        this.props.getGame(event.target.game)
+        this.props.getGame(this.props.game)
     }
 
 
     render() {
-        console.log('this is props', this.props)
         return (
             <div>
                 <h1>
@@ -33,7 +31,7 @@ class NewGame extends React.Component {
 }
 
 const mapState = (state) => {
-    console.log('this is the state', state)
+    console.log(state)
     return {
         game: state.game
     }

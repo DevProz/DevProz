@@ -1,7 +1,6 @@
 import React from "react";
 import { addPlayer } from "../store";
 import { connect } from "react-redux";
-import history from '../history'
 
 
 class Home extends React.Component {
@@ -30,7 +29,6 @@ class Home extends React.Component {
         }
       
       render() {
-          console.log(this.props)
         return (
             <form onSubmit={this.handleSubmit}>
                 <label>

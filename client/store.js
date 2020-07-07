@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
+import socket from './socket'
 import axios from 'axios'
 
 //action types
@@ -34,12 +35,14 @@ export const addedPlayer = (player) => {
 export const fetchPlayers = () => async (dispatch) => {
     const { data } = await axios.get('/api/players')
     dispatch(getPlayers(data))
+    
 }
 
 export const fetchNewGame = (game) => async (dispatch) => {
     try {
         const { data } = await axios.post('/api/newGame', game)
         dispatch(createNewGame(data))
+    
         
     } catch (error) {
         console.log('this is the error!', error)
@@ -52,6 +55,7 @@ export const addPlayer = (player) => async (dispatch) => {
     try {
     const {data} = await axios.post('/api/players', player)
     dispatch(addedPlayer(data))
+    socket.emit('newPlayer', data);
     } catch(error) {
         console.log(error)
     }
@@ -69,7 +73,7 @@ const reducer = (state = initialState, action) => {
         case GET_PLAYERS:
             return {...state, players: action.players}
         case ADD_PLAYER:
-                return [...state, action.player]
+                return {...state, player: action.player}
         case CREATE_NEW_GAME:
             return {...state, game: action.game}
          default:

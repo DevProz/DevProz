@@ -27,9 +27,10 @@ router.post('/', checkPlayer, async(req, res, next) => {
             sentenceCards: sentenceCards,
             entranceCode: code
         })
+        console.log(newGame)
       
         await newGame.save()
-        Game.findOne({_id: newGame._id}).populate("players", "sentenceCards", "imageCards").then(populatedGame => res.json(populatedGame))
+        Game.findOne({_id: newGame._id}).populate("players").populate("imageCards").populate("sentenceCards").then(populatedGame => res.json(populatedGame))
         
     } catch (error) {
         next(error)
