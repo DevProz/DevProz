@@ -10,7 +10,7 @@ const ADD_PLAYER = 'ADD_PLAYER'
 const CREATE_NEW_GAME = 'CREATE_NEW_GAME';
 
 
-action creator
+// action creator
 export const getPlayers = (players) => {
     return {
         type: GET_PLAYERS,
@@ -63,9 +63,8 @@ export const addPlayer = (player) => async (dispatch) => {
 
 
 const initialState = {
-    game: {}
-    player: {}; 
-
+    game: {},
+    player: {},
 }
 
 
