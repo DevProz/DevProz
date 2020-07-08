@@ -29,10 +29,11 @@ class Home extends React.Component {
         }
       
       render() {
+        console.log('Home Page')
         return (
             <form onSubmit={this.handleSubmit}>
                 <label>
-                Your  name:
+                Your name:
                 <input type="text"  name="title" onChange={this.handleChange}
                 value={this.state.name}
                 />
