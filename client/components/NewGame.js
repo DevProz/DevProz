@@ -16,6 +16,7 @@ class NewGame extends React.Component {
         console.log('clicked!')
         event.preventDefault()
         this.props.getGame(this.props.player)
+        this.props.history.push('/start')
     }
 
 

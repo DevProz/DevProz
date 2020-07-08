@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Home from "./Home";
 import NewGame from './NewGame'
+import StartGame from './StartGame'
 
 const App = () => {
     return (
@@ -9,6 +10,7 @@ const App = () => {
                 <Switch>
                     <Route exact path="/" component={Home} />
                     <Route exact path='/join' component={NewGame}/>
+                    <Route exact path='/start' component={StartGame}/>
                 </Switch>
             </Router>
     )
