@@ -4,11 +4,6 @@ import MySentenceCards from "./MySentenceCards";
 
 
 class Game extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //     };
-    //   }
       
       render() {
         return (
@@ -26,8 +21,6 @@ class Game extends React.Component {
 
             <MySentenceCards/>
            
-         
-
         </div>
     )
 }

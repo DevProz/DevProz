@@ -3,6 +3,14 @@ import { Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
 
 class StartGame extends React.Component {
+    constructor(){
+        super()
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+
+    handleSubmit(){
+        this.props.history.push('/game')
+    }
   
 
     render() {
@@ -20,7 +28,7 @@ class StartGame extends React.Component {
                     </ol>
                 })}</h4>
 
-                {(this.props.game.players[0]._id === this.props.player._id) ? <Button type='submit'>Start Game</Button> :  <h1>Wait for host to start game</h1>}
+                {(this.props.game.players[0]._id === this.props.player._id) ? <Button type='submit' onClick={this.handleSubmit}>Start Game</Button> :  <h1>Wait for host to start game</h1>}
                 
                 
             </div>
