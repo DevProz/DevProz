@@ -1,5 +1,5 @@
 import React from "react";
-import { addPlayer } from "../store";
+import { changeName } from "../store";
 import { connect } from "react-redux";
 
 
@@ -21,9 +21,9 @@ class Home extends React.Component {
     
       async handleSubmit(event) {
             event.preventDefault()
-            this.props.addPlayer(this.state);
+            this.props.changeName(this.state);
             this.setState({
-                name: " "
+                name: ""
             })
             this.props.history.push('/join')
         }
@@ -47,7 +47,7 @@ class Home extends React.Component {
 
         const mapDispatchToProps = (dispatch) => {
             return {
-                addPlayer:(player) => dispatch(addPlayer(player))
+                changeName:(playerName) => dispatch(changeName(playerName))
         }
     }
  
