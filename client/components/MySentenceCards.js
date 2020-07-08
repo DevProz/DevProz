@@ -3,14 +3,9 @@ import { Card, CardDeck } from 'react-bootstrap'
 
 
 class MySentenceCards extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //     };
-    //   }
+
       
       render() {
-        //   console.log('props:::', props)
         return (
             <div>
             <CardDeck>
