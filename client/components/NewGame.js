@@ -17,6 +17,7 @@ class NewGame extends React.Component {
     handleSubmit(event){
         event.preventDefault()
         this.props.getGame(this.props.player)
+        this.props.history.push('/start')
     }
 
     handleCodeSubmit(event) {
