@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const Player  = require('../db/models/player');
-const SentenceCard = require('../db/models/sentenceCard');
 
 async function checkPlayer(req, res, next) {
     if (!req.session.player) {
@@ -22,7 +21,6 @@ router.get('/', async(req, res, next) => {
 
 //finds player and gets it name
 router.post('/', checkPlayer, async(req, res, next) => {
-  
     try {
         const player = await Player.findOne({_id: req.session.player._id})
         player.name = req.body.name
