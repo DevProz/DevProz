@@ -6,24 +6,25 @@ import { connect } from 'react-redux'
 class StartGame extends React.Component {
 
     componentDidMount(){
-        this.props.getGame(this.props.player)
+        //this.props.getGame(this.props.player)
     }
   
 
     render() {
         console.log('this is props in start game', this.props)
+        if (!this.props.game.players) return <h1>Loading</h1>
         return (
             <div>
                 <h1>
                     This is the START GAME component
                 </h1>
                 <h3>Code: {this.props.game.entranceCode}</h3>
-                <h4>{this.props.player.name}</h4>
-                {/* <h4>{this.props.game.players.map((player) => {
+                {/* <h4>{this.props.player.name}</h4> */}
+                <h4>{this.props.game.players.map((player) => {
                     return <ol>
-                        <li>{player._id}</li>
+                        <li>{player.name}</li>
                     </ol>
-                })}</h4> */}
+                })}</h4>
                 <Button type='submit'>Start Game</Button>
             </div>
         )
