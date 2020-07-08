@@ -10,6 +10,10 @@ socket.on('connect', () => {
     console.log(data.entranceCode)
     store.dispatch(updateNewGame(data))
   })
+
+  socket.on("player_joined", data => {
+    store.dispatch(updateNewGame(data))
+  })
 })
 
 export default socket

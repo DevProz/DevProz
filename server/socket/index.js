@@ -33,6 +33,16 @@ module.exports = io => {
           socket.emit("new_game_created", populatedGame)
         })
       })
+
+      socket.on('join_game', async data => {
+        const game = await Game.findOne({entranceCode: data.code})
+        game.players.push(data.playerId)
+        await game.save()
+        Game.findOne({_id: game._id}).populate("players").populate("imageCards").populate("sentenceCards").then(populatedGame => {
+          socket.join(data.code)
+          socket.emit("player_joined", populatedGame)
+        })
+      })
      
       // socket.on('joining', data => {
       //   console.log('YOU DID IT!!!!')

@@ -2,6 +2,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import socket from './socket'
 import axios from 'axios'
+import {createLogger} from "redux-logger";
 
 //action types
 const GET_PLAYERS = 'GET_PLAYERS'
@@ -61,11 +62,11 @@ export const fetchNewGame = (player) => async () => {
 }
 
 
-export const addPlayer = (player) => async (dispatch) => {
+export const changeName = (playerName) => async (dispatch) => {
     try {
-    const {data} = await axios.post('/api/players', player)
-    dispatch(addedPlayer(data))
-    socket.emit('newPlayer', data);
+    const {data} = await axios.post('/api/players', playerName)
+    dispatch(updatePlayer(data))
+    //socket.emit('newPlayer', data);
     } catch(error) {
         console.log(error)
     }
@@ -93,6 +94,6 @@ const reducer = (state = initialState, action) => {
     }
 }
 
-const store = createStore(reducer, applyMiddleware(thunkMiddleware));
+const store = createStore(reducer, applyMiddleware(thunkMiddleware, createLogger({collapsed: true})));
 
 export default store;
