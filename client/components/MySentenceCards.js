@@ -2,67 +2,67 @@ import React from "react";
 import { Card, CardDeck } from 'react-bootstrap'
 
 
-class MySentenceCards extends React.Component {
+const MySentenceCards = (props) => {
+    console.log('this is in the sentence component', props)
 
-      
-      render() {
         return (
             <div>
             <CardDeck>
             <Card>
                 <Card.Body>
                         <Card.Text>
-                           Card1
+                           {props.sentenceCards[0].sentence}
                         </Card.Text>
                 </Card.Body>
             </Card>
             <Card>
                 <Card.Body>
                         <Card.Text>
-                           Card2
+                        {props.sentenceCards[2].sentence}
                         </Card.Text>
                 </Card.Body>
             </Card>
             <Card>
                 <Card.Body>
                         <Card.Text>
-                           Card 3
+                        {props.sentenceCards[1].sentence}
                         </Card.Text>
                 </Card.Body>
             </Card>
             <Card>
                 <Card.Body>
                         <Card.Text>
-                       Card4
+                        {props.sentenceCards[3].sentence}
                         </Card.Text>
                 </Card.Body>
             </Card>
             <Card>
                 <Card.Body>
                         <Card.Text>
-                         Card5
+                        {props.sentenceCards[0].sentence}
                         </Card.Text>
                 </Card.Body>
             </Card>
             <Card>
                 <Card.Body>
                         <Card.Text>
-                          Card6
+                        {props.sentenceCards[0].sentence}
                         </Card.Text>
                 </Card.Body>
             </Card>
             <Card>
                 <Card.Body>
                         <Card.Text>
-                           Card7
+                        {props.sentenceCards[0].sentence}
                         </Card.Text>
                 </Card.Body>
             </Card>
             </CardDeck>       
         </div>
     )
-}
+
 }
 
 
 export default (MySentenceCards);
+
