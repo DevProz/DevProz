@@ -18,6 +18,7 @@ export const getPlayers = (players) => {
 }
 
 export const updateNewGame = (game) => {
+    console.log("UPDATED")
     return {
         type: UPDATE_NEW_GAME,
         game
@@ -31,10 +32,12 @@ export const addedPlayer = (player) => {
     }
 }
 
-const updatePlayer = player => ({
-    type: UPDATE_PLAYER , 
-    player
-});
+const updatePlayer = player => {
+    return {
+        type: UPDATE_PLAYER , 
+        player
+    }
+};
 
 export const me = () => async dispatch => {
     try {
@@ -88,6 +91,7 @@ const reducer = (state = initialState, action) => {
         case ADD_PLAYER:
                 return {...state, player: action.player}
         case UPDATE_NEW_GAME:
+            // const player = game.players.find(playerId => playerId._id)
             return {...state, game: action.game}
          default:
             return state
