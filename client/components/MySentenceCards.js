@@ -4,10 +4,21 @@ import { Card, CardDeck } from 'react-bootstrap'
 
 const MySentenceCards = (props) => {
     console.log('this is in the sentence component', props)
-
         return (
             <div>
             <CardDeck>
+                 {props.sentenceCards.map(el => 
+                    <Card>
+                        <Card.Body>
+                                <Card.Text>
+                                {el.sentence}
+                                </Card.Text>
+                        </Card.Body>
+                    </Card>
+                 )}
+            </CardDeck>
+
+            {/* <CardDeck>
             <Card>
                 <Card.Body>
                         <Card.Text>
@@ -57,7 +68,7 @@ const MySentenceCards = (props) => {
                         </Card.Text>
                 </Card.Body>
             </Card>
-            </CardDeck>       
+            </CardDeck>        */}
         </div>
     )
 
