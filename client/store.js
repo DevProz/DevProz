@@ -91,8 +91,8 @@ const reducer = (state = initialState, action) => {
         case ADD_PLAYER:
                 return {...state, player: action.player}
         case UPDATE_NEW_GAME:
-            // const player = game.players.find(playerId => playerId._id)
-            return {...state, game: action.game}
+            const player = action.game.players.find(player => player._id)
+            return {...state, game: action.game, player}
          default:
             return state
     }

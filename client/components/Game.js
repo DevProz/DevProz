@@ -19,7 +19,6 @@ class Game extends React.Component {
                     </Card.Text>
                     </Card.Body>
             </Card>
-      
             <ImageCard/>
             <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>
         </div>
