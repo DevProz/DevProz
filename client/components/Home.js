@@ -26,7 +26,6 @@ class Home extends React.Component {
             this.setState({
                 name: ""
             })
-            this.props.history.push('/join')
         }
       
       render() {
