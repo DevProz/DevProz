@@ -1,16 +1,13 @@
 import React from "react";
-import { Card, CardDeck } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 import MySentenceCards from "./MySentenceCards";
+import { connect } from 'react-redux'
 
 
 class Game extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //     };
-    //   }
       
       render() {
+          console.log('this is the props from main game componenet', this.props)
         return (
             <div>
             THIS IS A GAME PAGE!
@@ -24,14 +21,19 @@ class Game extends React.Component {
             </Card>
         <br />
 
-            <MySentenceCards/>
+            <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>
            
-         
-
         </div>
     )
 }
 }
 
+const mapState = (state) => {
+    return {
+        game: state.game,
+        player: state.player
+    }
+}
 
-export default (Game);
+
+export default connect(mapState)(Game)

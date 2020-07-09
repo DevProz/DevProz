@@ -24,7 +24,6 @@ router.post('/', checkPlayer, async(req, res, next) => {
     try {
         const player = await Player.findOne({_id: req.session.player._id})
         player.name = req.body.name
-        console.log('this is the player', player)
         await player.save()
         Player.findOne({_id: player._id}).populate("sentenceCards").then(populatedSentenceCards => res.json(populatedSentenceCards))
     } catch (error) {

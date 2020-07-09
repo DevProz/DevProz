@@ -4,6 +4,16 @@ import { connect } from 'react-redux'
 
 class StartGame extends React.Component {
 
+    constructor(){
+        super()
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+
+    handleSubmit(){
+        this.props.history.push('/game')
+    }
+
+
     render() {
         console.log('this is props in start game', this.props)
         if (!this.props.game.players) return <div className="title-new-game">Loading...</div>
@@ -18,9 +28,11 @@ class StartGame extends React.Component {
                         <li className="names">{player.name}</li>
                     </ol>
                 })}</h4>
+
                 <div className="start-button-align">
                     {(this.props.game.players[0]._id === this.props.player._id) ? <Button className="button-start-game" variant="outline-light" type='submit'>Start Game</Button> :  <div className="please-wait" >Waiting for host to start the game...</div>} 
                 </div>
+
             </div>
         )
     }
