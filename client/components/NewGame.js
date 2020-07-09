@@ -29,21 +29,27 @@ class NewGame extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>
-                    This is the newGame button component
-                </h1>
+            <div className="container-game-page">
+                <div className="title-new-game-join-game">How to play</div>
+                <p className="description">
+                Find 4 or more players, start new game, and share the code with your friends.
+                What Do You Meme™ is the adult party game taking the internet by storm. 
+                Find out who will be crowned Meme Queen/King by competing with friends 
+                (or family if you’re brave) to match photo cards with caption cards, 
+                creating your own outrageously funny meme combinations. 
+                It’s the perfect excuse to call up the crew, and get everyone together for guaranteed laughs.
+                </p>
                 <div className="new-game-join-game">
-                <Button type='submit' onClick={this.handleSubmit}>New Game</Button>
-                <form onSubmit={this.handleCodeSubmit}>
-                <input
-                type="text"
-                // className=""
-                placeholder="Ente your code ..."
-                name="code"
-                />
-                 <Button type='submit'>Join Game</Button>
-              </form>
+                    <Button type='submit' className="button-create" variant="outline-light" onClick={this.handleSubmit}>Start New Game</Button>
+                    <form className="buttons" onSubmit={this.handleCodeSubmit}>
+                        <Button type='submit' className="button-join" variant="outline-light">Join Game</Button>
+                        <input
+                        type="text"
+                        className="input-enter-code"
+                        placeholder="Enter your code ..."
+                        name="code"
+                        />
+                    </form>
                 </div>
             </div>
         )

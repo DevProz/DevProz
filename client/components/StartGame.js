@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
 
 class StartGame extends React.Component {
+
     constructor(){
         super()
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -11,26 +12,27 @@ class StartGame extends React.Component {
     handleSubmit(){
         this.props.history.push('/game')
     }
-  
+
 
     render() {
         console.log('this is props in start game', this.props)
-        if (!this.props.game.players) return <h1>Loading</h1>
+        if (!this.props.game.players) return <div className="title-new-game">Loading...</div>
         return (
             <div>
-                <h1>
-                    This is the START GAME component
-                </h1>
-                <h3>Code: {this.props.game.entranceCode}</h3>
+                <div className="title-new-game">
+                    New Game
+                </div>
+                <h3 className="code-style">Code: {this.props.game.entranceCode}</h3>
                 <h4>{this.props.game.players.map((player) => {
                     return <ol>
-                        <li>{player.name}</li>
+                        <li className="names">{player.name}</li>
                     </ol>
                 })}</h4>
 
-                {(this.props.game.players[0]._id === this.props.player._id) ? <Button type='submit' onClick={this.handleSubmit}>Start Game</Button> :  <h1>Wait for host to start game</h1>}
-                
-                
+                <div className="start-button-align">
+                    {(this.props.game.players[0]._id === this.props.player._id) ? <Button className="button-start-game" variant="outline-light" type='submit'>Start Game</Button> :  <div className="please-wait" >Waiting for host to start the game...</div>} 
+                </div>
+
             </div>
         )
     }
