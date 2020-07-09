@@ -1,6 +1,7 @@
 import React from "react";
 import { changeName } from "../store";
 import { connect } from "react-redux";
+import { Button } from "react-bootstrap";
 
 
 class Home extends React.Component {
@@ -29,18 +30,26 @@ class Home extends React.Component {
         }
       
       render() {
-        console.log('Home Page')
         return (
-            <form onSubmit={this.handleSubmit}>
-                <label>
+          <div className="wrap center">  
+            <div className="title-front-page">
+              <p className="what-color">WHAT</p>
+              <p className="do-color">DO </p>
+              <p className="you-color">YOU </p>
+              <p className="meme-color">MEME</p>
+              <p className="question-mark-color">?</p>
+            </div>
+            <form className="wrap-label" onSubmit={this.handleSubmit}>
+                <label className="label-style" htmlFor="name">
                 Your name:
-                <input type="text"  name="title" onChange={this.handleChange}
+                <input type="text"  id="name" name="title" onChange={this.handleChange}
                 value={this.state.name}
                 />
-                
                 </label>
-                <button type="submit">Submit</button>
+                <p className="iconicfill-pen-alt2"><i className="fas fa-pencil-alt"></i></p>
+                <Button className="button-enter-name" variant="outline-light" type="submit">Submit</Button>
             </form>
+          </div>
             );
            }
         }
