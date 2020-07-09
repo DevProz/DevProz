@@ -10,21 +10,21 @@ class Game extends React.Component {
           console.log('this is the props from main game componenet', this.props)
         return (
             <div>
-            THIS IS A GAME PAGE!
-            <Card border="info" style={{ width: '18rem' }}>
-                <Card.Header>TIMER</Card.Header>
-                    <Card.Body>
-                    <Card.Text>
-                        30
-                    </Card.Text>
-                    </Card.Body>
-            </Card>
-        <br />
-            <ImageCard imageCards={this.props.game.imageCards}/>
-            <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>
-        </div>
-    )
-  }
+                THIS IS A GAME PAGE!
+                <Card border="info" style={{ width: '18rem' }}>
+                    <Card.Header> TIMER </Card.Header>
+                        <Card.Body>
+                        <Card.Text>
+                            30
+                        </Card.Text>
+                        </Card.Body>
+                </Card>
+                <br />
+                <ImageCard imageCards={this.props.game.imageCards}/>
+                <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>
+            </div>
+        )
+    }
 }
 
 const mapState = (state) => {
