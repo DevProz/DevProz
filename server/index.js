@@ -7,7 +7,7 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const MongoStore = require("connect-mongo")(session);
 const mongoose = require("mongoose");
-const PORT = process.env.SERVER_PORT || 5000;
+const PORT = process.env.PORT || 5000;
 //we need http for the configuration process of socket.io
 const server = require('http').createServer(app).listen(PORT)
 const io = require('socket.io').listen(server)
