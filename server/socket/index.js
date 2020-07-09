@@ -3,9 +3,12 @@ const Player = require('../db/models/player');
 const ImageCard = require('../db/models/imageCard')
 const SentenceCard = require('../db/models/sentenceCard')
 
-// function shuffle(array) {
-//   array.sort(() => Math.random() - 0.5)
-// }
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+  }
+}
 
 
 
@@ -45,6 +48,13 @@ module.exports = io => {
           io.to(data.code).emit("player_joined", populatedGame)
         })
       }) 
+
+      socket.on('start_game', async game => {
+        const newDeck = shuffleArray(game.sentenceCards)
+        
+        //find Game.sentenceCards and shuffle them
+        //populates Player sentence cards
+      })
 
   
       socket.on('disconnect', () => {

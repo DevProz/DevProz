@@ -11,6 +11,8 @@ class StartGame extends React.Component {
 
     handleSubmit(){
         this.props.history.push('/game')
+        //send to socket to start game
+        socket.emit("start_game", {code: this.props.game.entranceCode})
     }
 
 
