@@ -3,6 +3,7 @@ import { Card } from 'react-bootstrap'
 import MySentenceCards from "./MySentenceCards";
 import { connect } from 'react-redux'
 import ImageCard from './ImageCard'
+import SelectedCards from './SelectedCards'
 
 class Game extends React.Component {
       
@@ -21,6 +22,7 @@ class Game extends React.Component {
                 </Card>
                 <br />
                 <ImageCard imageCards={this.props.game.imageCards}/>
+                <SelectedCards />
                 <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>
             </div>
         )
