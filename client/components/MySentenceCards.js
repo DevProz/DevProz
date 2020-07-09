@@ -3,7 +3,7 @@ import { Card, CardDeck } from 'react-bootstrap'
 
 
 const MySentenceCards = (props) => {
-  const myCards=props.sentenceCards.slice(0, 7)
+   const myCards=props.sentenceCards.slice(0, 7)
       return (
         <div className="cards-row">
           <CardDeck>

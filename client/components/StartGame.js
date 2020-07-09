@@ -12,13 +12,11 @@ class StartGame extends React.Component {
 
     handleSubmit(){
         this.props.history.push('/game')
-        //send to socket to start game
         socket.emit("start_game", { playerId: this.props.player._id, code: this.props.game.entranceCode})
     }
 
 
     render() {
-        console.log('this is props in start game', this.props)
         if (!this.props.game.players) return <div className="title-new-game">Loading...</div>
         return (
             <div>
@@ -47,10 +45,6 @@ const mapState = (state) => {
         player: state.player
     }
 }
-
-
-
-
 
 
 export default connect(mapState)(StartGame)
