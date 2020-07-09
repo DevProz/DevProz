@@ -3,157 +3,100 @@ const SentenceCard = require("../server/db/models/sentenceCard");
 const sentenceCards = [
 
   new SentenceCard({
-    sentence: "Test1",
+    sentence: "I may be a sucker, but i'm no lollipop!",
   }),
   new SentenceCard({
-    sentence: "Tes2",
+    sentence: "A word to the wise ain't necessary – it's the stupid ones that need the advice",
   }),
   new SentenceCard({
-    sentence: "Test3",
+    sentence: "ACKCHYUALLY",
   }),
   new SentenceCard({
-    sentence: "Test4",
+    sentence: "When your meme gets 11 likes",
   }),
   new SentenceCard({
-    sentence: "Test5",
+    sentence: "When you try your best and it still isnt enough",
   }),
   new SentenceCard({
-    sentence: "Test6",
+    sentence: "When you lean back too far in your chair and hit the point of no return",
   }),
   new SentenceCard({
-    sentence: "Test7",
+    sentence: "When your shampoo says 'damage repair' but you're still borken on the inside",
   }),
   new SentenceCard({
-    sentence: "Test8",
+    sentence: "When someone says, 'Oh, shut up, you kmow you love me!'",
   }),
   new SentenceCard({
-    sentence: "Test9",
+    sentence: "When your teacher tells you to stop laughing but yoru friends are too funny",
   }),
   new SentenceCard({
-    sentence: "Test10",
+    sentence: "Hospitals calculating your medical bill",
   }),
   new SentenceCard({
-    sentence: "Test111",
+    sentence: "Where's my mask?",
   }),
   new SentenceCard({
-    sentence: "Tes12",
+    sentence: "It's time to stop",
   }),
   new SentenceCard({
-    sentence: "Test13",
+    sentence: "Sips Tea",
   }),
   new SentenceCard({
-    sentence: "Test14",
+    sentence: "I just had a great crying sesh",
   }),
   new SentenceCard({
-    sentence: "Test15",
+    sentence: "I have achieved comedy",
   }),
   new SentenceCard({
-    sentence: "Test16",
+    sentence: "Favorite song comes up on Spotify...accidently hit dislike",
   }),
   new SentenceCard({
-    sentence: "Tes17",
+    sentence: "When you see another end of decade list",
   }),
   new SentenceCard({
-    sentence: "Test18",
+    sentence: "I'm not a regular mom; I'm a cool mom",
   }),
   new SentenceCard({
-    sentence: "Test19",
+    sentence: "The face you make when you hit a pothole",
   }),
   new SentenceCard({
-    sentence: "Test20",
+    sentence: "When you phone is at one percent",
   }),
   new SentenceCard({
-    sentence: "Test21",
+    sentence: "Me after hearing someone cough on my roundtrip flight to Italy",
   }),
   new SentenceCard({
-    sentence: "Tes22",
+    sentence: "What I'm actually doing underneath my mask",
   }),
   new SentenceCard({
-    sentence: "Test23",
+    sentence: "When you google a test question and the whole test comes up",
   }),
   new SentenceCard({
-    sentence: "Test24",
+    sentence: "Hearing your own voice",
   }),
   new SentenceCard({
-    sentence: "Test25",
+    sentence: "When you're hanging out with your friends and your social battery dies",
   }),
   new SentenceCard({
-    sentence: "Test26",
+    sentence: "When people start beefing in the group chat",
   }),
   new SentenceCard({
-    sentence: "Tes27",
+    sentence: "Me at my own tweets",
   }),
   new SentenceCard({
-    sentence: "Test28",
+    sentence: "Finally found the perfect background for my Zoom meetings",
   }),
   new SentenceCard({
-    sentence: "Test29",
+    sentence: "Getting fired on a day off",
   }),
   new SentenceCard({
-    sentence: "Test30",
+    sentence: "Ok boomer",
   }),
   new SentenceCard({
-    sentence: "Test31",
+    sentence: "When you find a dank meme to send to your friends",
   }),
   new SentenceCard({
-    sentence: "Tes32",
-  }),
-  new SentenceCard({
-    sentence: "Test33",
-  }),
-  new SentenceCard({
-    sentence: "Test34",
-  }),
-  new SentenceCard({
-    sentence: "Test35",
-  }),
-  new SentenceCard({
-    sentence: "Test36",
-  }),
-  new SentenceCard({
-    sentence: "Tes37",
-  }),
-  new SentenceCard({
-    sentence: "Test38",
-  }),
-  new SentenceCard({
-    sentence: "Test39",
-  }),
-  new SentenceCard({
-    sentence: "Test40",
-  }),
-  new SentenceCard({
-    sentence: "Tes41",
-  }),
-  new SentenceCard({
-    sentence: "Test42",
-  }),
-  new SentenceCard({
-    sentence: "Test43",
-  }),
-  new SentenceCard({
-    sentence: "Test44",
-  }),
-  new SentenceCard({
-    sentence: "Tes45",
-  }),
-  new SentenceCard({
-    sentence: "Test46",
-  }),
-  new SentenceCard({
-    sentence: "Test47",
-  }),
-  new SentenceCard({
-    sentence: "Test48",
-  }),
-  new SentenceCard({
-    sentence: "Test49",
-  }),
-  new SentenceCard({
-    sentence: "Test50",
-  }),
-  new SentenceCard({
-    sentence: "Test51",
+    sentence: "When someone calls me instead of texting like a normal person",
   }),
 
 ];

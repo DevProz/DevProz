@@ -60,8 +60,34 @@ new ImageCard({
 }),
 new ImageCard({
   image: "https://3.bp.blogspot.com/-KznttM4xiDI/UvZY7V1JBEI/AAAAAAAAMio/ZU_H2J-MVFQ/s1600/teacher+meme+long+url+use+best+url+shortener.png",
-})
+}),
+new ImageCard({
+  image: "http://quotesnhumor.com/wp-content/uploads/2016/12/25-Hilarious-Dank-Memes-20-Hilarious-Memes.jpg"
+}), 
+new ImageCard({
+  image: "https://66.media.tumblr.com/04966ef7746ac20f7aa788ddc3ed8883/d0441c68bc370397-4b/s1280x1920/0be899788231bb356b140bdaec819dd70ddd15cd.jpg"
+}),
+new ImageCard({
+  image: "https://66.media.tumblr.com/8e5286a45dd9252c6139fcd3463d350b/8a8c62731808f891-57/s1280x1920/11f0b40b6b38ff722294b929e75ad94373c459cf.jpg"
+}),
+new ImageCard({
+  image: "https://cdn.cnn.com/cnnnext/dam/assets/190517103414-01-grumpy-cat-file-restricted-super-tease.jpg"
+}), 
+new ImageCard({
+  image: "https://i.kym-cdn.com/entries/icons/original/000/006/236/1stWorld.jpg"
+}), 
 
+new ImageCard({
+  image: "https://imgk.timesnownews.com/story/distracted_boyfriend_2.jpg?tr=w-400,h-300,fo-auto"
+}),
+new ImageCard({
+  image: "https://upload.wikimedia.org/wikipedia/en/thumb/6/62/Kermit_the_Frog.jpg/220px-Kermit_the_Frog.jpg"
+}), 
+
+new ImageCard({
+  image: "https://www.memesmonkey.com/images/memesmonkey/65/65c64b06abd292c176b408f19a5436d9.jpeg"
+}),
+ 
 ];
 
   module.exports = imageCards;

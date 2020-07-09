@@ -1,6 +1,4 @@
 const router = require("express").Router();
-
-
 router.use('/players', require('./players'));
 router.use('/cards', require('./cards'));
 router.use('/newGame', require('./newGame'))
