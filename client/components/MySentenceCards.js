@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 
 const MySentenceCards = (props) => {
     console.log('this is props from sentence cards', props)
+
       return (
         <div className="cards-row">
             {props.game.players.map(el => 

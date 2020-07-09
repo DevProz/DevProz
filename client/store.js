@@ -69,7 +69,6 @@ export const changeName = (playerName) => async (dispatch) => {
     try {
     const {data} = await axios.post('/api/players', playerName)
     dispatch(updatePlayer(data))
-    //socket.emit('newPlayer', data);
     } catch(error) {
         console.log(error)
     }
@@ -77,8 +76,8 @@ export const changeName = (playerName) => async (dispatch) => {
 
 
 const initialState = {
-    game: {},
-    player: {}
+    game: null,
+    player: null
 }
 
 //reducer

@@ -9,7 +9,6 @@ import ImageCard from './ImageCard'
 class Game extends React.Component {
       
       render() {
-          console.log('this is the props from main game componenet', this.props)
         return (
             <div>
                 THIS IS A GAME PAGE!
@@ -23,7 +22,9 @@ class Game extends React.Component {
                 </Card>
                 <br />
                 <ImageCard imageCards={this.props.game.imageCards}/>
+
                 <Button type='submit' variant='outline-light' className="button-submit-card">Submit Card</Button>
+
                 <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>
             </div>
         )
@@ -31,7 +32,6 @@ class Game extends React.Component {
 }
 
 const mapState = (state) => {
-    console.log("STATE", state)
     return {
         game: state.game,
         player: state.player

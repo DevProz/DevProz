@@ -10,20 +10,15 @@ class NewGame extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleCodeSubmit = this.handleCodeSubmit.bind(this)
     }
-    componentWillMount() {
-        this.props.getMe()
-    }
 
     handleSubmit(event){
         event.preventDefault()
         this.props.getGame(this.props.player)
-        this.props.history.push('/start')
     }
 
     handleCodeSubmit(event) {
         event.preventDefault();
         socket.emit("join_game", {playerId: this.props.player._id, code: event.target.code.value})
-        this.props.history.push('/start')  
     }
 
 

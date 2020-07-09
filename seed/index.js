@@ -11,7 +11,8 @@ const { buildManyCards, buildManyMemes } = require("../seed/methods");
 
 const seed = async () => {
   try {
-    await mongoose.connect("mongodb://localhost:27017/devproz", {
+    const uri = process.env.NODE_ENV === "development" ? "mongodb://localhost:27017/devproz" : process.env.DB_SECRET;
+    await mongoose.connect(uri, {
       useNewUrlParser: true,
       useCreateIndex: true,
       useUnifiedTopology: true,
