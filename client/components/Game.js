@@ -3,6 +3,7 @@ import { Card } from 'react-bootstrap'
 import MySentenceCards from "./MySentenceCards";
 import { connect } from 'react-redux'
 import ImageCard from './ImageCard'
+import SelectedCards from './SelectedCards'
 
 class Game extends React.Component {
       
@@ -10,20 +11,22 @@ class Game extends React.Component {
           console.log('this is the props from main game componenet', this.props)
         return (
             <div>
-            THIS IS A GAME PAGE!
-            <Card border="info" style={{ width: '18rem' }}>
-                <Card.Header>TIMER</Card.Header>
-                    <Card.Body>
-                    <Card.Text>
-                        30
-                    </Card.Text>
-                    </Card.Body>
-            </Card>
-            <ImageCard/>
-            <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>
-        </div>
-    )
-  }
+                THIS IS A GAME PAGE!
+                <Card border="info" style={{ width: '18rem' }}>
+                    <Card.Header> TIMER </Card.Header>
+                        <Card.Body>
+                        <Card.Text>
+                            30
+                        </Card.Text>
+                        </Card.Body>
+                </Card>
+                <br />
+                <ImageCard imageCards={this.props.game.imageCards}/>
+                <SelectedCards />
+                <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>
+            </div>
+        )
+    }
 }
 
 const mapState = (state) => {
