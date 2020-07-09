@@ -1,26 +1,23 @@
-const { sentenceCards } = require("./sentenceCards");
-// choose random image card function 
+const sentenceCards = require('./sentenceCards');
 
-function buildCard(sentence) {
+function buildSentence(sentence) {
   return {
     sentence,
   };
 }
 
 function randomSentence(sentence) {
-  let sentence = sentence[Math.floor(Math.random() * firstName.length)];
-  return sentence;
+  let thisSentence = sentence[Math.floor(Math.random() * sentence.length)];
+  return thisSentence;
 }
 
 function buildManyCards(numOfCards) {
-  console.log('sentence card', sentenceCards)
   let cards = [];
   for (let i = 0; i < numOfCards; i++) {
-    cards.push(buildCard(randomSentence(sentenceCards)));
+    cards.push(buildSentence(randomSentence(sentenceCards)));
   }
-  return cards
+  return cards;
 }
-
 module.exports = {
-    buildManyCards
-}
+  buildManyCards
+};

@@ -1,37 +1,38 @@
 const db = require('../server/db')
-const SentenceCard = require("../server/db/models/sentenceCard");
+const {SentenceCard} = require("../server/db/models/sentenceCard");
 const {buildManyCards} = require('../seed/methods');
 
-async function seed() {
-    await db.sync({force: true})
-    console.log('db synced!')
 
-
-const manyCards = buildManyCards(50)
-// socket?
-const seedCards = await Promise.all(
-    manyCards.map(sentenceCard => SentenceCard.create(sentenceCard))
-)
-    console.log(`seeded ${seedCards.length} cards`)
-} 
-
-async function runSeed() {
-    console.log('seeding...')
+const cardSeed = async() => {
     try {
-      await seed()
-    } catch (err) {
-      console.error(err)
-      process.exitCode = 1
-    } finally {
-      console.log('closing db connection')
-      await db.close()
-      console.log('db connection closed')
+      await mongoose.connect("mongodb://localhost:27017/devproz", {
+        useNewUrlParser: true,
+        useCreateIndex: true,
+        useUnifiedTopology: true,
+      });
+      console.log(chalk.green('Connected cardSeed'))
+    } catch (error) {
+      console.error(error.message)
     }
-  }
-  if (module === require.main) {
-    runSeed()
-  }
-  module.exports = seed
+  }; 
+  cardSeed();
+
+
+const runSeed = async() => {
+    try {
+        const manyCards = buildManyCards(110)
+        await Promise.all(
+manyCards.map(sentenceCard => SentenceCard.create(sentenceCard))
+        )
+            console.log(`seeded ${seedCards.length} cards`)
+    }
+    catch (error) {
+      console.error(chalk.red('ERROR HANDLED', error.message))
+    }
+  };
+  
+  runSeed()
+
   
 
 
