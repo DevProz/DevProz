@@ -6,7 +6,7 @@ const ImageCards = (props) => {
   const currentImage=props.imageCards.slice(0, 1)
   console.log('image after slice', currentImage)
     return (
-      <div  className="d-block mx-auto img-fluid w-50" >
+      <div className="image-meme-style" >
         <Card style={{ width: '18rem' }}>
           <Card.Img variant="top" src={currentImage[0].image}/>
         </Card>   

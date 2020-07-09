@@ -1,5 +1,5 @@
 import io from 'socket.io-client'
-import store, {updateNewGame } from './store'
+import store, {updateNewGame, updatePlayer } from './store'
 
 const socket = io(window.location.origin)
 
@@ -11,9 +11,10 @@ socket.on('connect', () => {
     store.dispatch(updateNewGame(data))
   })
 
-  socket.on("player_joined", data => {
+  socket.on("updated_game", data => {
     store.dispatch(updateNewGame(data))
   })
 })
 
+  
 export default socket

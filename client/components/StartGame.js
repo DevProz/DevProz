@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from 'react-bootstrap'
 import { connect } from 'react-redux'
+import socket from '../socket'
 
 class StartGame extends React.Component {
 
@@ -12,7 +13,7 @@ class StartGame extends React.Component {
     handleSubmit(){
         this.props.history.push('/game')
         //send to socket to start game
-        socket.emit("start_game", {code: this.props.game.entranceCode})
+        socket.emit("start_game", { playerId: this.props.player._id, code: this.props.game.entranceCode})
     }
 
 

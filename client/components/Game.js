@@ -30,6 +30,7 @@ class Game extends React.Component {
 }
 
 const mapState = (state) => {
+    console.log("STATE", state)
     return {
         game: state.game,
         player: state.player
