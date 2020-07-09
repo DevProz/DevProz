@@ -11,7 +11,7 @@ const MySentenceCards = (props) => {
             <Card>
                 <Card.Body>
                         <Card.Text>
-                           {props.sentenceCards[0].sentence}
+                        {props.sentenceCards[0].sentence}
                         </Card.Text>
                 </Card.Body>
             </Card>
