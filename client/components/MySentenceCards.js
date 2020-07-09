@@ -1,25 +1,32 @@
 import React from "react";
-import { Card, CardDeck } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
+import { connect } from 'react-redux'
 
 
 const MySentenceCards = (props) => {
-  const myCards=props.sentenceCards.slice(0, 7)
+    console.log('this is props from sentence cards', props)
       return (
         <div className="cards-row">
-          <CardDeck>
-            {myCards.map(el => 
-              <Card className="card-itself">
-                <Card.Body>
-                  <Card.Text>
-                  {el.sentence}
-                  </Card.Text>
-                </Card.Body>
-              </Card>
+            {props.game.players.map(el => 
+                <Card>
+                  {el.sentenceCards.map((card) => { 
+                      return <Card.Body style={{width: "10rem"}}>
+                                {card.sentence}
+                            </Card.Body>
+                  })}
+                  </Card>
             )}
-          </CardDeck>
         </div>
     )
 }
 
-export default (MySentenceCards);
+const mapState = (state) => {
+    return {
+        game: state.game,
+    }
+}
+
+
+
+export default connect(mapState)(MySentenceCards);
 

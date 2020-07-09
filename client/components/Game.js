@@ -1,10 +1,10 @@
 import React from "react";
-import { Card } from 'react-bootstrap'
+import { Card, Button } from 'react-bootstrap'
 import MySentenceCards from "./MySentenceCards";
 import { connect } from 'react-redux'
 import ImageCard from './ImageCard'
-import SelectedCards from './SelectedCards'
-import Timer from './Timer'
+// import SelectedCards from './SelectedCards'
+// import Timer from './Timer'
 
 class Game extends React.Component {
       
@@ -17,13 +17,13 @@ class Game extends React.Component {
                     <Card.Header> Countdown:  </Card.Header>
                         <Card.Body>
                         <Card.Text>
-                            <Timer/>
+                            {/* <Timer/> */}
                         </Card.Text>
                         </Card.Body>
                 </Card>
                 <br />
                 <ImageCard imageCards={this.props.game.imageCards}/>
-                <SelectedCards />
+                <Button type='submit' variant='outline-light' className="button-submit-card">Submit Card</Button>
                 <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>
             </div>
         )

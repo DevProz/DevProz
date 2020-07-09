@@ -1,5 +1,5 @@
 const sentenceCards = require("./sentenceCards");
-const imageCards = require("./imageCards");
+const imageCard = require("./imageCards");
 
 function buildSentence(sentence) {
   return {
@@ -33,7 +33,7 @@ function buildManyCards(numOfCards) {
 function buildManyMemes(numOfMemes) {
   let memes = [];
   for (let i = 0; i < numOfMemes; i++) {
-    memes.push(buildMeme(randomMeme(imageCards)));
+    memes.push(buildMeme(randomMeme(imageCard)));
   }
   return memes;
 }

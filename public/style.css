@@ -258,12 +258,22 @@ label {
     margin-top: 50px;
 }
 
-.cards-row {
+/* .cards-row {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
+} */
+
+.card{
+    flex-direction: row;
+    overflow: hidden;
 }
 
-/* .card-itself {
+.card-body{
+    border: 5px solid #4f3b5b;
+}
+
+.button-submit-card{
     
-} */
+}
+

@@ -61,17 +61,15 @@ module.exports = io => {
     //find Game.sentenceCards and shuffle them
       //populates Player sentence cards
     socket.on('start_game', async data => {
-      console.log("DATA", data)
       const game = await Game.findOne({
         entranceCode: data.code
       })
       const newDeck = shuffleArray(game.sentenceCards)
-      console.log("NEWDECK", newDeck)
       await game.players.forEach(async playerId => {
         const player = await Player.findOne({
           _id: playerId
         })
-        const cards = newDeck.splice(0, 1) //shows one card
+        const cards = newDeck.splice(0, 7) //shows one card
         player.sentenceCards = cards
         await player.save()
       })

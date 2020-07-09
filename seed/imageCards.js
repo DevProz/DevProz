@@ -1,6 +1,6 @@
 const ImageCard = require('../server/db/models/imageCard');
 
-const imageCards = [
+const imageCard = [
     new ImageCard ({
       image: "https://urlme.me/success/typed_a_url/made_a_meme.jpg",
   }),
@@ -90,4 +90,4 @@ new ImageCard({
  
 ];
 
-  module.exports = imageCards;
+  module.exports = imageCard;
