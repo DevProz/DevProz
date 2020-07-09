@@ -6,51 +6,51 @@ const MySentenceCards = (props) => {
     console.log('this is in the sentence component', props)
 
         return (
-            <div>
+            <div className="cards-row">
             <CardDeck>
-            <Card>
+            <Card className="card-itself">
                 <Card.Body>
                         <Card.Text>
                         {props.sentenceCards[0].sentence}
                         </Card.Text>
                 </Card.Body>
             </Card>
-            <Card>
+            <Card className="card-itself">
                 <Card.Body>
                         <Card.Text>
                         {props.sentenceCards[2].sentence}
                         </Card.Text>
                 </Card.Body>
             </Card>
-            <Card>
+            <Card className="card-itself">
                 <Card.Body>
                         <Card.Text>
                         {props.sentenceCards[1].sentence}
                         </Card.Text>
                 </Card.Body>
             </Card>
-            <Card>
+            <Card className="card-itself">
                 <Card.Body>
                         <Card.Text>
                         {props.sentenceCards[3].sentence}
                         </Card.Text>
                 </Card.Body>
             </Card>
-            <Card>
+            <Card className="card-itself">
                 <Card.Body>
                         <Card.Text>
                         {props.sentenceCards[0].sentence}
                         </Card.Text>
                 </Card.Body>
             </Card>
-            <Card>
+            <Card className="card-itself">
                 <Card.Body>
                         <Card.Text>
                         {props.sentenceCards[0].sentence}
                         </Card.Text>
                 </Card.Body>
             </Card>
-            <Card>
+            <Card className="card-itself">
                 <Card.Body>
                         <Card.Text>
                         {props.sentenceCards[0].sentence}

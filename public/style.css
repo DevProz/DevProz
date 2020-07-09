@@ -218,3 +218,24 @@ label{
     from{transform:translateX(-4px) rotate(6deg);}
     to{transform:translateX(4px) rotate(-3deg);}
 }
+
+.border-info {
+    margin-left: 30px;
+}
+
+.image-meme-style {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.cards-row {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+/* .card-itself {
+    
+} */

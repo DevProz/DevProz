@@ -19,7 +19,7 @@ class Game extends React.Component {
                     </Card.Text>
                     </Card.Body>
             </Card>
-        <br />
+      
             <ImageCard/>
             <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>
         </div>
