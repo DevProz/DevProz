@@ -22,10 +22,9 @@ class Game extends React.Component {
         <br />
             <ImageCard/>
             <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>
-           
         </div>
     )
-}
+  }
 }
 
 const mapState = (state) => {
