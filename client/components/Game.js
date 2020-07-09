@@ -2,7 +2,7 @@ import React from "react";
 import { Card } from 'react-bootstrap'
 import MySentenceCards from "./MySentenceCards";
 import { connect } from 'react-redux'
-
+import ImageCard from './ImageCard'
 
 class Game extends React.Component {
       
@@ -20,10 +20,11 @@ class Game extends React.Component {
                     </Card.Body>
             </Card>
         <br />
+            <ImageCard/>
             <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>
         </div>
     )
-}
+  }
 }
 
 const mapState = (state) => {
