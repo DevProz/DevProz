@@ -54,6 +54,8 @@ export const me = () => async dispatch => {
     }
   };
 
+
+
 // thunk
 export const fetchPlayers = () => async (dispatch) => {
     const { data } = await axios.get('/api/players')
