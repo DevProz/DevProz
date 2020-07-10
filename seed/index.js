@@ -9,6 +9,8 @@ const chalk = require("chalk");
 const SentenceCard = require("../server/db/models/sentenceCard");
 const { buildManyCards, buildManyMemes } = require("../seed/methods");
 
+require("dotenv").config();
+
 const seed = async () => {
   try {
     const uri = process.env.NODE_ENV === "development" ? "mongodb://localhost:27017/devproz" : process.env.DB_SECRET;
