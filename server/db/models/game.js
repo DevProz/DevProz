@@ -23,8 +23,7 @@ const gameSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "SentenceCard",
       }],
-styleCards
-      selectedCards: {
+    selectedCards: {
         type: Array
       }
   },

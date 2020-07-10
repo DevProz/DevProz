@@ -9,7 +9,11 @@ const GET_PLAYERS = 'GET_PLAYERS';
 const ADD_PLAYER = 'ADD_PLAYER';
 const UPDATE_NEW_GAME = 'UPDATE_NEW_GAME';
 const UPDATE_PLAYER = 'UPDATE_PLAYER ';
+
+const SELECTED_CARD = 'SELECTED_CARD'
+
 const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
+
 
 export const getPlayers = (players) => {
     return {
@@ -40,12 +44,21 @@ export const updatePlayer = player => {
     }
 };
 
+
+const selectedCard = card => {
+    return {
+        type: SELECTED_CARD,
+        card
+    }
+};
+
 export const receiveMessage = message => {
     return {
         type: RECEIVE_MESSAGE,
         message
     }
 }
+
 
 export const me = () => async dispatch => {
     try {
@@ -94,6 +107,7 @@ export const changeName = (playerName) => async (dispatch) => {
 const initialState = {
     game: null,
     player: null,
+    selectedCard: {}
     messages: []
 }
 
@@ -105,7 +119,7 @@ const reducer = (state = initialState, action) => {
         case UPDATE_PLAYER:
             return {...state, player: action.player}
         case ADD_PLAYER:
-                return {...state, player: action.player}
+            return {...state, player: action.player}
         case UPDATE_NEW_GAME:
             const player = action.game.players.find(player => player._id)
             return {...state, game: action.game, player}

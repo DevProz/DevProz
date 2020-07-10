@@ -12,8 +12,8 @@ function Timer() {
     }, [counter]);
 
     return (
-        <div className="App">
-            <div>{counter}</div>
+        <div>
+            {counter}
         </div>
     );
 }
