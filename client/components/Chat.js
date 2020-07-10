@@ -31,8 +31,7 @@ class Chat extends React.Component {
         return (
             <div className="chat-box">
                 <div className="row chat-style-text">
-                        <div className="card">
-                            <div className="card-body">
+                        <div className="chat-box">
                                 <div className="messages">
                                     {this.props.messages.map(el => {
                                         return (
@@ -43,7 +42,6 @@ class Chat extends React.Component {
                                         )
                                     })}
                                 </div>
-                            </div>
                             <form className="form-chat" onSubmit={this.handleSubmit}>
                                 <input 
                                 type="text"  
@@ -55,7 +53,7 @@ class Chat extends React.Component {
                                 name="message" 
                                     value={this.state.message}
                                 />
-                                <Button type="submit" className="btn btn-primary form-control">Send</Button>
+                                <Button type="submit" variant="outline-secondary" className="btn chat-button form-control">Send</Button>
                             </form>
                         </div>
                 </div>

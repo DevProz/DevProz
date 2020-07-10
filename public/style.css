@@ -91,6 +91,8 @@ li {
     align-self: center;
     margin-top: 20px;
     margin-bottom: 50px;
+    border-radius: 15px;
+    border: solid 4px #66cdaa;
 }
 
 .description {
@@ -176,7 +178,7 @@ body {
     margin: auto;
 }
 
-input {
+.input-front-page {
     display: block;
     width: 300px;
     padding: 15px 0 15px 12px;
@@ -197,7 +199,7 @@ input {
     font-size: 16px;
 }
 
-input:focus {
+.input-front-page:focus {
     text-indent: 12px;
     box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2);
 }
@@ -301,6 +303,8 @@ label {
 .type-message-input {
     background-color: white;
     color: black;
+    width: -webkit-fill-available;
+    border: solid 1px black;
 }
 
 .form-chat {
@@ -324,9 +328,19 @@ label {
 }
 
 /* .text-chat {
-
+not needed aat the moment
 } */
 
+.chat-box {
+    display: flex;
+    justify-content: center;
+    flex-direction: inherit;
+}
+
+.chat-button:hover {
+    background-color: #66cdaa;
+    color: white;
+} 
 
 
 
