@@ -292,8 +292,10 @@ label {
 }
 
 .each-card-style {
-    color: navy;
+    color: black;
     font-weight: bold;
+    font-style: unset;
+    text-align: end;
 }
 
 .row.chat-style-text {
