@@ -11,8 +11,6 @@ function shuffleArray(array) {
   return array;
 }
 
-
-
 module.exports = io => {
   io.on('connection', socket => {
     console.log(`A socket connection to the server has been made: ${socket.id}`)
@@ -111,6 +109,13 @@ module.exports = io => {
       }).populate("imageCards").populate("sentenceCards").then(populatedGame => {
         socket.emit("updated_game", populatedGame)
       })
+    })
+
+    socket.on("send-message", async data => {
+      const player = await Player.findOne({
+        _id: data.playerId
+      })
+      io.to(data.code).emit("receive-message", {message: data.message, playerName: player.name})
     })
 
     socket.on('disconnect', () => {
