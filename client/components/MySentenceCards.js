@@ -1,25 +1,50 @@
 import React from "react";
-import { Card, CardDeck } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
+import { connect } from 'react-redux'
+import socket from '../socket'
+import { me } from '../store'
 
 
-const MySentenceCards = (props) => {
-   const myCards=props.sentenceCards.slice(0, 7)
-      return (
-        <div className="cards-row">
-          <CardDeck>
-            {myCards.map(el => 
-              <Card className="card-itself">
-                <Card.Body>
-                  <Card.Text>
-                  {el.sentence}
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            )}
-          </CardDeck>
-        </div>
-    )
+class MySentenceCards extends React.Component {
+    constructor(){
+        super()
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+
+    handleSubmit(event){
+        event.preventDefault()
+        console.log('clicked!!!!')
+        console.log('this is the event.target', event.target)
+        // socket.emit("start_game", { card: this.props.player._id, code: this.props.game.entranceCode})
+        
+       
+
+
+    }
+
+    render () {
+        console.log('this is props', this.props)
+        return (
+            <div className="cards-row">
+                {this.props.player.sentenceCards.map(card =>
+                    <Card key={card._id}>
+                        <Card.Body  style={{width: "10rem"}} onClick = {this.handleSubmit}>
+                                    {card.sentence}
+                        </Card.Body>
+                    </Card>
+                )}
+            </div>
+        )
+    }
 }
 
-export default (MySentenceCards);
+const mapState = (state) => {
+    return {
+        game: state.game,
+        player: state.player
+    }
+}
+
+
+export default connect(mapState)(MySentenceCards);
 

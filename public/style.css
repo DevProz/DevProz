@@ -264,6 +264,34 @@ label {
     flex-direction: row;
 }
 
-/* .card-itself {
-    
-} */
+.card{
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.card:hover{
+    cursor: pointer
+}
+
+.active{
+    border: 2px solid yellow
+
+}
+
+.card-body{
+    border: 2px solid #4f3b5b;
+    flex: none;
+    color: darkblue;
+    font-weight: bold;
+}
+
+.button-submit-card{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.button-row {
+    justify-content: center;
+    display: flex;
+}
+

@@ -22,7 +22,11 @@ const gameSchema = new Schema({
       [{
         type: Schema.Types.ObjectId,
         ref: "SentenceCard",
-      }]
+      }],
+styleCards
+      selectedCards: {
+        type: Array
+      }
   },
   { timestamps: true }
 );

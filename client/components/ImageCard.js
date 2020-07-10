@@ -1,18 +1,25 @@
 import React from "react";
 import { Card } from 'react-bootstrap'
+import { connect } from 'react-redux'
+
 
 
 const ImageCards = (props) => {
-  const currentImage=props.imageCards.slice(0, 1)
-  console.log('image after slice', currentImage)
+  const imageCard = props.imageCards
     return (
       <div className="image-meme-style" >
         <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src={currentImage[0].image}/>
+          <Card.Img variant="top" src={imageCard[0].image}/>
         </Card>   
       </div>
     )
 }
 
-export default (ImageCards);
+const mapState = (state) => {
+  return {
+      game: state.game,
+  }
+}
+
+export default connect(mapState)(ImageCards);
 

@@ -4,10 +4,12 @@ const Player = require("../server/db/models/player");
 const ImageCard = require("../server/db/models/imageCard");
 const games = require("./games");
 const players = require("./players");
-const imageCards = require("./imageCards");
+const imageCard = require("./imageCards");
 const chalk = require("chalk");
 const SentenceCard = require("../server/db/models/sentenceCard");
 const { buildManyCards, buildManyMemes } = require("../seed/methods");
+
+require("dotenv").config();
 
 const seed = async () => {
   try {

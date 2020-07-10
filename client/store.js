@@ -42,11 +42,19 @@ const updatePlayer = player => {
 export const me = () => async dispatch => {
     try {
       const res = await axios.get("/api/newGame/me");
-      dispatch(updatePlayer(res.data || defaultUser));
+      if (res.data.sentenceCards.length) {
+        const player = {playerId: res.data._id}
+        console.log(res.data)
+        socket.emit("rejoin", player)
+      } else {
+        dispatch(updatePlayer(res.data || defaultUser));
+      }
     } catch (err) {
       console.error(err);
     }
   };
+
+
 
 // thunk
 export const fetchPlayers = () => async (dispatch) => {

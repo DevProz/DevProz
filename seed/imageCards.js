@@ -1,8 +1,7 @@
 const ImageCard = require('../server/db/models/imageCard');
 
-const imageCards = [
-
-  new ImageCard ({
+const imageCard = [
+   new ImageCard ({
     image: "https://pmcdeadline2.files.wordpress.com/2019/10/shutterstock_editorial_10434333bm.jpg?crop=0px%2C0px%2C2903px%2C1627px&resize=681%2C383",
 }),
   new ImageCard({
@@ -254,5 +253,5 @@ new ImageCard({
 ];
 
 
-
   module.exports = imageCards;
+
