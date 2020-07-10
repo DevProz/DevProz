@@ -41,7 +41,7 @@ class Home extends React.Component {
             <form className="wrap-label" onSubmit={this.handleSubmit}>
                 <label className="label-style" htmlFor="name">
                 Your name:
-                <input type="text"  id="name" name="title" onChange={this.handleChange}
+                <input className="input-front-page" type="text"  id="name" name="title" onChange={this.handleChange}
                 value={this.state.name}
                 />
                 </label>

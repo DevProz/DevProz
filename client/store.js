@@ -5,11 +5,15 @@ import axios from 'axios'
 import {createLogger} from "redux-logger";
 
 //action types
-const GET_PLAYERS = 'GET_PLAYERS'
-const ADD_PLAYER = 'ADD_PLAYER'
+const GET_PLAYERS = 'GET_PLAYERS';
+const ADD_PLAYER = 'ADD_PLAYER';
 const UPDATE_NEW_GAME = 'UPDATE_NEW_GAME';
 const UPDATE_PLAYER = 'UPDATE_PLAYER ';
+
 const SELECTED_CARD = 'SELECTED_CARD'
+
+const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
+
 
 export const getPlayers = (players) => {
     return {
@@ -33,12 +37,13 @@ export const addedPlayer = (player) => {
     }
 }
 
-const updatePlayer = player => {
+export const updatePlayer = player => {
     return {
         type: UPDATE_PLAYER , 
         player
     }
 };
+
 
 const selectedCard = card => {
     return {
@@ -46,6 +51,14 @@ const selectedCard = card => {
         card
     }
 };
+
+export const receiveMessage = message => {
+    return {
+        type: RECEIVE_MESSAGE,
+        message
+    }
+}
+
 
 export const me = () => async dispatch => {
     try {
@@ -95,6 +108,7 @@ const initialState = {
     game: null,
     player: null,
     selectedCard: {}
+    messages: []
 }
 
 //reducer
@@ -109,6 +123,8 @@ const reducer = (state = initialState, action) => {
         case UPDATE_NEW_GAME:
             const player = action.game.players.find(player => player._id)
             return {...state, game: action.game, player}
+        case RECEIVE_MESSAGE:
+            return {...state, messages: [...state.messages, action.message]}
          default:
             return state
     }

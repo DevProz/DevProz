@@ -8,7 +8,7 @@ const ImageCards = (props) => {
   const imageCard = props.imageCards
     return (
       <div className="image-meme-style" >
-        <Card style={{ width: '18rem' }}>
+        <Card>
           <Card.Img variant="top" src={imageCard[0].image}/>
         </Card>   
       </div>
