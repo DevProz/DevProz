@@ -62,6 +62,10 @@ module.exports = io => {
       const game = await Game.findOne({
         entranceCode: data.code
       })
+      const newImageCardsDeck = shuffleArray(game.imageCards)
+      const oneImage = newImageCardsDeck.slice(0, 1)
+      console.log('ONE IMAGE', oneImage)
+      game.imageCards = oneImage
       const newDeck = shuffleArray(game.sentenceCards)
       await game.players.forEach(async playerId => {
         const player = await Player.findOne({
@@ -71,6 +75,8 @@ module.exports = io => {
         player.sentenceCards = cards
         await player.save()
       })
+
+      await game.save()
 
       Game.findOne({
         _id: game._id

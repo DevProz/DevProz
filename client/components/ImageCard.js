@@ -5,12 +5,11 @@ import { connect } from 'react-redux'
 
 
 const ImageCards = (props) => {
-  const imageCards = props.imageCards
-  const image = imageCards[Math.floor(Math.random() * imageCards.length)]
+  const imageCard = props.imageCards
     return (
       <div className="image-meme-style" >
         <Card>
-          <Card.Img variant="top" src={image.image}/>
+          <Card.Img variant="top" src={imageCard[0].image}/>
         </Card>   
       </div>
     )
