@@ -1,8 +1,6 @@
 import React from "react";
 import { Card } from 'react-bootstrap'
 import { connect } from 'react-redux'
-import { me } from '../store'
-
 
 class MySentenceCards extends React.Component {
 
@@ -27,7 +25,6 @@ const mapState = (state) => {
         player: state.player
     }
 }
-
 
 
 export default connect(mapState)(MySentenceCards);
