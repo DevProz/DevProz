@@ -10,7 +10,7 @@ class MySentenceCards extends React.Component {
                 {this.props.player.sentenceCards.map(card =>
                     <Card>
                         <Card.Body style={{width: "10rem"}}>
-                                    {card.sentence}
+                            <div className="each-card-style">{card.sentence}</div>
                         </Card.Body>
                     </Card>
                 )}

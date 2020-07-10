@@ -254,8 +254,8 @@ label {
 .image-meme-style {
     display: flex;
     justify-content: center;
-    margin-bottom: 50px;
-    margin-top: 50px;
+    margin-bottom: 30px;
+    margin-top: 20px;
 }
 
 .cards-row {
@@ -264,17 +264,6 @@ label {
     flex-direction: row;
 }
 
-.card{
-    flex-direction: row;
-    overflow: hidden;
-}
-
-.card-body{
-    border: 2px solid #4f3b5b;
-    flex: none;
-    color: darkblue;
-    font-weight: bold;
-}
 
 .button-submit-card{
     margin-top: 20px;
@@ -285,4 +274,63 @@ label {
     justify-content: center;
     display: flex;
 }
+
+.title-game-page {
+    display: flex;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.row-game-board {
+    flex-direction: column;
+}
+
+.card.border-info {
+    margin-top: 20px;
+}
+
+.each-card-style {
+    color: navy;
+    font-weight: bold;
+}
+
+.row.chat-style-text {
+    flex-direction: column;
+}
+
+.type-message-input {
+    background-color: white;
+    color: black;
+}
+
+.form-chat {
+    width: fit-content;
+}
+
+.chat-one-message {
+    border-radius: 15px;
+    border: solid 3px purple;
+    padding: 5px;
+    margin-bottom: 5px;
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: row;
+}
+
+.name-chat {
+    margin-right: 3px;
+    color: purple;
+    text-decoration: underline;
+}
+
+/* .text-chat {
+
+} */
+
+
+
+
+
+
+
 

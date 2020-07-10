@@ -9,7 +9,7 @@ const ImageCards = (props) => {
   const image = imageCards[Math.floor(Math.random() * imageCards.length)]
     return (
       <div className="image-meme-style" >
-        <Card style={{ width: '18rem' }}>
+        <Card>
           <Card.Img variant="top" src={image.image}/>
         </Card>   
       </div>
