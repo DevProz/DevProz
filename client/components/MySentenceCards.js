@@ -9,16 +9,13 @@ class MySentenceCards extends React.Component {
     constructor(){
         super()
         this.handleSubmit = this.handleSubmit.bind(this)
-    }
+    }   
 
     handleSubmit(event){
         event.preventDefault()
-        console.log('clicked!!!!')
-        console.log('this is the event.target', event.target)
+        console.log('clicked!!!!', event.target.id)
         // socket.emit("start_game", { card: this.props.player._id, code: this.props.game.entranceCode})
         
-       
-
 
     }
 
@@ -28,7 +25,7 @@ class MySentenceCards extends React.Component {
             <div className="cards-row">
                 {this.props.player.sentenceCards.map(card =>
                     <Card key={card._id}>
-                        <Card.Body  style={{width: "10rem"}} onClick = {this.handleSubmit}>
+                        <Card.Body id={card._id}  style={{width: "10rem"}} onClick = {this.handleSubmit}>
                                     {card.sentence}
                         </Card.Body>
                     </Card>

@@ -9,6 +9,7 @@ const GET_PLAYERS = 'GET_PLAYERS'
 const ADD_PLAYER = 'ADD_PLAYER'
 const UPDATE_NEW_GAME = 'UPDATE_NEW_GAME';
 const UPDATE_PLAYER = 'UPDATE_PLAYER ';
+const SELECTED_CARD = 'SELECTED_CARD'
 
 export const getPlayers = (players) => {
     return {
@@ -36,6 +37,13 @@ const updatePlayer = player => {
     return {
         type: UPDATE_PLAYER , 
         player
+    }
+};
+
+const selectedCard = card => {
+    return {
+        type: SELECTED_CARD,
+        card
     }
 };
 
@@ -85,7 +93,8 @@ export const changeName = (playerName) => async (dispatch) => {
 
 const initialState = {
     game: null,
-    player: null
+    player: null,
+    selectedCard: {}
 }
 
 //reducer
@@ -96,7 +105,7 @@ const reducer = (state = initialState, action) => {
         case UPDATE_PLAYER:
             return {...state, player: action.player}
         case ADD_PLAYER:
-                return {...state, player: action.player}
+            return {...state, player: action.player}
         case UPDATE_NEW_GAME:
             const player = action.game.players.find(player => player._id)
             return {...state, game: action.game, player}
