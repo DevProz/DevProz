@@ -18,10 +18,11 @@ module.exports = io => {
     console.log(`A socket connection to the server has been made: ${socket.id}`)
 
     socket.on('new_game', async data => {
-      console.log(data)
       const player = await Player.findOne({
         _id: data.playerId
       })
+      player.sentenceCards = []
+      await player.save()
       const imageCards = await ImageCard.find()
       const sentenceCards = await SentenceCard.find()
       const code = Math.random().toString(36).substring(2, 6).toUpperCase();
@@ -31,7 +32,6 @@ module.exports = io => {
         sentenceCards: sentenceCards,
         entranceCode: code
       })
-      console.log("NEWGAME", newGame)
 
       await newGame.save()
       Game.findOne({
@@ -59,7 +59,7 @@ module.exports = io => {
     })
 
     //find Game.sentenceCards and shuffle them
-      //populates Player sentence cards
+    //populates Player sentence cards
     socket.on('start_game', async data => {
       const game = await Game.findOne({
         entranceCode: data.code
@@ -69,7 +69,7 @@ module.exports = io => {
         const player = await Player.findOne({
           _id: playerId
         })
-        const cards = newDeck.splice(0, 7) //shows one card
+        const cards = newDeck.splice(0, 7)
         player.sentenceCards = cards
         await player.save()
       })
@@ -87,10 +87,28 @@ module.exports = io => {
       })
     })
 
+    socket.on("rejoin", async data => {
+      const player = await Player.findOne({
+        _id: data.playerId
+      })
+      console.log(data)
+      const game = await Game.findOne({players: player._id})
+      socket.join(game.entranceCode)
+      Game.findOne({
+        _id: game._id
+      }).populate("players").populate({
+        path: "players",
+        populate: {
+          path: "sentenceCards",
+          model: "SentenceCard"
+        }
+      }).populate("imageCards").populate("sentenceCards").then(populatedGame => {
+        socket.emit("updated_game", populatedGame)
+      })
+    })
 
     socket.on('disconnect', () => {
       console.log(`Connection ${socket.id} has left the building`)
     })
   })
-
 }

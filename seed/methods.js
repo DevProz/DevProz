@@ -1,15 +1,15 @@
 const sentenceCards = require("./sentenceCards");
 const imageCard = require("./imageCards");
 
-function buildSentence(sentence) {
+function buildSentence(sentenceCard) {
   return {
-    sentence,
+    sentence: sentenceCard.sentence,
   };
 }
 
-function buildMeme(imageUrl) {
+function buildMeme(imageCard) {
   return {
-    imageUrl,
+    image: imageCard.image
   };
 }
 function randomSentence(sentence) {
@@ -17,8 +17,8 @@ function randomSentence(sentence) {
   return thisSentence;
 }
 
-function randomMeme(imageUrl) {
-  let thisMeme = imageUrl[Math.floor(Math.random() * imageUrl.length)];
+function randomMeme(image) {
+  let thisMeme = image[Math.floor(Math.random() * image.length)];
   return thisMeme;
 }
 

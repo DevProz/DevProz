@@ -1,29 +1,30 @@
 import React from "react";
 import { Card } from 'react-bootstrap'
 import { connect } from 'react-redux'
+import { me } from '../store'
 
 
-const MySentenceCards = (props) => {
-    console.log('this is props from sentence cards', props)
+class MySentenceCards extends React.Component {
 
-      return (
-        <div className="cards-row">
-            {props.game.players.map(el => 
-                <Card>
-                  {el.sentenceCards.map((card) => { 
-                      return <Card.Body style={{width: "10rem"}}>
-                                {card.sentence}
-                            </Card.Body>
-                  })}
-                  </Card>
-            )}
-        </div>
-    )
+    render () {
+        return (
+            <div className="cards-row">
+                {this.props.player.sentenceCards.map(card =>
+                    <Card>
+                        <Card.Body style={{width: "10rem"}}>
+                                    {card.sentence}
+                        </Card.Body>
+                    </Card>
+                )}
+            </div>
+        )
+    }
 }
 
 const mapState = (state) => {
     return {
         game: state.game,
+        player: state.player
     }
 }
 

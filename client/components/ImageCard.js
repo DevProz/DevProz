@@ -5,10 +5,8 @@ import { connect } from 'react-redux'
 
 
 const ImageCards = (props) => {
-  console.log('this is the props from imageCard', props)
   const imageCards = props.imageCards
   const image = imageCards[Math.floor(Math.random() * imageCards.length)]
-  console.log('this is the random image', image)
     return (
       <div className="image-meme-style" >
         <Card style={{ width: '18rem' }}>

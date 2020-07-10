@@ -258,11 +258,11 @@ label {
     margin-top: 50px;
 }
 
-/* .cards-row {
+.cards-row {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-} */
+}
 
 .card{
     flex-direction: row;
@@ -270,10 +270,16 @@ label {
 }
 
 .card-body{
-    border: 5px solid #4f3b5b;
+    border: 2px solid #4f3b5b;
 }
 
 .button-submit-card{
-    
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.button-row {
+    justify-content: center;
+    display: flex;
 }
 
