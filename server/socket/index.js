@@ -69,7 +69,7 @@ module.exports = io => {
         const player = await Player.findOne({
           _id: playerId
         })
-        const cards = newDeck.splice(0, 7)
+        const cards = newDeck.splice(0, 7) //selecting 7 cards on top of sentenceCards array
         player.sentenceCards = cards
         await player.save()
       })

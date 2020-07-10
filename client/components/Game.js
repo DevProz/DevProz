@@ -12,7 +12,7 @@ class Game extends React.Component {
         return (
             <div>
                 THIS IS A GAME PAGE!
-                <div class="row" className="d-flex justify-content-around">
+                <div className="row" className="d-flex justify-content-around">
                 <Card border="info" style={{ width: '18rem' }}>
                     <Card.Header> Countdown:  </Card.Header>
                         <Card.Body>
