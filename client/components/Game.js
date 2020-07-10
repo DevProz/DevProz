@@ -4,7 +4,7 @@ import MySentenceCards from "./MySentenceCards";
 import { connect } from 'react-redux'
 import ImageCard from './ImageCard'
 // import SelectedCards from './SelectedCards'
-// import Timer from './Timer'
+import Timer from './Timer'
 
 class Game extends React.Component {
       
@@ -12,14 +12,24 @@ class Game extends React.Component {
         return (
             <div>
                 THIS IS A GAME PAGE!
+                <div class="row" className="d-flex justify-content-around">
                 <Card border="info" style={{ width: '18rem' }}>
                     <Card.Header> Countdown:  </Card.Header>
                         <Card.Body>
                         <Card.Text>
-                            {/* <Timer/> */}
+                            <Timer/>
                         </Card.Text>
                         </Card.Body>
                 </Card>
+                <Card  border="info" style={{ width: '18rem' }}>
+                    <Card.Header> Score:  </Card.Header>
+                        <Card.Body>
+                        <Card.Text>
+                         {this.props.player.name} : {this.props.player.score}
+                        </Card.Text>
+                        </Card.Body>
+                </Card>
+                </div>
                 <br />
                 <ImageCard imageCards={this.props.game.imageCards}/>
 
