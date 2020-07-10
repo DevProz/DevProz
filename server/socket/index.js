@@ -18,10 +18,11 @@ module.exports = io => {
     console.log(`A socket connection to the server has been made: ${socket.id}`)
 
     socket.on('new_game', async data => {
-      console.log(data)
       const player = await Player.findOne({
         _id: data.playerId
       })
+      player.sentenceCards = []
+      await player.save()
       const imageCards = await ImageCard.find()
       const sentenceCards = await SentenceCard.find()
       const code = Math.random().toString(36).substring(2, 6).toUpperCase();
@@ -73,7 +74,7 @@ module.exports = io => {
         await player.save()
       })
 
-      await Game.findOne({
+      Game.findOne({
         _id: game._id
       }).populate("players").populate({
         path: "players",
@@ -86,6 +87,25 @@ module.exports = io => {
       })
     })
 
+    socket.on("rejoin", async data => {
+      const player = await Player.findOne({
+        _id: data.playerId
+      })
+      console.log(data)
+      const game = await Game.findOne({players: player._id})
+      socket.join(game.entranceCode)
+      Game.findOne({
+        _id: game._id
+      }).populate("players").populate({
+        path: "players",
+        populate: {
+          path: "sentenceCards",
+          model: "SentenceCard"
+        }
+      }).populate("imageCards").populate("sentenceCards").then(populatedGame => {
+        socket.emit("updated_game", populatedGame)
+      })
+    })
 
     socket.on('disconnect', () => {
       console.log(`Connection ${socket.id} has left the building`)
