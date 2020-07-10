@@ -4,18 +4,15 @@ import { connect } from 'react-redux'
 
 
 const MySentenceCards = (props) => {
-    console.log('this is props from sentence cards', props)
-
+        console.log(props.player.sentenceCards)
       return (
         <div className="cards-row">
-            {props.game.players.map(el => 
+            {props.player.sentenceCards.map(card =>
                 <Card>
-                  {el.sentenceCards.map((card) => { 
-                      return <Card.Body style={{width: "10rem"}}>
+                    <Card.Body style={{width: "10rem"}}>
                                 {card.sentence}
-                            </Card.Body>
-                  })}
-                  </Card>
+                    </Card.Body>
+                </Card>
             )}
         </div>
     )
@@ -24,6 +21,7 @@ const MySentenceCards = (props) => {
 const mapState = (state) => {
     return {
         game: state.game,
+        player: state.player
     }
 }
 

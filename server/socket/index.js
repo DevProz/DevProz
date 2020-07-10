@@ -31,7 +31,6 @@ module.exports = io => {
         sentenceCards: sentenceCards,
         entranceCode: code
       })
-      console.log("NEWGAME", newGame)
 
       await newGame.save()
       Game.findOne({
@@ -59,7 +58,7 @@ module.exports = io => {
     })
 
     //find Game.sentenceCards and shuffle them
-      //populates Player sentence cards
+    //populates Player sentence cards
     socket.on('start_game', async data => {
       const game = await Game.findOne({
         entranceCode: data.code
@@ -69,12 +68,12 @@ module.exports = io => {
         const player = await Player.findOne({
           _id: playerId
         })
-        const cards = newDeck.splice(0, 7) //shows one card
+        const cards = newDeck.splice(0, 7)
         player.sentenceCards = cards
         await player.save()
       })
 
-      Game.findOne({
+      await Game.findOne({
         _id: game._id
       }).populate("players").populate({
         path: "players",
@@ -92,5 +91,4 @@ module.exports = io => {
       console.log(`Connection ${socket.id} has left the building`)
     })
   })
-
 }

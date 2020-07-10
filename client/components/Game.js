@@ -22,9 +22,9 @@ class Game extends React.Component {
                 </Card>
                 <br />
                 <ImageCard imageCards={this.props.game.imageCards}/>
-
-                <Button type='submit' variant='outline-light' className="button-submit-card">Submit Card</Button>
-
+                <div className="button-row">
+                    <Button type='submit' variant='outline-light' className="button-submit-card">Submit Card</Button>
+                </div>
                 <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>
             </div>
         )
