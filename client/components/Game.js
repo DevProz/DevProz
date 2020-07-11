@@ -9,6 +9,7 @@ import Timer from './Timer';
 class Game extends React.Component {
       
       render() {
+          console.log('game props', this.props.game)
         return (
             <div>
             <div className="title-game-page">
@@ -33,6 +34,7 @@ class Game extends React.Component {
                             <Card.Body>
                             <Card.Text>
                             {this.props.player.name} : {this.props.player.score}
+                            
                             </Card.Text>
                             </Card.Body>
                     </Card>
@@ -63,7 +65,8 @@ class Game extends React.Component {
 const mapState = (state) => {
     return {
         game: state.game,
-        player: state.player
+        player: state.player,
+
     }
 }
 
