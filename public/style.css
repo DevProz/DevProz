@@ -272,12 +272,12 @@ label {
 } */
 
 .card:hover{
-    cursor: pointer
+    cursor: pointer;
 }
 
-/* .active{
-    border: 2px solid yellow
-} */
+.active{
+    border: 5px solid yellow;
+}
 
 .button-submit-card{
     margin-top: 20px;
