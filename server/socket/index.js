@@ -1,7 +1,8 @@
 const Game = require('../db/models/game');
 const Player = require('../db/models/player');
 const ImageCard = require('../db/models/imageCard')
-const SentenceCard = require('../db/models/sentenceCard')
+const SentenceCard = require('../db/models/sentenceCard');
+const { update } = require('../db/models/game');
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -64,7 +65,6 @@ module.exports = io => {
       })
       const newImageCardsDeck = shuffleArray(game.imageCards)
       const oneImage = newImageCardsDeck.slice(0, 1)
-      console.log('ONE IMAGE', oneImage)
       game.imageCards = oneImage
       const newDeck = shuffleArray(game.sentenceCards)
       await game.players.forEach(async playerId => {
@@ -116,6 +116,21 @@ module.exports = io => {
         _id: data.playerId
       })
       io.to(data.code).emit("receive-message", {message: data.message, playerName: player.name})
+    })
+
+    socket.on('submit_card', async data => {
+      const game = await Game.findOne({
+        entranceCode: data.code
+      })
+      game.selectedCards.push(data.sentence)
+      await game.save()
+      console.log('SELECTED CARDS', game.selectedCards)
+
+      Game.findOne({
+        _id: game._id
+      }).populate('players').populate('imageCards').populate('sentenceCards').then(populatedGame => {
+        io.to(data.code).emit("updated_game", populatedGame)
+      })
     })
 
     socket.on('disconnect', () => {

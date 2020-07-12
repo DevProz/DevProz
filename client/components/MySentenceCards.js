@@ -13,22 +13,23 @@ class MySentenceCards extends React.Component {
         }
     }   
 
-    handleSubmit(id){
+    handleSubmit(id, event){
+        console.log('this is event.target', event.target.title)
         if (this.state.active) {
             this.setState({active: null})
         } else {
             this.setState({ active: id });   
         }
+        socket.emit("submit_card", {code: this.props.game.entranceCode, card: event.target.id, playerId: this.props.player._id, sentence: event.target.title})
     }
 
     render () {
-        console.log('this is props', this.props)
         return (
             <div className="cards-row">
                 {this.props.player.sentenceCards.map((card, id) =>
                     <Card key={card._id}>
                         <Card.Body className = {this.state.active === id ? "active" : null}
-                        id={card._id}  style={{width: "10rem"}} onClick = {() => this.handleSubmit(id)}>
+                        id={card._id} title={card.sentence} style={{width: "10rem"}} onClick = {() => this.handleSubmit(id, event)}>
                                     {card.sentence}
                         </Card.Body>
                     </Card>

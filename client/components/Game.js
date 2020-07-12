@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import ImageCard from './ImageCard';
 import Chat from "./Chat";
 import Timer from './Timer';
+import SelectedCards from './SelectedCards'
 
 class Game extends React.Component {
       
@@ -41,6 +42,7 @@ class Game extends React.Component {
                     </Col>
                     <Col>
                     <ImageCard imageCards={this.props.game.imageCards}/>
+                    {(this.props.game.selectedCards.length > 0) ? <SelectedCards selectedCards={this.props.game.selectedCards}/> : console.log('there are no selected cards')}
                     <div className="button-row">
                         <Button type='submit' variant='outline-light' className="button-submit-card">Submit Card</Button>
                     </div>
