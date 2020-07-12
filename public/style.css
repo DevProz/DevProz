@@ -365,6 +365,11 @@ not needed aat the moment
     font-weight: lighter;
 }
 
+.messages {
+    overflow: scroll;
+    max-height: 200px;
+}
+
 
 
 

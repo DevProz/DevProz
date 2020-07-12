@@ -14,7 +14,6 @@ class MySentenceCards extends React.Component {
     }   
 
     handleSubmit(id, event){
-        console.log('this is event.target', event.target.title)
         if (this.state.active) {
             this.setState({active: null})
         } else {
