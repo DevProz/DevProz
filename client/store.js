@@ -63,12 +63,11 @@ export const receiveMessage = message => {
 export const me = () => async dispatch => {
     try {
       const res = await axios.get("/api/newGame/me");
+      dispatch(updatePlayer(res.data || defaultUser));
       if (res.data.sentenceCards.length) {
         const player = {playerId: res.data._id}
         console.log(res.data)
         socket.emit("rejoin", player)
-      } else {
-        dispatch(updatePlayer(res.data || defaultUser));
       }
     } catch (err) {
       console.error(err);
@@ -121,7 +120,7 @@ const reducer = (state = initialState, action) => {
         case ADD_PLAYER:
             return {...state, player: action.player}
         case UPDATE_NEW_GAME:
-            const player = action.game.players.find(player => player._id)
+            const player = action.game.players.find(player => player._id == state.player._id)
             return {...state, game: action.game, player}
         case RECEIVE_MESSAGE:
             return {...state, messages: [...state.messages, action.message]}
