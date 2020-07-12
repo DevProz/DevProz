@@ -356,6 +356,14 @@ not needed aat the moment
     color: white;
 } 
 
+.score-board {
+    display: flex;
+}
+
+.score-board-name, .score-board-score {
+    margin-right: 5px;
+    font-weight: lighter;
+}
 
 
 
