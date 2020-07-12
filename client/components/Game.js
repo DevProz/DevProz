@@ -33,8 +33,16 @@ class Game extends React.Component {
                         <Card.Header> Score:  </Card.Header>
                             <Card.Body>
                             <Card.Text>
-                            {this.props.player.name} : {this.props.player.score}
-                            
+                            {this.props.game.players.map((player) => {
+                                return (
+                                    <table className="table">
+                                    <tr className="score-board">
+                                        <td className="score-board-name">{player.name}:</td>
+                                        <td className="score-board-score">{player.score}</td>
+                                    </tr>
+                                    </table>
+                                )
+                            })}
                             </Card.Text>
                             </Card.Body>
                     </Card>
