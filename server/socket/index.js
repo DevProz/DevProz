@@ -14,16 +14,16 @@ function shuffleArray(array) {
 
 module.exports = io => {
   io.on('connection', socket => {
-    console.log(`A socket connection to the server has been made: ${socket.id}`)
+    console.log(`A socket connection to the server has been made: ${socket.id}`);
 
     socket.on('new_game', async data => {
       const player = await Player.findOne({
         _id: data.playerId
       })
-      player.sentenceCards = []
-      await player.save()
-      const imageCards = await ImageCard.find()
-      const sentenceCards = await SentenceCard.find()
+      player.sentenceCards = [];
+      await player.save();
+      const imageCards = await ImageCard.find();
+      const sentenceCards = await SentenceCard.find();
       const code = Math.random().toString(36).substring(2, 6).toUpperCase();
       const newGame = new Game({
         players: [player],
@@ -32,12 +32,12 @@ module.exports = io => {
         entranceCode: code
       })
 
-      await newGame.save()
+      await newGame.save();
       Game.findOne({
         _id: newGame._id
-      }).populate("players").populate("imageCards").populate("sentenceCards").then(populatedGame => {
-        socket.join(code)
-        socket.emit("new_game_created", populatedGame)
+      }).populate('players').populate('imageCards').populate('sentenceCards').then(populatedGame => {
+        socket.join(code);
+        socket.emit('new_game_created', populatedGame);
       })
     })
 
@@ -46,48 +46,48 @@ module.exports = io => {
         entranceCode: data.code
       })
       if (!game.players.includes(data.playerId)) {
-        game.players.push(data.playerId)
-        await game.save()
+        game.players.push(data.playerId);
+        await game.save();
       }
       Game.findOne({
         _id: game._id
-      }).populate("players").populate("imageCards").populate("sentenceCards").then(populatedGame => {
-        socket.join(data.code)
-        io.to(data.code).emit("updated_game", populatedGame)
+      }).populate('players').populate('imageCards').populate('sentenceCards').then(populatedGame => {
+        socket.join(data.code);
+        io.to(data.code).emit('updated_game', populatedGame);
       })
     })
 
-    //find Game.sentenceCards and shuffle them
-    //populates Player sentence cards
     socket.on('start_game', async data => {
       const game = await Game.findOne({
         entranceCode: data.code
       })
-      const newImageCardsDeck = shuffleArray(game.imageCards)
-      const oneImage = newImageCardsDeck.slice(0, 1)
-      game.imageCards = oneImage
-      const newDeck = shuffleArray(game.sentenceCards)
+
+      const newImageCardsDeck = shuffleArray(game.imageCards);
+      const oneImage = newImageCardsDeck.slice(0, 1);
+      game.imageCards = oneImage;
+
+      const newDeck = shuffleArray(game.sentenceCards);
       await game.players.forEach(async playerId => {
         const player = await Player.findOne({
           _id: playerId
         })
-        const cards = newDeck.splice(0, 7) //selecting 7 cards on top of sentenceCards array
-        player.sentenceCards = cards
-        await player.save()
+        const cards = newDeck.splice(0, 7);
+        player.sentenceCards = cards;
+        await player.save();
       })
 
-      await game.save()
+      await game.save();
 
       Game.findOne({
         _id: game._id
-      }).populate("players").populate({
-        path: "players",
+      }).populate('players').populate({
+        path: 'players',
         populate: {
-          path: "sentenceCards",
-          model: "SentenceCard"
+          path: 'sentenceCards',
+          model: 'SentenceCard'
         }
-      }).populate("imageCards").populate("sentenceCards").then(populatedGame => {
-        io.to(data.code).emit("updated_game", populatedGame)
+      }).populate('imageCards').populate('sentenceCards').then(populatedGame => {
+        io.to(data.code).emit('updated_game', populatedGame);
       })
     })
 
@@ -95,27 +95,26 @@ module.exports = io => {
       const player = await Player.findOne({
         _id: data.playerId
       })
-      console.log(data)
-      const game = await Game.findOne({players: player._id})
-      socket.join(game.entranceCode)
+      const game = await Game.findOne({players: player._id});
+      socket.join(game.entranceCode);
       Game.findOne({
         _id: game._id
-      }).populate("players").populate({
-        path: "players",
+      }).populate('players').populate({
+        path: 'players',
         populate: {
-          path: "sentenceCards",
-          model: "SentenceCard"
+          path: 'sentenceCards',
+          model: 'SentenceCard'
         }
-      }).populate("imageCards").populate("sentenceCards").then(populatedGame => {
-        socket.emit("updated_game", populatedGame)
+      }).populate('imageCards').populate('sentenceCards').then(populatedGame => {
+        socket.emit('updated_game', populatedGame);
       })
     })
 
-    socket.on("send-message", async data => {
+    socket.on('send-message', async data => {
       const player = await Player.findOne({
         _id: data.playerId
       })
-      io.to(data.code).emit("receive-message", {message: data.message, playerName: player.name})
+      io.to(data.code).emit('receive-message', {message: data.message, playerName: player.name});
     })
 
     socket.on('submit_card', async data => {
@@ -134,7 +133,7 @@ module.exports = io => {
     })
 
     socket.on('disconnect', () => {
-      console.log(`Connection ${socket.id} has left the building`)
+      console.log(`Connection ${socket.id} has left the building`);
     })
   })
 }

@@ -16,7 +16,7 @@ class Chat extends React.Component {
     handleChange(event) {
         this.setState({
             message: event.target.value,
-          });
+        });
     }
 
     handleSubmit(event){
