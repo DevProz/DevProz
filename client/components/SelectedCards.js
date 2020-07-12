@@ -1,57 +1,18 @@
 import React from "react";
-import { Card, CardDeck } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 
 
 const SelectedCards = (props) => {
+  console.log('this is props in selected cards', props)
       return (
-        <div> 
-          <CardDeck>
-              <Card>
-                <Card.Body>
-                  <Card.Text>
-                  Player1
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-              <Card>
-                <Card.Body>
-                  <Card.Text>
-                  Player2
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-              <Card>
-                <Card.Body>
-                  <Card.Text>
-                  Player3
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-              <Card
-                  bg="secondary"
-                  style={{ width: '16rem' }}
-                  className="mb-2"
-                > 
-                <Card.Body>
-                </Card.Body>
-              </Card>
-              <Card
-                  bg="secondary"
-                  style={{ width: '16rem' }}
-                  className="mb-2"
-                > 
-                <Card.Body>
-                </Card.Body>
-              </Card>
-              <Card
-                  bg="secondary"
-                  style={{ width: '16rem' }}
-                  className="mb-2"
-                > 
-                <Card.Body>
-                </Card.Body>
-              </Card>
-          </CardDeck>
+        <div className='cards-row'> 
+          {props.selectedCards.map((card) => 
+            <Card>
+              <Card.Body>
+                 {card}
+              </Card.Body>
+            </Card>
+          )}
         </div>
     )
 }
