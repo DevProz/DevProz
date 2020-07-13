@@ -89,11 +89,11 @@ module.exports = io => {
       await game.players.forEach(async playerId => {
         const player = await Player.findOne({
           _id: playerId
-        })
+        });
         const cards = newDeck.splice(0, 7);
         player.sentenceCards = cards;
         await player.save();
-      })
+      });
 
       game.sentenceCards = newDeck;
       await game.save();
