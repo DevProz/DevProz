@@ -1,21 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux'
-import store from './store'
+import { Provider } from 'react-redux';
+import store from './store';
 import App from "./components/App";
-import { Router } from 'react-router-dom'
-import history from './history'
-
-
-//establishing a socket connection
-import './socket'
-
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+//import history from './history';
+import ChangeName from './components/ChangeName';
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={history}>
-      <App /> 
-    </Router>
+    <BrowserRouter >
+      <Switch>
+        <Route path="/change_name" component={ChangeName} />
+        <Route path="/" component={App} />
+      </Switch>
+    </BrowserRouter>
   </Provider> ,
   document.getElementById('app') // make sure this is the same as the id of the div in your index.html
 );

@@ -3,6 +3,7 @@ import thunkMiddleware from 'redux-thunk';
 import socket from './socket'
 import axios from 'axios'
 import {createLogger} from 'redux-logger';
+import game from '../server/db/models/game';
 
 //action types
 const GET_PLAYERS = 'GET_PLAYERS';
@@ -40,12 +41,7 @@ export const updatePlayer = player => {
     }
 };
 
-const selectedCard = card => {
-    return {
-        type: SELECTED_CARD,
-        card
-    }
-};
+
 
 export const receiveMessage = message => {
     return {
@@ -110,8 +106,12 @@ const reducer = (state = initialState, action) => {
         case ADD_PLAYER:
             return {...state, player: action.player}
         case UPDATE_NEW_GAME:
-            const player = action.game.players.find(player => player._id == state.player._id)
-            return {...state, game: action.game, player}
+            if (action.game != null) {
+                const player = action.game.players.find(player => player._id == state.player._id)
+                return {...state, game: action.game, player}
+            } else {
+                return {...state, game: action.game, player: {...state.player, sentenceCards: [], score: 0}, messages: []}
+            } 
         case RECEIVE_MESSAGE:
             return {...state, messages: [...state.messages, action.message]}
          default:

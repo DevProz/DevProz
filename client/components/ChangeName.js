@@ -2,6 +2,7 @@ import React from "react";
 import { changeName } from "../store";
 import { connect } from "react-redux";
 import { Button } from "react-bootstrap";
+import { Redirect } from 'react-router'
 
 
 class Home extends React.Component {
@@ -9,6 +10,7 @@ class Home extends React.Component {
         super(props);
         this.state = {
           name: '',
+          redirect: false,
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,11 +26,15 @@ class Home extends React.Component {
             event.preventDefault()
             this.props.changeName(this.state);
             this.setState({
-                name: ""
+                name: "",
+                redirect: true
             })
         }
       
       render() {
+        if (this.state.redirect) {
+          return <Redirect to="/" />
+        }
         return (
           <div className="wrap center">  
             <div className="title-front-page">
