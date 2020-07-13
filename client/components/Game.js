@@ -8,6 +8,7 @@ import Timer from './Timer';
 import SelectedCards from './SelectedCards'
 import { updatePlayer } from "../store";
 import socket from '../socket'
+
 class Game extends React.Component {
     constructor(){
         super()
@@ -35,28 +36,8 @@ class Game extends React.Component {
    
 
       render() {
-
-        // const arrOfPlayers = this.props.game.players
-        // let idx = 0
-        // console.log('global index', idx)
-        // const randomPlayer = arrOfPlayers[idx]
-        // console.log('RANDOM PLAYER', randomPlayer)
-
-        // function handleClick(){
-        //     console.log('clicked!')
-        //     if(idx === arrOfPlayers.length - 1){
-        //         idx = 0
-        //     }else{
-        //         idx++
-        //     }
-
-        //     console.log('function index', idx)
-        // }
         
-        //selecting a random player attempt
-        const arrOfPlayers = this.props.game.players
-        const randomPlayer = arrOfPlayers[Math.floor(Math.random() * arrOfPlayers.length)];
-        console.log('this is random player', randomPlayer._id)
+        
         return (
             <div>
                 <div>
@@ -110,7 +91,7 @@ class Game extends React.Component {
                     {(this.props.game.selectedCards.length > 0) ? <SelectedCards selectedCards={this.props.game.selectedCards}/> : console.log('there are no selected cards')}
                     </Row>
 
-                    {(randomPlayer._id === this.props.player._id) && (this.props.game.selectedCards.length > 0) ? <Button className="button-choose-winner" variant="outline-light" type='button' onClick={this.handleWinningSubmit}>Submit Winner Card</Button> : console.log('A winner has not been submitted yet')}
+                    {(this.props.game.host === this.props.player._id) && (this.props.game.selectedCards.length === this.props.game.players.length) ? <Button className="button-choose-winner" variant="outline-light" type='button' onClick={this.handleWinningSubmit}>Submit Winner Card</Button> : console.log('A winner has not been submitted yet')}
                     <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>
                 </div>
             </div>
@@ -128,4 +109,6 @@ const mapState = (state) => {
 
 
 export default connect(mapState)(Game)
+
+
 

@@ -77,6 +77,11 @@ module.exports = io => {
       const game = await Game.findOne({
         entranceCode: data.code
       })
+
+      const arrOfPlayers = game.players
+      const hostId = arrOfPlayers[Math.floor(Math.random() * arrOfPlayers.length)];
+      game.host = hostId
+
       const imageCards = await ImageCard.find();
       const sentenceCards = await SentenceCard.find();
 
@@ -177,6 +182,8 @@ module.exports = io => {
         player.score ++;
         await player.save();
         sendPopulateGame(game._id);
+        //how to switch the player
+        //use a find on the players array to find the currrent host, then just ++
 
     })
     
