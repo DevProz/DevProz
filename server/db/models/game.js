@@ -25,6 +25,10 @@ const gameSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "Player",
       }],
+    host: {
+      type: Schema.Types.ObjectId,
+      ref:'Player',
+    },
     imageCards: 
       [{
         type: Schema.Types.ObjectId,
