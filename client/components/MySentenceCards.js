@@ -36,9 +36,9 @@ class MySentenceCards extends React.Component {
                 </div>
                 <div className="cards-row">   
                     {this.props.player.sentenceCards.map((card) =>
-                        <Card key={card._id}>
+                        <Card style={{ width: '10rem' }} key={card._id}>
                             <Card.Body className = {this.state.active === card._id ? "active" : null}
-                            id={card._id} title={card.sentence} onClick = {() => this.handleClick(card._id, event)} style={{width: "10rem"}}>
+                            id={card._id} title={card.sentence} onClick = {() => this.handleClick(card._id, event)} style={{ width: '10rem' }}>
                                         {card.sentence}
                             </Card.Body>
                         </Card>

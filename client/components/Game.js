@@ -22,10 +22,10 @@ class Game extends React.Component {
                 </div>
                     <Row>
                         <Col>
-                        <Card border="info board-margin" style={{ width: '15rem' }}>
+                        <Card border="info board-margin" style={{ width: '10rem' }}>
                             <Card.Header className="countdown-style"> Countdown: <Timer/> </Card.Header>
                         </Card>
-                        <Card  border="info" style={{ width: '15rem' }}>
+                        <Card  border="info" style={{ width: '10rem' }}>
                             <Card.Header> Score:  </Card.Header>
                                 <Card.Body>
                                 <Card.Text>
