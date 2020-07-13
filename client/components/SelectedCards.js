@@ -1,19 +1,18 @@
 import React from "react";
-import { Card } from 'react-bootstrap'
+import { Card, Row } from 'react-bootstrap'
 
 
 const SelectedCards = (props) => {
-  console.log('this is props in selected cards', props)
       return (
-        <div className='cards-row'> 
+        <Row className='cards-row'> 
           {props.selectedCards.map((card) => 
-            <Card>
+            <Card style={{ width: '10rem' }}>
               <Card.Body>
-                 {card}
+                 {card.sentenceCard.sentence}
               </Card.Body>
             </Card>
           )}
-        </div>
+        </Row>
     )
 }
 

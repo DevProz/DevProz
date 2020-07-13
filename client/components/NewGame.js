@@ -18,9 +18,8 @@ class NewGame extends React.Component {
 
     handleCodeSubmit(event) {
         event.preventDefault();
-        socket.emit("join_game", {playerId: this.props.player._id, code: event.target.code.value})
+        socket.emit("join_game", {playerId: this.props.player._id, code: event.target.code.value});
     }
-
 
     render() {
         return (

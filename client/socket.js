@@ -6,12 +6,8 @@ const socket = io(window.location.origin)
 socket.on('connect', () => {
   console.log('Connected!');
 
-  socket.on("new_game_created", data => {
-    console.log(data.entranceCode)
-    store.dispatch(updateNewGame(data))
-  })
-
   socket.on("updated_game", data => {
+    console.log("recienving game")
     store.dispatch(updateNewGame(data))
   })
 

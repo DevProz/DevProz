@@ -97,7 +97,6 @@ export const changeName = (playerName) => async (dispatch) => {
 const initialState = {
     game: null,
     player: null,
-    // selectedCard: {},
     messages: []
 }
 
