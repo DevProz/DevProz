@@ -5,6 +5,7 @@ const SentenceCard = require('../db/models/sentenceCard');
 const {
   update
 } = require('../db/models/game');
+const player = require('../db/models/player');
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -145,6 +146,24 @@ module.exports = io => {
 
         sendPopulateGame(game._id);
       }
+    });
+
+    socket.on('leave-game', async data => {
+      const game = await Game.findOne({
+        entranceCode: data.code
+      });
+      const leavingPlayer = await Player.findOne({
+        _id: data.playerId
+      });
+      game.players = game.players.filter(player => {
+        player._id != leavingPlayer._id
+      });
+      await game.save();
+      socket.leave(game.entranceCode);
+      leavingPlayer.score = 0;
+      leavingPlayer.sentenceCards = [];
+      await leavingPlayer.save();
+      socket.emit("updated_game", null);
     })
 
     socket.on('disconnect', () => {

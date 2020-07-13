@@ -1,13 +1,23 @@
 import React from "react";
-import { Card, Row, Col } from 'react-bootstrap';
+import { Card, Row, Col, Button } from 'react-bootstrap';
 import MySentenceCards from "./MySentenceCards";
 import { connect } from 'react-redux';
 import ImageCard from './ImageCard';
 import Chat from "./Chat";
 import Timer from './Timer';
-import SelectedCards from './SelectedCards'
+import SelectedCards from './SelectedCards';
+import socket from '../socket';
 
-class Game extends React.Component {    
+class Game extends React.Component {   
+    constructor() {
+        super()
+        this.handleSubmit = this.handleSubmit.bind(this);
+    } 
+
+    handleSubmit(event) {
+        event.preventDefault();
+        socket.emit("leave-game", {code: this.props.game.entranceCode, playerId: this.props.player._id});
+    }
 
       render() {
         return (
@@ -20,6 +30,7 @@ class Game extends React.Component {
                 <p className="meme-color">MEME</p>
                 <p className="question-mark-color">?</p>
                 </div>
+                <Button type='submit' onClick ={this.handleSubmit} variant='outline-light' className="button-leave-game">Leave the game</Button>
                     <Row>
                         <Col>
                         <Card border="info board-margin" style={{ width: '10rem' }}>
