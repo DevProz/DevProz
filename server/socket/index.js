@@ -5,7 +5,6 @@ const SentenceCard = require('../db/models/sentenceCard');
 const {
   update
 } = require('../db/models/game');
-const player = require('../db/models/player');
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
