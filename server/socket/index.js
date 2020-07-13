@@ -5,6 +5,7 @@ const SentenceCard = require('../db/models/sentenceCard');
 const {
   update
 } = require('../db/models/game');
+const player = require('../db/models/player');
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -48,13 +49,11 @@ module.exports = io => {
       })
       player.sentenceCards = [];
       await player.save();
-      const imageCards = await ImageCard.find();
-      const sentenceCards = await SentenceCard.find();
       const code = Math.random().toString(36).substring(2, 6).toUpperCase();
       const newGame = new Game({
         players: [player],
-        imageCards: imageCards,
-        sentenceCards: sentenceCards,
+        imageCards: [],
+        sentenceCards: [],
         entranceCode: code
       })
 
@@ -79,21 +78,24 @@ module.exports = io => {
       const game = await Game.findOne({
         entranceCode: data.code
       })
+      const imageCards = await ImageCard.find();
+      const sentenceCards = await SentenceCard.find();
 
-      const newImageCardsDeck = shuffleArray(game.imageCards);
-      const oneImage = newImageCardsDeck.slice(0, 1);
+      const newImageCardsDeck = shuffleArray(imageCards);
+      const oneImage = newImageCardsDeck.slice(0, 1); //needs to be changed
       game.imageCards = oneImage;
 
-      const newDeck = shuffleArray(game.sentenceCards);
+      const newDeck = shuffleArray(sentenceCards);
       await game.players.forEach(async playerId => {
         const player = await Player.findOne({
           _id: playerId
-        })
+        });
         const cards = newDeck.splice(0, 7);
         player.sentenceCards = cards;
         await player.save();
-      })
+      });
 
+      game.sentenceCards = newDeck;
       await game.save();
 
       sendPopulateGame(game._id);
@@ -145,6 +147,24 @@ module.exports = io => {
 
         sendPopulateGame(game._id);
       }
+    });
+
+    socket.on('leave-game', async data => {
+      const game = await Game.findOne({
+        entranceCode: data.code
+      });
+      const leavingPlayer = await Player.findOne({
+        _id: data.playerId
+      });
+      game.players = game.players.filter(player => {
+        player._id != leavingPlayer._id
+      });
+      await game.save();
+      socket.leave(game.entranceCode);
+      leavingPlayer.score = 0;
+      leavingPlayer.sentenceCards = [];
+      await leavingPlayer.save();
+      socket.emit("updated_game", null);
     })
 
     socket.on('disconnect', () => {

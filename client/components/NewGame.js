@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap'
 import { fetchNewGame, me } from '../store'
 import { connect } from 'react-redux'
 import socket from '../socket'
+import history from '../history';
 
 class NewGame extends React.Component {
     constructor(){
@@ -24,6 +25,7 @@ class NewGame extends React.Component {
     render() {
         return (
             <div className="container-game-page">
+                 <Button type="button" href="/change_name" className="button-create" variant="outline-light">Change name</Button>
                 <div className="title-new-game-join-game">How to play</div>
                 <p className="description">
                 Find 4 or more players, start new game, and share the code with your friends.

@@ -380,6 +380,10 @@ not needed aat the moment
     display: contents;
 }
 
+.button-leave-game {
+    padding-left: 10px;
+}
+
 
 
 

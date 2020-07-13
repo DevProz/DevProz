@@ -7,7 +7,6 @@ socket.on('connect', () => {
   console.log('Connected!');
 
   socket.on("updated_game", data => {
-    console.log("recienving game")
     store.dispatch(updateNewGame(data))
   })
 

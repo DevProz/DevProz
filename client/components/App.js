@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux'
-import Home from "./Home";
+import ChangeName from "./ChangeName";
 import NewGame from './NewGame'
 import Game from './Game'
 import StartGame from './StartGame'
@@ -13,7 +13,7 @@ class App extends React.Component {
 
     render () {
         if (this.props.player == null){
-            return <Home />
+            return <ChangeName />
         }
         else if (this.props.game == null && this.props.player.name) {
             return <NewGame />
@@ -25,7 +25,7 @@ class App extends React.Component {
             return <Game />
         }
         else {
-            return <Home />
+            return <ChangeName />
         }
     }
 }

@@ -1,9 +1,7 @@
 import React from "react";
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { Card, Button, Row, Col } from 'react-bootstrap';
-import socket from '../socket'
-import { me } from '../store'
-
+import socket from '../socket';
 
 class MySentenceCards extends React.Component {
     constructor(){
