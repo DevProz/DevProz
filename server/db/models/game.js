@@ -36,7 +36,7 @@ const gameSchema = new Schema({
   }],
   currentImage: {
     type: Schema.Types.ObjectId,
-    ref: 'imageCards',
+    ref: 'ImageCard',
   },
   sentenceCards: [{
     type: Schema.Types.ObjectId,

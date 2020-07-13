@@ -36,8 +36,6 @@ class Game extends React.Component {
    
 
       render() {
-        
-        
         return (
             <div>
                 <div>
@@ -74,7 +72,7 @@ class Game extends React.Component {
                         </Card>
                         </Col>
                         <Col className="image-column">
-                        <ImageCard imageCards={this.props.game.imageCards}/>
+                        <ImageCard currentImage={this.props.game.currentImage}/>
                         </Col>
                         <Col>
                             <Card border="info board-margin" style={{ width: '20rem' }}>

@@ -1,15 +1,15 @@
 import React from "react";
-import { Card } from 'react-bootstrap'
-import { connect } from 'react-redux'
+import { Card } from 'react-bootstrap';
+import { connect } from 'react-redux';
 
 
 
 const ImageCards = (props) => {
-  const imageCard = props.imageCards
+  const currentImage = props.currentImage
     return (
       <div className="image-meme-style" >
         <Card>
-          <Card.Img variant="top" src={imageCard[0].image}/>
+          <Card.Img variant="top" src={currentImage.image}/>
         </Card>   
       </div>
     )
