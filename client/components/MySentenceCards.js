@@ -18,7 +18,7 @@ class MySentenceCards extends React.Component {
         socket.emit("submit_card", {code: this.props.game.entranceCode, sentenceCardId: this.state.active, playerId: this.props.player._id});
     }
 
-    handleClick(cardId, event){
+    handleClick(cardId){
         if (this.state.active) {
             this.setState({active: null});
         } else {

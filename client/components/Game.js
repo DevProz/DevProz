@@ -27,14 +27,36 @@ class Game extends React.Component {
         event.preventDefault();
         socket.emit("leave-game", {code: this.props.game.entranceCode, playerId: this.props.player._id});
  }
-
-    handleRestartSubmit(event) {
+  
+   handleRestartSubmit(event) {
         event.preventDefault();
         socket.emit("start_game", { playerId: this.props.player._id, code: this.props.game.entranceCode});
     }
+   
 
       render() {
-          console.log('hello')
+
+        // const arrOfPlayers = this.props.game.players
+        // let idx = 0
+        // console.log('global index', idx)
+        // const randomPlayer = arrOfPlayers[idx]
+        // console.log('RANDOM PLAYER', randomPlayer)
+
+        // function handleClick(){
+        //     console.log('clicked!')
+        //     if(idx === arrOfPlayers.length - 1){
+        //         idx = 0
+        //     }else{
+        //         idx++
+        //     }
+
+        //     console.log('function index', idx)
+        // }
+        
+        //selecting a random player attempt
+        const arrOfPlayers = this.props.game.players
+        const randomPlayer = arrOfPlayers[Math.floor(Math.random() * arrOfPlayers.length)];
+        console.log('this is random player', randomPlayer._id)
         return (
             <div>
                 <div>
@@ -87,11 +109,8 @@ class Game extends React.Component {
                     <Row className="selectedCards-Row">
                     {(this.props.game.selectedCards.length > 0) ? <SelectedCards selectedCards={this.props.game.selectedCards}/> : console.log('there are no selected cards')}
                     </Row>
-                    <Button>
-                    <div className="winner-button-align">
-                    {(this.props.game.players[0] ? <Button className="button-choose-winner" variant="outline-light" type='button' onClick={this.handleWinningSubmit}> Submit Winning Card</Button> :  <div className="choose-winner" >Waiting for host to choose a winning card...</div>)} 
-                </div>     
-                    </Button>
+
+                    {(randomPlayer._id === this.props.player._id) && (this.props.game.selectedCards.length > 0) ? <Button className="button-choose-winner" variant="outline-light" type='button' onClick={this.handleWinningSubmit}>Submit Winner Card</Button> : console.log('A winner has not been submitted yet')}
                     <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>
                 </div>
             </div>
@@ -109,3 +128,4 @@ const mapState = (state) => {
 
 
 export default connect(mapState)(Game)
+
