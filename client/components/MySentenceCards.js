@@ -30,7 +30,7 @@ class MySentenceCards extends React.Component {
 
     render () {
         return (
-            <Row>
+            <Col>
                 <div className="button-row">
                     <Button onClick ={this.handleSubmit} type='submit' variant='outline-light' className="button-submit-card">Submit Card</Button>
                 </div>
@@ -44,7 +44,7 @@ class MySentenceCards extends React.Component {
                         </Card>
                     )}
                 </div>
-            </Row>
+            </Col>
         )
     }
 }

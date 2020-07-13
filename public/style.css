@@ -266,11 +266,6 @@ label {
     flex-direction: row;
 }
 
-/* .card{
-    flex-direction: row;
-    overflow: hidden;
-} */
-
 .card:hover{
     cursor: pointer;
 }
@@ -368,6 +363,17 @@ not needed aat the moment
 .messages {
     overflow: scroll;
     max-height: 200px;
+}
+
+.mySentenceCards {
+    display: flex;
+    flex-direction: column;
+}
+
+.image-column {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 
