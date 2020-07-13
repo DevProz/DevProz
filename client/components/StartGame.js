@@ -14,6 +14,12 @@ class StartGame extends React.Component {
         socket.emit("start_game", { playerId: this.props.player._id, code: this.props.game.entranceCode})
     }
 
+    host(arrayOfPlayers){
+        
+
+    }
+
+
 
     render() {
         if (!this.props.game.players) return <div className="title-new-game">Loading...</div>

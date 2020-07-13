@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Row, Col } from 'react-bootstrap';
+import { Card, Row, Col, Button } from 'react-bootstrap';
 import MySentenceCards from "./MySentenceCards";
 import { connect } from 'react-redux';
 import ImageCard from './ImageCard';
@@ -7,9 +7,33 @@ import Chat from "./Chat";
 import Timer from './Timer';
 import SelectedCards from './SelectedCards'
 
-class Game extends React.Component {    
+class Game extends React.Component {  
+   
 
       render() {
+
+        // const arrOfPlayers = this.props.game.players
+        // let idx = 0
+        // console.log('global index', idx)
+        // const randomPlayer = arrOfPlayers[idx]
+        // console.log('RANDOM PLAYER', randomPlayer)
+
+        // function handleClick(){
+        //     console.log('clicked!')
+        //     if(idx === arrOfPlayers.length - 1){
+        //         idx = 0
+        //     }else{
+        //         idx++
+        //     }
+
+        //     console.log('function index', idx)
+        // }
+        
+        //selecting a random player attempt
+        const arrOfPlayers = this.props.game.players
+        const randomPlayer = arrOfPlayers[Math.floor(Math.random() * arrOfPlayers.length)];
+        console.log('this is random player', randomPlayer._id)
+
         return (
             <div>
                 <div>
@@ -60,6 +84,7 @@ class Game extends React.Component {
                     <Row className="selectedCards-Row">
                     {(this.props.game.selectedCards.length > 0) ? <SelectedCards selectedCards={this.props.game.selectedCards}/> : console.log('there are no selected cards')}
                     </Row>
+                    {(randomPlayer._id === this.props.player._id) && (this.props.game.selectedCards.length > 0) ? <Button>Submit Winner Card</Button> : console.log('A winner has not been submitted yet')}
                     <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>
                 </div>
             </div>
@@ -77,3 +102,4 @@ const mapState = (state) => {
 
 
 export default connect(mapState)(Game)
+
