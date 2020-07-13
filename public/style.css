@@ -384,6 +384,12 @@ not needed aat the moment
     padding-left: 10px;
 }
 
+.selectedCardButton-Row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
 
 
 
