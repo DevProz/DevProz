@@ -5,20 +5,28 @@ import { connect } from 'react-redux';
 import ImageCard from './ImageCard';
 import Chat from "./Chat";
 import Timer from './Timer';
-import SelectedCards from './SelectedCards';
-import socket from '../socket';
-
-class Game extends React.Component {   
-    constructor() {
+import SelectedCards from './SelectedCards'
+import { updatePlayer } from "../store";
+import socket from '../socket'
+class Game extends React.Component {
+    constructor(){
         super()
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleRestartSubmit = this.handleRestartSubmit.bind(this);
+        this.handleWinningSubmit = this.handleWinningSubmit.bind(this)
     } 
+    handleWinningSubmit(){
+        event.preventDefault();
+        socket.emit("update-score",{
+            playerId: this.props.player._id,
+            code: this.props.game.entranceCode, 
+        } )
+    }
 
-    handleSubmit(event) {
+ handleSubmit(event) {
         event.preventDefault();
         socket.emit("leave-game", {code: this.props.game.entranceCode, playerId: this.props.player._id});
-    }
+ }
 
     handleRestartSubmit(event) {
         event.preventDefault();
@@ -26,6 +34,7 @@ class Game extends React.Component {
     }
 
       render() {
+          console.log('hello')
         return (
             <div>
                 <div>
@@ -78,6 +87,11 @@ class Game extends React.Component {
                     <Row className="selectedCards-Row">
                     {(this.props.game.selectedCards.length > 0) ? <SelectedCards selectedCards={this.props.game.selectedCards}/> : console.log('there are no selected cards')}
                     </Row>
+                    <Button>
+                    <div className="winner-button-align">
+                    {(this.props.game.players[0] ? <Button className="button-choose-winner" variant="outline-light" type='button' onClick={this.handleWinningSubmit}> Submit Winning Card</Button> :  <div className="choose-winner" >Waiting for host to choose a winning card...</div>)} 
+                </div>     
+                    </Button>
                     <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>
                 </div>
             </div>

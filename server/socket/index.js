@@ -132,6 +132,7 @@ module.exports = io => {
       const isAlreadySubmitted = game.selectedCards.some(selectedCard => {
         return String(selectedCard.player) == String(player._id)
       })
+      console.log('isalreadySubmitting', isAlreadySubmitted)
       if (!isAlreadySubmitted) {
         game.selectedCards.push({
           sentenceCard: data.sentenceCardId,
@@ -165,6 +166,23 @@ module.exports = io => {
       await leavingPlayer.save();
       socket.emit("updated_game", null);
     })
+
+    socket.on('update-score', async data =>{
+      const game = await Game.findOne({
+        entranceCode: data.code
+      });
+      const player = await Player.findOne({
+        _id: data.playerId
+      });
+        player.score ++;
+        await player.save();
+        sendPopulateGame(game._id);
+
+    })
+    
+
+
+
 
     socket.on('disconnect', () => {
       console.log(`Connection ${socket.id} has left the building`);
