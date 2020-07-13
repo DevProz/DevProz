@@ -3,13 +3,12 @@ import { Card } from 'react-bootstrap'
 
 
 const SelectedCards = (props) => {
-  console.log('this is props in selected cards', props)
       return (
         <div className='cards-row'> 
           {props.selectedCards.map((card) => 
             <Card>
               <Card.Body>
-                 {card}
+                 {card.sentenceCard.sentence}
               </Card.Body>
             </Card>
           )}

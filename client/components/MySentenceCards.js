@@ -1,6 +1,6 @@
 import React from "react";
-import { Card } from 'react-bootstrap'
 import { connect } from 'react-redux'
+import { Card, Button, Row, Col } from 'react-bootstrap';
 import socket from '../socket'
 import { me } from '../store'
 
@@ -11,29 +11,40 @@ class MySentenceCards extends React.Component {
         this.state = {
             active: null,
         }
+        this.handleClick = this.handleClick.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }   
 
-    handleSubmit(id, event){
+    handleSubmit(event) {
+        event.preventDefault();
+        socket.emit("submit_card", {code: this.props.game.entranceCode, sentenceCardId: this.state.active, playerId: this.props.player._id});
+    }
+
+    handleClick(cardId, event){
         if (this.state.active) {
-            this.setState({active: null})
+            this.setState({active: null});
         } else {
-            this.setState({ active: id });   
+            this.setState({ active: cardId });   
         }
-        socket.emit("submit_card", {code: this.props.game.entranceCode, card: event.target.id, playerId: this.props.player._id, sentence: event.target.title})
     }
 
     render () {
         return (
-            <div className="cards-row">
-                {this.props.player.sentenceCards.map((card, id) =>
-                    <Card key={card._id}>
-                        <Card.Body className = {this.state.active === id ? "active" : null}
-                        id={card._id} title={card.sentence} style={{width: "10rem"}} onClick = {() => this.handleSubmit(id, event)}>
-                                    {card.sentence}
-                        </Card.Body>
-                    </Card>
-                )}
-            </div>
+            <Row>
+                <div className="button-row">
+                    <Button onClick ={this.handleSubmit} type='submit' variant='outline-light' className="button-submit-card">Submit Card</Button>
+                </div>
+                <div className="cards-row">   
+                    {this.props.player.sentenceCards.map((card) =>
+                        <Card key={card._id}>
+                            <Card.Body className = {this.state.active === card._id ? "active" : null}
+                            id={card._id} title={card.sentence} onClick = {() => this.handleClick(card._id, event)} style={{width: "10rem"}}>
+                                        {card.sentence}
+                            </Card.Body>
+                        </Card>
+                    )}
+                </div>
+            </Row>
         )
     }
 }

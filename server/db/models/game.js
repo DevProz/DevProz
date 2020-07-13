@@ -1,5 +1,17 @@
 const { Schema, model, Types } = require("mongoose");
 
+const selectedCard = new Schema({
+  sentenceCard: {
+    type: Schema.Types.ObjectId,
+    ref: "SentenceCard",
+  },
+  player: {
+    type: Schema.Types.ObjectId,
+    ref: "Player",
+  }
+})
+
+
 const gameSchema = new Schema({
     entranceCode: {
       type: String,
@@ -23,9 +35,7 @@ const gameSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "SentenceCard",
       }],
-    selectedCards: {
-        type: Array
-      }
+    selectedCards: [selectedCard],
   },
   { timestamps: true }
 );
