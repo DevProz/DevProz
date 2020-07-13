@@ -376,6 +376,10 @@ not needed aat the moment
     flex-direction: column;
 }
 
+.selectedCards-Row {
+    display: contents;
+}
+
 
 
 

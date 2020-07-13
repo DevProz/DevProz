@@ -45,7 +45,6 @@ class Game extends React.Component {
                         </Col>
                         <Col className="image-column">
                         <ImageCard imageCards={this.props.game.imageCards}/>
-                        {(this.props.game.selectedCards.length > 0) ? <SelectedCards selectedCards={this.props.game.selectedCards}/> : console.log('there are no selected cards')}
                         </Col>
                         <Col>
                             <Card border="info board-margin" style={{ width: '20rem' }}>
@@ -57,6 +56,9 @@ class Game extends React.Component {
                             </Card.Body>
                             </Card>
                         </Col>
+                    </Row>
+                    <Row className="selectedCards-Row">
+                    {(this.props.game.selectedCards.length > 0) ? <SelectedCards selectedCards={this.props.game.selectedCards}/> : console.log('there are no selected cards')}
                     </Row>
                     <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>
                 </div>
