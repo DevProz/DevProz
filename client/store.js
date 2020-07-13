@@ -41,12 +41,7 @@ export const updatePlayer = player => {
     }
 };
 
-const selectedCard = card => {
-    return {
-        type: SELECTED_CARD,
-        card
-    }
-};
+
 
 export const receiveMessage = message => {
     return {
