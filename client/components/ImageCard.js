@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Card } from 'react-bootstrap';
 import { connect } from 'react-redux';
@@ -16,8 +15,11 @@ const ImageCards = (props) => {
     )
 }
 
-const mapState = (state) => ({
-  game: state.game,
-});
+const mapState = (state) => {
+  return {
+      game: state.game,
+  }
+}
 
 export default connect(mapState)(ImageCards);
+
