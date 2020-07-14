@@ -169,7 +169,7 @@ module.exports = io => {
       socket.emit("updated_game", null);
     })
 
-    socket.on('update-score', async data => {
+    socket.on('new_round', async data => {
       const game = await Game.findOne({
         entranceCode: data.code
       });
@@ -178,13 +178,35 @@ module.exports = io => {
       });
       player.score++;
       await player.save();
+
+      const playersArray = game.players
+      let hostId = game.host
+      let foundHost = playersArray.indexOf(hostId)
+      if(foundHost === playersArray.length -1){
+        foundHost = 0
+      }else{
+        foundHost++
+      }
+      let newHost = playersArray[foundHost]
+      game.host = newHost
+      
+      game.currentImage = game.imageCards.pop()
+
+      game.selectedCards = []
+
+      await game.players.forEach(async playerId => {
+        const forEachPlayer = await Player.findOne({
+          _id: playerId
+        });
+        const newCard = game.sentenceCards.pop()
+        forEachPlayer.sentenceCards.push(newCard);
+        await forEachPlayer.save();
+      });
+
+      await game.save()
       sendPopulateGame(game._id);
-      //how to switch the player
-      //use a find on the players array to find the currrent host, then just ++
 
     })
-
-
 
 
 
