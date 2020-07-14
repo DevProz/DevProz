@@ -3,7 +3,6 @@ import { Button } from 'react-bootstrap'
 import { fetchNewGame, me } from '../store'
 import { connect } from 'react-redux'
 import socket from '../socket'
-import history from '../history';
 
 class NewGame extends React.Component {
     constructor(){
