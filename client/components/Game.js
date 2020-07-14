@@ -18,7 +18,7 @@ class Game extends React.Component {
     } 
     handleWinningSubmit(){
         event.preventDefault();
-        socket.emit("update-score",{
+        socket.emit("new_round",{
             playerId: this.props.player._id,
             code: this.props.game.entranceCode, 
         } )
