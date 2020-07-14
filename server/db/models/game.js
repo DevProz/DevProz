@@ -30,6 +30,9 @@ const gameSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Player',
   },
+  timer: {
+    type: String
+  },
   imageCards: [{
     type: Schema.Types.ObjectId,
     ref: "ImageCard",
