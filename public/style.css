@@ -274,6 +274,10 @@ label {
     border: 5px solid yellow;
 }
 
+.winner{
+    border: 5px solid #cc66ff;
+}
+
 .button-submit-card{
     margin-top: 20px;
     margin-bottom: 20px;

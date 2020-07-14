@@ -25,7 +25,7 @@ class  SelectedCards extends React.Component {
         <Row className='cards-row'> 
           {this.props.selectedCards.map((card) => 
             <Card style={{ width: '10rem' }} key={card._id}>
-              <Card.Body className = {this.state.active === card._id ? "active" : null}
+              <Card.Body className = {this.state.active === card._id ? "winner" : null}
               id={card._id} title={card.sentenceCard.sentence} onClick = {() => this.handleClick(card._id, event)} style={{ width: '10rem' }}>
                  {card.sentenceCard.sentence}
               </Card.Body>
