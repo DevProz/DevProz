@@ -5,8 +5,9 @@ import { connect } from 'react-redux';
 import ImageCard from './ImageCard';
 import Chat from "./Chat";
 import Timer from './Timer';
-import SelectedCards from './SelectedCards';
-import socket from '../socket';
+import SelectedCards from './SelectedCards'
+import { updatePlayer } from "../store";
+import socket from '../socket'
 
 class Game extends React.Component {
     constructor(){
@@ -17,16 +18,16 @@ class Game extends React.Component {
     } 
     handleWinningSubmit(){
         event.preventDefault();
-        socket.emit("new_round",{
+        socket.emit("update-score",{
             playerId: this.props.player._id,
             code: this.props.game.entranceCode, 
         } )
     }
 
- handleSubmit(event) {
+    handleSubmit(event) {
         event.preventDefault();
         socket.emit("leave-game", {code: this.props.game.entranceCode, playerId: this.props.player._id});
- }
+    }
   
    handleRestartSubmit(event) {
         event.preventDefault();
@@ -84,12 +85,11 @@ class Game extends React.Component {
                             </Card>
                         </Col>
                     </Row>
-                    <Row className="selectedCardButton-Row">
-                        {(this.props.game.host === this.props.player._id) && (this.props.game.selectedCards.length === this.props.game.players.length) ? <Button className="button-choose-winner" variant="outline-light" type='button' onClick={this.handleWinningSubmit}>Submit Winner Card</Button> : console.log('A winner has not been submitted yet')}
-                    </Row>
                     <Row className="selectedCards-Row">
-                        {(this.props.game.selectedCards.length > 0) ? <SelectedCards selectedCards={this.props.game.selectedCards}/> : console.log('there are no selected cards')}
+                    {(this.props.game.selectedCards.length > 0) ? <SelectedCards selectedCards={this.props.game.selectedCards}/> : console.log('there are no selected cards')}
                     </Row>
+
+                    {(this.props.game.host === this.props.player._id) && (this.props.game.selectedCards.length === this.props.game.players.length-1) ? <Button className="button-choose-winner" variant="outline-light" type='button' onClick={this.handleWinningSubmit}>Submit Winner Card</Button> : console.log('A winner has not been submitted yet')}
                     <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>
                 </div>
             </div>
@@ -104,6 +104,7 @@ const mapState = (state) => {
 
     }
 }
+
 
 export default connect(mapState)(Game)
 
