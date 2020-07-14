@@ -194,18 +194,17 @@ module.exports = io => {
 
       game.selectedCards = []
 
-      await game.players.forEach(async playerId => {
+      for (let i = 0; i < game.players.length; i++) {
         const forEachPlayer = await Player.findOne({
-          _id: playerId
+          _id: game.players[i]
         });
         const newCard = game.sentenceCards.pop()
         forEachPlayer.sentenceCards.push(newCard);
         await forEachPlayer.save();
-      });
+      }
 
       await game.save()
       sendPopulateGame(game._id);
-
     })
 
 
