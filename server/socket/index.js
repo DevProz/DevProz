@@ -26,7 +26,7 @@ module.exports = io => {
         path: 'sentenceCards',
         model: 'SentenceCard'
       }
-    }).populate('imageCards').populate('sentenceCards').populate({
+    }).populate('currentImage').populate('sentenceCards').populate({
       path: 'selectedCards',
       populate: {
         path: 'sentenceCard',
@@ -42,7 +42,6 @@ module.exports = io => {
     console.log(`A socket connection to the server has been made: ${socket.id}`);
 
     socket.on('new_game', async data => {
-      console.log("new game")
       const player = await Player.findOne({
         _id: data.playerId
       })
@@ -77,12 +76,16 @@ module.exports = io => {
       const game = await Game.findOne({
         entranceCode: data.code
       })
+
+      const arrOfPlayers = game.players
+      const hostId = arrOfPlayers[Math.floor(Math.random() * arrOfPlayers.length)];
+      game.host = hostId
+
       const imageCards = await ImageCard.find();
       const sentenceCards = await SentenceCard.find();
 
-      const newImageCardsDeck = shuffleArray(imageCards);
-      const oneImage = newImageCardsDeck.slice(0, 1); //needs to be changed
-      game.imageCards = oneImage;
+      game.imageCards = shuffleArray(imageCards);
+      game.currentImage = game.imageCards.pop();
 
       const newDeck = shuffleArray(sentenceCards);
       await game.players.forEach(async playerId => {
@@ -115,7 +118,7 @@ module.exports = io => {
       const player = await Player.findOne({
         _id: data.playerId
       })
-      io.to(data.code).emit('receive-message', {
+      io.to(data.code).emit('receive-message', { 
         message: data.message,
         playerName: player.name
       });
@@ -132,7 +135,6 @@ module.exports = io => {
       const isAlreadySubmitted = game.selectedCards.some(selectedCard => {
         return String(selectedCard.player) == String(player._id)
       })
-      console.log('isalreadySubmitting', isAlreadySubmitted)
       if (!isAlreadySubmitted) {
         game.selectedCards.push({
           sentenceCard: data.sentenceCardId,
@@ -167,19 +169,21 @@ module.exports = io => {
       socket.emit("updated_game", null);
     })
 
-    socket.on('update-score', async data =>{
+    socket.on('update-score', async data => {
       const game = await Game.findOne({
         entranceCode: data.code
       });
       const player = await Player.findOne({
         _id: data.playerId
       });
-        player.score ++;
-        await player.save();
-        sendPopulateGame(game._id);
+      player.score++;
+      await player.save();
+      sendPopulateGame(game._id);
+      //how to switch the player
+      //use a find on the players array to find the currrent host, then just ++
 
     })
-    
+
 
 
 
