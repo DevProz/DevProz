@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import store from './store';
 import App from "./components/App";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-//import history from './history';
 import ChangeName from './components/ChangeName';
 
 ReactDOM.render(
