@@ -1,9 +1,10 @@
-import React from 'react';
-import { Button } from 'react-bootstrap';
-import { connect } from 'react-redux';
-import socket from '../socket';
+import React from "react";
+import { Button } from 'react-bootstrap'
+import { connect } from 'react-redux'
+import socket from '../socket'
 
 class StartGame extends React.Component {
+
     constructor(){
         super()
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -12,6 +13,10 @@ class StartGame extends React.Component {
     handleSubmit(){
         socket.emit("start_game", { playerId: this.props.player._id, code: this.props.game.entranceCode})
     }
+
+    
+
+
 
     render() {
         if (!this.props.game.players) return <div className="title-new-game">Loading...</div>
@@ -42,9 +47,5 @@ const mapState = (state) => {
     }
 }
 
-const mapState = (state) => ({
-  game: state.game,
-  player: state.player,
-});
 
-export default connect(mapState)(StartGame);
+export default connect(mapState)(StartGame)

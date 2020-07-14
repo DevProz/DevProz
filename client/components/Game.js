@@ -1,32 +1,28 @@
-import React from 'react';
-import {
-  Card, Row, Col, Button,
-} from 'react-bootstrap';
+import React from "react";
+import { Card, Row, Col, Button } from 'react-bootstrap';
+import MySentenceCards from "./MySentenceCards";
 import { connect } from 'react-redux';
-import MySentenceCards from './MySentenceCards';
 import ImageCard from './ImageCard';
-import Chat from './Chat';
+import Chat from "./Chat";
 import Timer from './Timer';
-
 import SelectedCards from './SelectedCards'
 import { updatePlayer } from "../store";
 import socket from '../socket'
 
 class Game extends React.Component {
-  constructor() {
-    super();
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleRestartSubmit = this.handleRestartSubmit.bind(this);
-    this.handleWinningSubmit = this.handleWinningSubmit.bind(this);
-  }
-
-  handleWinningSubmit() {
-    event.preventDefault();
-    socket.emit('update-score', {
-      playerId: this.props.player._id,
-      code: this.props.game.entranceCode,
-    });
-  }
+    constructor(){
+        super()
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleRestartSubmit = this.handleRestartSubmit.bind(this);
+        this.handleWinningSubmit = this.handleWinningSubmit.bind(this)
+    } 
+    handleWinningSubmit(){
+        event.preventDefault();
+        socket.emit("update-score",{
+            playerId: this.props.player._id,
+            code: this.props.game.entranceCode, 
+        } )
+    }
 
  handleSubmit(event) {
         event.preventDefault();
@@ -97,21 +93,20 @@ class Game extends React.Component {
                     <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>
                 </div>
             </div>
-          </Button>
-          <MySentenceCards sentenceCards={this.props.game.sentenceCards} />
-        </div>
-      </div>
-    );
-  }
+        )
+    }
 }
 
-const mapState = (state) => ({
-  game: state.game,
-  player: state.player,
+const mapState = (state) => {
+    return {
+        game: state.game,
+        player: state.player,
 
-});
+    }
+}
 
 
 export default connect(mapState)(Game)
+
 
 
