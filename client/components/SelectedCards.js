@@ -9,18 +9,30 @@ class  SelectedCards extends React.Component {
     this.state = {
         active: null,
     }
-}  
+  }  
 
-        handleClick(cardId){
-          if (this.state.active) {
-              this.setState({active: null});
-          } else {
-              this.setState({ active: cardId });   
-          }
-        }
+  handleClick(cardId){
+    if (this.state.active) {
+        this.setState({active: null});
+    } else {
+        this.setState({ active: cardId });   
+    }
+  }
 
-      render () {  
-        console.log("selected card state", this.props)
+  render () {  
+      
+    if (this.props.game.status == "ALL_SELECTING") {
+      return (
+        <Row className='cards-row'> 
+        {this.props.selectedCards.map((card) => 
+          <Card style={{ width: '10rem' }} key={card._id}>
+            <Card.Body style={{ width: '10rem' }}>
+                <div>{card.player.name}</div>
+            </Card.Body>
+          </Card>
+        )}
+      </Row>
+      )} else {
       return (
         <Row className='cards-row'> 
           {this.props.selectedCards.map((card) => 
@@ -32,12 +44,11 @@ class  SelectedCards extends React.Component {
             </Card>
           )}
         </Row>
-    )
+    )}
   }
 } 
 
 const mapState = (state) => {
-  console.log("state SC", state)
   return {
       game: state.game,
       player: state.player

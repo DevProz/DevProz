@@ -1,7 +1,6 @@
 import React from "react";
 
-
-function Timer() {
+function Timer(props) {
     const [counter, setCounter] = React.useState(5);
     // if (counter == 0) {
     //     alert("Time is up!")
