@@ -5,6 +5,8 @@ const SentenceCard = require('../db/models/sentenceCard');
 const {
   update
 } = require('../db/models/game');
+const player = require('../db/models/player');
+const game = require('../db/models/game');
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -281,11 +283,45 @@ module.exports = io => {
       if (!countdown) {
         clearInterval(this);
 
-        let playerId;
-        // TODO: maybe change it to -1 to the host
-        // if (countdownGame.selectedCards.length != 0) {
-        //   playerId = countdownGame.selectedCards[Math.floor(Math.random() * countdownGame.players.length)].player;
+       const player = await Player.findOne({
+         _id: countdownGame.host
+       })
+       
+       player.score --
+       await player.save()
+
+       console.log(" this is score of player:", player.score)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // console.log("this is countdownGame", countdownGame)
+        // let playerId;
+        //  if (countdownGame.selectedCards.length != 0) {
+        //    playerId=countdownGame.selectedCards.filter(host=> {
+        //       return (String(countdownGame.host)===String(playerId)) 
+        //     }).player
+        //   }
+        //   countdown
+        //   console.log("this is playerId:", playerId)
+          //  (String(countdownGame.host)===String(playerId)) && 
+          // playerId = countdownGame.selectedCards[Math.floor(Math.random() * countdownGame.players.length)].player;
         // }
+        // console.log("this is", countdownGame.host
+        // TODO: maybe change it to -1 to the host
+
         start_new_round(countdownGame.entranceCode)
         await countdownGame.save();
         sendPopulateGame(countdownGame._id);
