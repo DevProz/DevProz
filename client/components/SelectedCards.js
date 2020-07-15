@@ -31,11 +31,6 @@ class  SelectedCards extends React.Component {
           }
         }
 
-    
-
- 
-
-
   render () {  
       
     if (this.props.game.status == "ALL_SELECTING") {
