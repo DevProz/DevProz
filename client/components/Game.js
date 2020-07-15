@@ -76,6 +76,26 @@ class Game extends React.Component {
                                             <Chat/>
                                         </Card.Text>
                                 </Card.Body>
+                      
+                            </Card>
+                        </Col>
+                    </Row>
+                    <div className="host-notification">
+                        {(this.props.game.host === this.props.player._id) ? <div> YOU ARE THE HOST! </div> : <div> Please submit a card </div>}
+                    </div>
+                    <Row className="selectedCards-Row">
+                        {(this.props.game.selectedCards.length > 0) ? <SelectedCards selectedCards={this.props.game.selectedCards}/> : console.log('there are no selected cards')}
+                    </Row>
+                    <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>
+                </div>
+                <Row className="selectedCardButton-Row">
+                        {(this.props.game.host === this.props.player._id) && (this.props.game.selectedCards.length === this.props.game.players.length) ? <Button className="button-choose-winner" variant="outline-light" type='button' onClick={this.handleWinningSubmit}>Submit Winner Card</Button> : console.log('A winner has not been submitted yet')}
+                    </Row>
+                    <br/>
+                 
+            </div>
+        )
+
 
                                 </Card>
                             </Col>
