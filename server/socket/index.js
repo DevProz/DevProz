@@ -188,10 +188,6 @@ module.exports = io => {
       socket.emit("updated_game", null);
     })
 
-    socket.on('new_round', async data => {
-      start_new_round(data.code, data.selectedCardPlayerId)
-    })
-
     socket.on("timer-is-up", async data => {
       const game = await Game.findOne({
         entranceCode: data.code
@@ -203,24 +199,38 @@ module.exports = io => {
       sendPopulateGame(game._id);
     });
 
+    socket.on("winning-card-submission", async data => {
+      give_score_to_player(data.selectedCardPlayerId);
+      const game = await Game.findOne({
+        entranceCode: data.code
+      });
+      game.status = "VIEW_WINNING_CARD";
+      game.selectedCards = game.selectedCards.filter(card => {
+        return String(card.player) == String(data.selectedCardPlayerId)
+      });
+      await game.save();
+      popUpWinningCard(game.entranceCode);
+      sendPopulateGame(game._id);
+    })
+
     socket.on('disconnect', () => {
       console.log(`Connection ${socket.id} has left the building`);
     })
   })
+
+  async function give_score_to_player(player_id) {
+    const player = await Player.findOne({
+      _id: player_id
+    });
+    player.score++;
+    await player.save();
+  }
 
   // Starts a new round and gives this player id the score
   async function start_new_round(game_code, player_id) {
     const game = await Game.findOne({
       entranceCode: game_code
     });
-
-    if (player_id != undefined) {
-      const player = await Player.findOne({
-        _id: player_id
-      });
-      player.score++;
-      await player.save();
-    }
 
     const playersArray = game.players
     let hostId = game.host
@@ -272,11 +282,11 @@ module.exports = io => {
         clearInterval(this);
 
         let playerId;
-        //maybe change it to -1 to the host
-        if (countdownGame.selectedCards.length != 0) {
-          playerId = countdownGame.selectedCards[Math.floor(Math.random() * countdownGame.players.length)].player;
-        }
-        start_new_round(countdownGame.entranceCode, playerId)
+        // TODO: maybe change it to -1 to the host
+        // if (countdownGame.selectedCards.length != 0) {
+        //   playerId = countdownGame.selectedCards[Math.floor(Math.random() * countdownGame.players.length)].player;
+        // }
+        start_new_round(countdownGame.entranceCode)
         await countdownGame.save();
         sendPopulateGame(countdownGame._id);
       }
@@ -298,7 +308,7 @@ module.exports = io => {
       io.to(countdownGame.entranceCode).emit("receive-countdown", countdown)
       if (!countdown) {
         clearInterval(this);
-        countdownGame.status = "HOST_SELECTING"
+        countdownGame.status = "HOST_SELECTING";
         await countdownGame.save();
         startHostCountdown(countdownGame._id);
         sendPopulateGame(countdownGame._id);
@@ -306,6 +316,20 @@ module.exports = io => {
     }
 
     setInterval(countdownFunction, 1000);
-  }
+  };
 
+  async function popUpWinningCard(code) {
+    let countdown = 10;
+    async function countdownFunction() {
+      
+      countdown--;
+      io.to(code).emit("receive-countdown", countdown)
+      if (!countdown) { // counter hit 0
+        clearInterval(this);
+        start_new_round(code);
+      }
+    }
+
+    setInterval(countdownFunction, 1000);
+  };
 }
