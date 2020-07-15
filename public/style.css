@@ -34,6 +34,7 @@ li {
 
 .question-mark-color {
   color: yellow;
+  padding-right: 10px;
 }
 
 .button-enter-name {
@@ -147,31 +148,22 @@ li {
   text-align: center;
   color: #eeeeee;
   font-family: "Arvo";
-  font-size: 34px;
-  padding: 50px 50px;
+  font-size: 20px;
   display: flex;
   justify-content: center;
-  margin-bottom: 30px;
-  margin-top: 20px;
-
-  
 }
 @keyframes glowing {
   0% {
-    background-color: #cc66ff;
+    background-color: yellow;
     box-shadow: 0 0 5px #cc66ff;
-  }
-  50% {
-    background-color: purple;
-    box-shadow: 0 0 20px purple;
   }
   100% {
-    background-color: #cc66ff;
-    box-shadow: 0 0 5px #cc66ff;
+    background-color: #66cdaa;
+    box-shadow: 0 0 5px #66cdaa;
   }
 }
 .host-notification {
-  animation: glowing 1300ms infinite;
+  animation: glowing 2000ms infinite;
 }
 
 /*Font Page animation*/
@@ -327,6 +319,7 @@ label {
   display: flex;
   justify-content: space-around;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .card:hover {
@@ -339,7 +332,9 @@ label {
 } */
 
 
-
+.buttons-align-left {
+    margin-left: auto;
+}
 
 .winner {
   border: 5px solid #cc66ff;
@@ -357,8 +352,7 @@ label {
 
 .title-game-page {
   display: flex;
-  margin-top: 10px;
-  margin-left: 10px;
+  padding: 10px;
 }
 
 .row-game-board {
