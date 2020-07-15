@@ -30,7 +30,9 @@ class MySentenceCards extends React.Component {
         return (
             <Col>
                 <div className="button-row">
-                {(this.props.player._id !== this.props.game.host) ? <Button onClick ={this.handleSubmit} disabled={!(!!this.state.active)} type='submit' variant='outline-light' className="button-submit-card">Submit Card</Button> : console.log('you are host') }
+                {(this.props.player._id !== this.props.game.host && this.props.game.status == "ALL_SELECTING") 
+                    ? <Button onClick ={this.handleSubmit} disabled={!(!!this.state.active)} type='submit' variant='outline-light' className="button-submit-card">Submit Card</Button> 
+                    : console.log('you are host') }
                 </div>
                 <div className="cards-row">   
                     {this.props.player.sentenceCards.map((card) =>
