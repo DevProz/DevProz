@@ -289,6 +289,12 @@ module.exports = io => {
       if (!countdown) {
         clearInterval(this);
 
+       const player = await Player.findOne({
+         _id: countdownGame.host
+       })
+       player.score --
+       await player.save()
+
         start_new_round(countdownGame.entranceCode)
         await countdownGame.save();
         sendPopulateGame(countdownGame._id);

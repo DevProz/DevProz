@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Row, Col, Button } from "react-bootstrap";
+import { Card, Row, Col, Button, Jumbotron } from 'react-bootstrap';
 import MySentenceCards from "./MySentenceCards";
 import { connect } from "react-redux";
 import ImageCard from "./ImageCard";
@@ -24,65 +24,90 @@ class Game extends React.Component {
         socket.emit("start_game", { playerId: this.props.player._id, code: this.props.game.entranceCode});
     }
 
-    render() {
-        return (
-            <div>
+      render() {
+          const players = this.props.game.players
+          const winningPlayer = players.find(player => player.score === 5)
+          console.log('WINNING PLAYER', winningPlayer)
+          if(winningPlayer === undefined){
+            return (
                 <div>
-                <div className="title-game-page">
-                <p className="what-color">WHAT</p>
-                <p className="do-color">DO </p>
-                <p className="you-color">YOU </p>
-                <p className="meme-color">MEME</p>
-                <p className="question-mark-color">?</p>
-                </div>
-                <Button type="submit" onClick ={this.handleSubmit} variant="outline-light" className="button-leave-game">Leave the game</Button>
-                <Button type="button" onClick ={this.handleRestartSubmit} variant="outline-light" className="button-leave-game">Restart the game</Button>
-                    <Row>
-                        <Col>
-                        <Card className="score"  style={{ width: "10rem" }}>
-                            <Card.Header className="countdown-style">
-                                Countdown: {this.props.countdown}
-                            </Card.Header>
-                        </Card>
-                        <Card  className="score" style={{ width: "10rem" }}>
-                            <Card.Header> Score:  </Card.Header>
-                                <Card.Body>
-                                {this.props.game.players.map((player) => {
-                                    return (
-                                        <table className="table">
-                                        <tr className="score-board">
-                                            <td className="score-board-name">{player.name}:</td>
-                                            <td className="score-board-score">{player.score}</td>
-                                        </tr>
-                                        </table>
-                                    )
-                                })}
-                                </Card.Body>
-                        </Card>
-                        </Col>
-                        <Col className="image-column">
-                        <ImageCard currentImage={this.props.game.currentImage}/>
-                        </Col>
-                        <Col>
-                            <Card className="score" style={{ width: "20rem" }}>
-                            <Card.Header> Live Chat:  </Card.Header>
-                            <Card.Body>
-                                    <Card.Text className="chat-text">
-                                        <Chat/>
-                                    </Card.Text>
-                            </Card.Body>
+                    <div>
+                    <div className="title-game-page">
+                    <p className="what-color">WHAT</p>
+                    <p className="do-color">DO </p>
+                    <p className="you-color">YOU </p>
+                    <p className="meme-color">MEME</p>
+                    <p className="question-mark-color">?</p>
+                    </div>
+                    <Button type='submit' onClick ={this.handleSubmit} variant='outline-light' className="button-leave-game">Leave the game</Button>
+                    <Button type='button' onClick ={this.handleRestartSubmit} variant='outline-light' className="button-leave-game">Restart the game</Button>
+                        <Row>
+                            <Col>
+                            <Card className='score'  style={{ width: '10rem' }}>
+                                <Card.Header className="countdown-style">
+                                    Countdown: {this.props.countdown}
+                                </Card.Header>
                             </Card>
-                        </Col>
-                    </Row>
-                    <Row className="selectedCards-Row">
-                        {(this.props.game.selectedCards.length > 0) ? <SelectedCards selectedCards={this.props.game.selectedCards}/> : console.log("there are no selected cards")}
-                    </Row>
-                    <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>
+                            <Card  className='score' style={{ width: '10rem' }}>
+                                <Card.Header> Score:  </Card.Header>
+                                    <Card.Body>
+                                    {this.props.game.players.map((player) => {
+                                        return (
+                                            <table className="table">
+                                            <tr className="score-board">
+                                                <td className="score-board-name">{player.name}:</td>
+                                                <td className="score-board-score">{player.score}</td>
+                                            </tr>
+                                            </table>
+                                        )
+                                    })}
+                                    </Card.Body>
+                            </Card>
+                            </Col>
+                            <Col className="image-column">
+                            <ImageCard currentImage={this.props.game.currentImage}/>
+                            </Col>
+                            <Col>
+                                <Card className='score' style={{ width: '20rem' }}>
+                                <Card.Header> Live Chat:  </Card.Header>
+
+                                <Card.Body>
+                                        <Card.Text className='chat-text'>
+                                            <Chat/>
+                                        </Card.Text>
+                                </Card.Body>
+
+                                </Card>
+                            </Col>
+                        </Row>
+                        <Row className="selectedCards-Row">
+                            {(this.props.game.selectedCards.length > 0) ? <SelectedCards selectedCards={this.props.game.selectedCards}/> : console.log('there are no selected cards')}
+                        </Row>
+                        <MySentenceCards sentenceCards={this.props.game.sentenceCards}/> 
+                    </div>
+
                 </div>
-            </div>
-        )
+            )
+
+          }else{
+              return(
+                  <Jumbotron className='jumbotron'>
+                    <h1>Congratulations {winningPlayer.name}! You are the winner!</h1>
+                    <Button className='button-winning-page' type='submit' onClick ={this.handleSubmit} variant='outline-light'>Leave the game</Button>
+                    <Button className='button-winning-page' type='button' onClick ={this.handleRestartSubmit} variant='outline-light'>Restart the game</Button>
+                  </Jumbotron>
+                  
+                      
+                  
+              )
+          }
+
+           
+
+          }
+       
     }
-}
+
 
 const mapState = (state) => {
     return {
