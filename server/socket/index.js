@@ -31,8 +31,14 @@ module.exports = io => {
       populate: {
         path: 'sentenceCard',
         model: 'SentenceCard'
-      }
-    }).then(populatedGame => {
+      },
+    }).populate({
+      path: 'selectedCards',
+      populate: {
+        path: 'player',
+        model: 'Player'
+        }
+      }).then(populatedGame => {
       console.log("sending back game")
       io.to(populatedGame.entranceCode).emit('updated_game', populatedGame);
     })
@@ -77,6 +83,8 @@ module.exports = io => {
         entranceCode: data.code
       })
 
+      game.status = "ALL_SELECTING";
+
       const arrOfPlayers = game.players
       const hostId = arrOfPlayers[Math.floor(Math.random() * arrOfPlayers.length)];
       game.host = hostId
@@ -98,6 +106,9 @@ module.exports = io => {
       });
 
       game.sentenceCards = newDeck;
+
+      game.selectedCards = [];
+
       await game.save();
 
       sendPopulateGame(game._id);
@@ -143,6 +154,11 @@ module.exports = io => {
         const newCardsArray = player.sentenceCards.filter(savedCardId => {
           return savedCardId != data.sentenceCardId;
         })
+
+        if (game.players.length - 1 == game.selectedCards.length) {
+          game.status = "HOST_SELECTING";
+        }
+
         player.sentenceCards = newCardsArray;
         await player.save();
         await game.save();
@@ -210,18 +226,19 @@ module.exports = io => {
       //clearing out the selected cards
       game.selectedCards = []
 
-      await game.players.forEach(async playerId => {
+      for (let i = 0; i < game.players.length; i++) {
         const forEachPlayer = await Player.findOne({
-          _id: playerId
+          _id: game.players[i]
         });
         const newCard = game.sentenceCards.pop()
         forEachPlayer.sentenceCards.push(newCard);
         await forEachPlayer.save();
-      });
+      }
+
+      game.status = "ALL_SELECTING";
 
       await game.save()
       sendPopulateGame(game._id);
-
     })
 
 

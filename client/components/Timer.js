@@ -1,9 +1,10 @@
 import React from "react";
 
-
-function Timer() {
-    const [counter, setCounter] = React.useState(30);
-
+function Timer(props) {
+    const [counter, setCounter] = React.useState(5);
+    // if (counter == 0) {
+    //     alert("Time is up!")
+    // }
     // Third Attempts
     React.useEffect(() => {
         const timer =

@@ -11,6 +11,7 @@ class  SelectedCards extends React.Component {
         active: null,
         winningCard: null
     }
+
     this.handleWinningSubmit = this.handleWinningSubmit.bind(this)
 }  
 
@@ -32,8 +33,25 @@ class  SelectedCards extends React.Component {
           }
         }
 
-      render () {  
-        console.log("selected card state", this.props)
+    
+
+ 
+
+
+  render () {  
+      
+    if (this.props.game.status == "ALL_SELECTING") {
+      return (
+        <Row className='cards-row'> 
+        {this.props.selectedCards.map((card) => 
+          <Card style={{ width: '10rem' }} key={card._id}>
+            <Card.Body style={{ width: '10rem' }}>
+                <div>{card.player.name}</div>
+            </Card.Body>
+          </Card>
+        )}
+      </Row>
+      )} else {
       return (
         <div>
         <Row className="selectedCardButton-Row">
@@ -50,13 +68,16 @@ class  SelectedCards extends React.Component {
             </Card>
           )}
         </Row>
+
       </div>
     )
+=======
+    )}
+
   }
 } 
 
 const mapState = (state) => {
-  console.log("state SC", state)
   return {
       game: state.game,
       player: state.player

@@ -13,15 +13,8 @@ class Game extends React.Component {
         super()
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleRestartSubmit = this.handleRestartSubmit.bind(this);
-        //this.handleWinningSubmit = this.handleWinningSubmit.bind(this)
     } 
-    // handleWinningSubmit(){
-    //     event.preventDefault();
-    //     socket.emit("new_round",{
-    //         playerId: this.props.player._id,
-    //         code: this.props.game.entranceCode, 
-    //     } )
-    // }
+    
 
  handleSubmit(event) {
         event.preventDefault();
@@ -50,7 +43,7 @@ class Game extends React.Component {
                     <Row>
                         <Col>
                         <Card border="info board-margin" style={{ width: '10rem' }}>
-                            <Card.Header className="countdown-style"> Countdown: <Timer/> </Card.Header>
+                            <Card.Header className="countdown-style"> Countdown: <Timer isHost={this.props.player._id == this.props.game.host}/> </Card.Header>
                         </Card>
                         <Card  border="info" style={{ width: '10rem' }}>
                             <Card.Header> Score:  </Card.Header>
@@ -84,9 +77,11 @@ class Game extends React.Component {
                             </Card>
                         </Col>
                     </Row>
-                    {/* <Row className="selectedCardButton-Row">
-                        {(this.props.game.host === this.props.player._id) && (this.props.game.selectedCards.length === this.props.game.players.length) ? <Button className="button-choose-winner" variant="outline-light" type='button' onClick={this.handleWinningSubmit}>Submit Winner Card</Button> : console.log('A winner has not been submitted yet')}
-                    </Row> */}
+                    <Row className="selectedCardButton-Row">
+                        {(this.props.game.host === this.props.player._id) && (this.props.game.status === "HOST_SELECTING")
+                            ? <Button className="button-choose-winner" variant="outline-light" type='button' onClick={this.handleWinningSubmit}>Submit Winner Card</Button> 
+                            : console.log('A winner has not been submitted yet')}
+                    </Row>
                     <Row className="selectedCards-Row">
                         {(this.props.game.selectedCards.length > 0) ? <SelectedCards selectedCards={this.props.game.selectedCards}/> : console.log('there are no selected cards')}
                     </Row>
