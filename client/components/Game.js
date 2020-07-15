@@ -93,8 +93,7 @@ class Game extends React.Component {
               return(
                   <Jumbotron className='jumbotron'>
                     <h1>Congratulations {winningPlayer.name}! You are the winner!</h1>
-                    <Button className='button-winning-page' type='submit' onClick ={this.handleSubmit} variant='outline-light'>Leave the game</Button>
-                    <Button className='button-winning-page' type='button' onClick ={this.handleRestartSubmit} variant='outline-light'>Restart the game</Button>
+                    <Button className='button-winning-page' type='submit' onClick ={this.handleSubmit} variant='outline-light'>Play Again</Button>
                   </Jumbotron>
                   
                       

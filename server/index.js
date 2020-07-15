@@ -48,7 +48,7 @@ app.use(session({
     cookie: {
         maxAge: 1000 * 60 * 60 * 24 * 7
     },
-    store: new MongoStore({mongooseConnection: connection});
+    store: new MongoStore({mongooseConnection: connection})
 }));
 
 app.use("/api", require("./api")); 
