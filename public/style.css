@@ -425,5 +425,19 @@ not needed aat the moment
     color: black
 }
 
+.jumbotron{
+    background-color: #6d597a;
+    color: white;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button-winning-page {
+    margin: 1%;
+}
+
 
 
