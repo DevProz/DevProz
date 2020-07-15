@@ -249,9 +249,7 @@ label {
     }
 }
 
-.border-info {
-    margin-left: 30px;
-}
+
 
 .image-meme-style {
     display: flex;
@@ -270,9 +268,7 @@ label {
     cursor: pointer;
 }
 
-.active{
-    border: 5px solid yellow;
-}
+
 
 .winner{
     border: 5px solid #cc66ff;
@@ -362,6 +358,7 @@ not needed aat the moment
 .score-board-name, .score-board-score {
     margin-right: 5px;
     font-weight: lighter;
+    color: white;
 }
 
 .messages {
@@ -393,3 +390,40 @@ not needed aat the moment
     justify-content: center;
     margin-bottom: 10px;
 }
+
+.sentenceCards {
+    background-color: inherit;
+    border: 2px solid white;
+    color: white;
+}
+
+
+.sentenceCards:hover{
+    background-color: white;
+    color: #231733
+}
+
+
+.active{
+    background-color: white;
+    color: #231733;
+}
+
+.score {
+    background-color: inherit;
+    color: white;  
+    border: 2px solid white;
+    margin: 5%;
+}
+
+.border-info {
+    margin-left: 30px;
+    
+}
+
+.chat-text {
+    color: black
+}
+
+
+
