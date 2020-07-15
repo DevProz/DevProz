@@ -156,7 +156,7 @@ module.exports = io => {
         const newCardsArray = player.sentenceCards.filter(savedCardId => {
           return savedCardId != data.sentenceCardId;
         })
-
+        
         if (game.players.length - 1 == game.selectedCards.length) {
           game.status = "HOST_SELECTING";
           startHostCountdown(game._id);
@@ -196,7 +196,9 @@ module.exports = io => {
       const game = await Game.findOne({
         entranceCode: data.code
       });
+
       game.status = "HOST_SELECTING";
+
       await game.save();
       sendPopulateGame(game._id);
     });
@@ -240,7 +242,9 @@ module.exports = io => {
         _id: game.players[i]
       });
       const newCard = game.sentenceCards.pop()
-      forEachPlayer.sentenceCards.push(newCard);
+      if (forEachPlayer.sentenceCards.length < 7) {
+        forEachPlayer.sentenceCards.push(newCard);
+      }
       await forEachPlayer.save();
     }
 
@@ -268,6 +272,7 @@ module.exports = io => {
         clearInterval(this);
 
         let playerId;
+        //maybe change it to -1 to the host
         if (countdownGame.selectedCards.length != 0) {
           playerId = countdownGame.selectedCards[Math.floor(Math.random() * countdownGame.players.length)].player;
         }
