@@ -1,16 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Button } from "react-bootstrap";
-import socket from '../socket'  
+import socket from "../socket";  
 
 class Chat extends React.Component {
     constructor(){
         super()
         this.state = {
-            message: '',
+            message: "",
         };
-        this.handleSubmit = this.handleSubmit.bind(this)
-        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(event) {
@@ -21,7 +21,7 @@ class Chat extends React.Component {
 
     handleSubmit(event){
         event.preventDefault()
-        socket.emit("send-message", {message: event.target.message.value, playerId: this.props.player._id, code: this.props.game.entranceCode})
+        socket.emit("send-message", {message: event.target.message.value, playerId: this.props.player._id, code: this.props.game.entranceCode});
         this.setState({
             message: ""
         })
@@ -70,5 +70,4 @@ const mapState = (state) => {
     }
 }
 
-
-export default connect(mapState)(Chat)
+export default connect(mapState)(Chat);

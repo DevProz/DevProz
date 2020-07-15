@@ -1,10 +1,10 @@
 import React from "react";
-import { connect } from 'react-redux'
+import { connect } from "react-redux";
 import ChangeName from "./ChangeName";
-import NewGame from './NewGame'
-import Game from './Game'
-import StartGame from './StartGame'
-import { me } from '../store'
+import NewGame from "./NewGame";
+import Game from "./Game";
+import StartGame from "./StartGame";
+import { me } from "../store";
 
 class App extends React.Component {
     componentWillMount() {
@@ -29,7 +29,6 @@ class App extends React.Component {
         }
     }
 }
-
 
 const mapState = (state) => {
     return {

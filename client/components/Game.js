@@ -1,11 +1,11 @@
 import React from "react";
 import { Card, Row, Col, Button, Jumbotron } from 'react-bootstrap';
 import MySentenceCards from "./MySentenceCards";
-import { connect } from 'react-redux';
-import ImageCard from './ImageCard';
+import { connect } from "react-redux";
+import ImageCard from "./ImageCard";
 import Chat from "./Chat";
-import SelectedCards from './SelectedCards';
-import socket from '../socket';
+import SelectedCards from "./SelectedCards";
+import socket from "../socket";
 
 class Game extends React.Component {
     constructor(){
@@ -23,7 +23,6 @@ class Game extends React.Component {
         event.preventDefault();
         socket.emit("start_game", { playerId: this.props.player._id, code: this.props.game.entranceCode});
     }
-   
 
       render() {
           const players = this.props.game.players
@@ -71,11 +70,13 @@ class Game extends React.Component {
                             <Col>
                                 <Card className='score' style={{ width: '20rem' }}>
                                 <Card.Header> Live Chat:  </Card.Header>
+
                                 <Card.Body>
                                         <Card.Text className='chat-text'>
                                             <Chat/>
                                         </Card.Text>
                                 </Card.Body>
+
                                 </Card>
                             </Col>
                         </Row>
@@ -84,6 +85,7 @@ class Game extends React.Component {
                         </Row>
                         <MySentenceCards sentenceCards={this.props.game.sentenceCards}/> 
                     </div>
+
                 </div>
             )
 
@@ -115,7 +117,7 @@ const mapState = (state) => {
     }
 }
 
-export default connect(mapState)(Game)
+export default connect(mapState)(Game);
 
 
 

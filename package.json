@@ -1,7 +1,7 @@
 {
   "name": "devproz",
   "version": "1.0.0",
-  "description": "capstone project",
+  "description": "What do you meme online real-time board game",
   "main": "index.js",
   "scripts": {
     "start": "node server",
@@ -14,7 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/DevProz/DevProz.git"
   },
-  "author": "",
+  "author": "Anna Morozova, Danielle Sisk, Maria Belousova, Samantha Hering",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/DevProz/DevProz/issues"
