@@ -6,6 +6,8 @@ import ImageCard from "./ImageCard";
 import Chat from "./Chat";
 import SelectedCards from "./SelectedCards";
 import socket from "../socket";
+import { FaCrown } from "react-icons/fa";
+import { GiReturnArrow } from "react-icons/gi";
 
 class Game extends React.Component {
     constructor(){
@@ -27,28 +29,34 @@ class Game extends React.Component {
       render() {
           const players = this.props.game.players
           const winningPlayer = players.find(player => player.score === 5)
-          console.log('WINNING PLAYER', winningPlayer)
+        
           if(winningPlayer === undefined){
             return (
                 <div>
                     <div>
                     <div className="title-game-page">
-                    <p className="what-color">WHAT</p>
-                    <p className="do-color">DO </p>
-                    <p className="you-color">YOU </p>
-                    <p className="meme-color">MEME</p>
-                    <p className="question-mark-color">?</p>
+                        <p className="what-color">WHAT</p>
+                        <p className="do-color">DO </p>
+                        <p className="you-color">YOU </p>
+                        <p className="meme-color">MEME</p>
+                        <p className="question-mark-color">?</p>
+                        <div className="buttons-align-left">
+                        <Button type='submit' onClick ={this.handleSubmit} size="sm" variant='outline-light' className="button-leave-game">Leave the game</Button>
+                        <Button type='button' onClick ={this.handleRestartSubmit} size="sm" variant='outline-light' className="button-leave-game">Restart the game</Button>
+                        </div>
                     </div>
-                    <Button type='submit' onClick ={this.handleSubmit} variant='outline-light' className="button-leave-game">Leave the game</Button>
-                    <Button type='button' onClick ={this.handleRestartSubmit} variant='outline-light' className="button-leave-game">Restart the game</Button>
+                    <div className="host-notification">
+                        {(this.props.game.host === this.props.player._id) ? <div>Your turn to select <FaCrown /></div> : <div> Please submit a card <GiReturnArrow /></div>}
+                    </div>
+
                         <Row>
                             <Col>
-                            <Card className='score'  style={{ width: '10rem' }}>
+                            <Card className='score'  style={{ width: '20rem' }}>
                                 <Card.Header className="countdown-style">
                                     Countdown: {this.props.countdown}
                                 </Card.Header>
                             </Card>
-                            <Card  className='score' style={{ width: '10rem' }}>
+                            <Card  className='score' style={{ width: '20rem' }}>
                                 <Card.Header> Score:  </Card.Header>
                                     <Card.Body>
                                     {this.props.game.players.map((player) => {
@@ -80,9 +88,6 @@ class Game extends React.Component {
                             </Card>
                         </Col>
                     </Row>
-                    <div className="host-notification">
-                        {(this.props.game.host === this.props.player._id) ? <div> YOU ARE THE HOST! </div> : <div> Please submit a card </div>}
-                    </div>
                     <Row className="selectedCards-Row">
                         {(this.props.game.selectedCards.length > 0) ? <SelectedCards selectedCards={this.props.game.selectedCards}/> : console.log('there are no selected cards')}
                     </Row>
@@ -92,41 +97,18 @@ class Game extends React.Component {
                         {(this.props.game.host === this.props.player._id) && (this.props.game.selectedCards.length === this.props.game.players.length) ? <Button className="button-choose-winner" variant="outline-light" type='button' onClick={this.handleWinningSubmit}>Submit Winner Card</Button> : console.log('A winner has not been submitted yet')}
                     </Row>
                     <br/>
-                 
             </div>
-        )
 
-
-                                </Card>
-                            </Col>
-                        </Row>
-                        <Row className="selectedCards-Row">
-                            {(this.props.game.selectedCards.length > 0) ? <SelectedCards selectedCards={this.props.game.selectedCards}/> : console.log('there are no selected cards')}
-                        </Row>
-                        <MySentenceCards sentenceCards={this.props.game.sentenceCards}/> 
-                    </div>
-
-                </div>
-            )
-
-          }else{
+          )} else {
               return(
                   <Jumbotron className='jumbotron'>
                     <h1>Congratulations {winningPlayer.name}! You are the winner!</h1>
                     <Button className='button-winning-page' type='submit' onClick ={this.handleSubmit} variant='outline-light'>Play Again</Button>
                   </Jumbotron>
-                  
-                      
-                  
               )
           }
-
-           
-
-          }
-       
+        }  
     }
-
 
 const mapState = (state) => {
     return {
