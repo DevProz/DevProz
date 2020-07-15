@@ -192,9 +192,23 @@ module.exports = io => {
       const player = await Player.findOne({
         _id: data.playerId
       });
-      player.score++;
-      await player.save();
 
+      //updating the score
+      if(data.selectedCardPlayerId === String(player._id)){
+        player.score++
+      }else{
+        const foundPlayerId = game.players.find(play => String(play._id) === data.selectedCardPlayerId)
+        const foundPlayer = await Player.findOne({
+          _id: foundPlayerId
+        });
+        foundPlayer.score++
+        await foundPlayer.save();
+      }
+
+      
+      await player.save();
+      
+      //changing the host
       const playersArray = game.players
       let hostId = game.host
       let foundHost = playersArray.indexOf(hostId)
@@ -206,8 +220,10 @@ module.exports = io => {
       let newHost = playersArray[foundHost]
       game.host = newHost
       
+      //updating the image card
       game.currentImage = game.imageCards.pop()
 
+      //clearing out the selected cards
       game.selectedCards = []
 
       for (let i = 0; i < game.players.length; i++) {

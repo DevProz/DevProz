@@ -13,15 +13,8 @@ class Game extends React.Component {
         super()
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleRestartSubmit = this.handleRestartSubmit.bind(this);
-        this.handleWinningSubmit = this.handleWinningSubmit.bind(this)
     } 
-    handleWinningSubmit(){
-        event.preventDefault();
-        socket.emit("new_round",{
-            playerId: this.props.player._id,
-            code: this.props.game.entranceCode, 
-        } )
-    }
+    
 
  handleSubmit(event) {
         event.preventDefault();
