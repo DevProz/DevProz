@@ -28,7 +28,7 @@ const gameSchema = new Schema({
   }],
   host: {
     type: Schema.Types.ObjectId,
-    ref: 'Player',
+    ref: "Player",
   },
   status: {
     type: String,
@@ -39,7 +39,7 @@ const gameSchema = new Schema({
   }],
   currentImage: {
     type: Schema.Types.ObjectId,
-    ref: 'ImageCard',
+    ref: "ImageCard",
   },
   sentenceCards: [{
     type: Schema.Types.ObjectId,
