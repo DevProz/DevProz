@@ -37,8 +37,8 @@ module.exports = io => {
       populate: {
         path: 'player',
         model: 'Player'
-        }
-      }).then(populatedGame => {
+      }
+    }).then(populatedGame => {
       console.log("sending back game")
       io.to(populatedGame.entranceCode).emit('updated_game', populatedGame);
     })
@@ -109,6 +109,8 @@ module.exports = io => {
 
       game.selectedCards = [];
 
+      startAllSelectCountdown(game._id);
+
       await game.save();
 
       sendPopulateGame(game._id);
@@ -129,7 +131,7 @@ module.exports = io => {
       const player = await Player.findOne({
         _id: data.playerId
       })
-      io.to(data.code).emit('receive-message', { 
+      io.to(data.code).emit('receive-message', {
         message: data.message,
         playerName: player.name
       });
@@ -157,6 +159,7 @@ module.exports = io => {
 
         if (game.players.length - 1 == game.selectedCards.length) {
           game.status = "HOST_SELECTING";
+          startHostCountdown(game._id);
         }
 
         player.sentenceCards = newCardsArray;
@@ -186,65 +189,118 @@ module.exports = io => {
     })
 
     socket.on('new_round', async data => {
+      start_new_round(data.code, data.selectedCardPlayerId)
+    })
+
+    socket.on("timer-is-up", async data => {
       const game = await Game.findOne({
         entranceCode: data.code
       });
-      const player = await Player.findOne({
-        _id: data.playerId
-      });
-
-      //updating the score
-      if(data.selectedCardPlayerId === String(player._id)){
-        player.score++
-      }else{
-        const foundPlayerId = game.players.find(play => String(play._id) === data.selectedCardPlayerId)
-        const foundPlayer = await Player.findOne({
-          _id: foundPlayerId
-        });
-        foundPlayer.score++
-        await foundPlayer.save();
-      }
-
-      
-      await player.save();
-      
-      //changing the host
-      const playersArray = game.players
-      let hostId = game.host
-      let foundHost = playersArray.indexOf(hostId)
-      if(foundHost === playersArray.length -1){
-        foundHost = 0
-      }else{
-        foundHost++
-      }
-      let newHost = playersArray[foundHost]
-      game.host = newHost
-      
-      //updating the image card
-      game.currentImage = game.imageCards.pop()
-
-      //clearing out the selected cards
-      game.selectedCards = []
-
-      for (let i = 0; i < game.players.length; i++) {
-        const forEachPlayer = await Player.findOne({
-          _id: game.players[i]
-        });
-        const newCard = game.sentenceCards.pop()
-        forEachPlayer.sentenceCards.push(newCard);
-        await forEachPlayer.save();
-      }
-
-      game.status = "ALL_SELECTING";
-
-      await game.save()
+      game.status = "HOST_SELECTING";
+      await game.save();
       sendPopulateGame(game._id);
-    })
-
-
+    });
 
     socket.on('disconnect', () => {
       console.log(`Connection ${socket.id} has left the building`);
     })
   })
+
+  // Starts a new round and gives this player id the score
+  async function start_new_round(game_code, player_id) {
+    const game = await Game.findOne({
+      entranceCode: game_code
+    });
+
+    if (player_id != undefined) {
+      const player = await Player.findOne({
+        _id: player_id
+      });
+      player.score++;
+      await player.save();
+    }
+
+    const playersArray = game.players
+    let hostId = game.host
+    let foundHost = playersArray.indexOf(hostId)
+    if (foundHost === playersArray.length - 1) {
+      foundHost = 0
+    } else {
+      foundHost++
+    }
+    let newHost = playersArray[foundHost]
+    game.host = newHost
+
+    game.currentImage = game.imageCards.pop()
+
+    game.selectedCards = []
+
+    for (let i = 0; i < game.players.length; i++) {
+      const forEachPlayer = await Player.findOne({
+        _id: game.players[i]
+      });
+      const newCard = game.sentenceCards.pop()
+      forEachPlayer.sentenceCards.push(newCard);
+      await forEachPlayer.save();
+    }
+
+    game.status = "ALL_SELECTING";
+
+    await game.save();
+
+    startAllSelectCountdown(game._id);
+    sendPopulateGame(game._id);
+  }
+
+  async function startHostCountdown(gameId) {
+    let countdown = 60;
+    async function countdownFunction() {
+      const countdownGame = await Game.findOne({
+        _id: gameId
+      });
+      if (countdownGame.status != "HOST_SELECTING") {
+        clearInterval(this);
+        return;
+      }
+      countdown--;
+      io.to(countdownGame.entranceCode).emit("receive-countdown", countdown)
+      if (!countdown) {
+        clearInterval(this);
+
+        let playerId;
+        if (countdownGame.selectedCards.length != 0) {
+          playerId = countdownGame.selectedCards[Math.floor(Math.random() * countdownGame.players.length)].player;
+        }
+        start_new_round(countdownGame.entranceCode, playerId)
+        await countdownGame.save();
+        sendPopulateGame(countdownGame._id);
+      }
+    }
+    setInterval(countdownFunction, 1000);
+  };
+
+  async function startAllSelectCountdown(gameId) {
+    let countdown = 30;
+    async function countdownFunction() {
+      const countdownGame = await Game.findOne({
+        _id: gameId
+      });
+      if (countdownGame.status == "HOST_SELECTING") {
+        clearInterval(this);
+        return;
+      }
+      countdown--;
+      io.to(countdownGame.entranceCode).emit("receive-countdown", countdown)
+      if (!countdown) {
+        clearInterval(this);
+        countdownGame.status = "HOST_SELECTING"
+        await countdownGame.save();
+        startHostCountdown(countdownGame._id);
+        sendPopulateGame(countdownGame._id);
+      }
+    }
+
+    setInterval(countdownFunction, 1000);
+  }
+
 }

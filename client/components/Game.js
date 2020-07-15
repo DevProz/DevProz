@@ -4,7 +4,6 @@ import MySentenceCards from "./MySentenceCards";
 import { connect } from 'react-redux';
 import ImageCard from './ImageCard';
 import Chat from "./Chat";
-import Timer from './Timer';
 import SelectedCards from './SelectedCards';
 import socket from '../socket';
 
@@ -43,7 +42,9 @@ class Game extends React.Component {
                     <Row>
                         <Col>
                         <Card border="info board-margin" style={{ width: '10rem' }}>
-                            <Card.Header className="countdown-style"> Countdown: <Timer isHost={this.props.player._id == this.props.game.host}/> </Card.Header>
+                            <Card.Header className="countdown-style">
+                                Countdown: {this.props.countdown}
+                            </Card.Header>
                         </Card>
                         <Card  border="info" style={{ width: '10rem' }}>
                             <Card.Header> Score:  </Card.Header>
@@ -77,11 +78,6 @@ class Game extends React.Component {
                             </Card>
                         </Col>
                     </Row>
-                    <Row className="selectedCardButton-Row">
-                        {(this.props.game.host === this.props.player._id) && (this.props.game.status === "HOST_SELECTING")
-                            ? <Button className="button-choose-winner" variant="outline-light" type='button' onClick={this.handleWinningSubmit}>Submit Winner Card</Button> 
-                            : console.log('A winner has not been submitted yet')}
-                    </Row>
                     <Row className="selectedCards-Row">
                         {(this.props.game.selectedCards.length > 0) ? <SelectedCards selectedCards={this.props.game.selectedCards}/> : console.log('there are no selected cards')}
                     </Row>
@@ -96,7 +92,7 @@ const mapState = (state) => {
     return {
         game: state.game,
         player: state.player,
-
+        countdown: state.countdown,
     }
 }
 

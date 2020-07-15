@@ -5,23 +5,21 @@ import socket from '../socket';
 
 
 class  SelectedCards extends React.Component {
-  constructor(){
+  constructor() {
     super()
     this.state = {
         active: null,
-        winningCard: null
+        winningPlayerId: null,
     }
-
     this.handleWinningSubmit = this.handleWinningSubmit.bind(this)
-}  
+  }  
 
         handleWinningSubmit(){
           event.preventDefault();
           socket.emit("new_round",{
-              playerId: this.props.player._id,
               code: this.props.game.entranceCode, 
               selectedCardId: this.state.active,
-              selectedCardPlayerId: this.state.winningCard
+              selectedCardPlayerId: this.state.winningPlayerId
           } )
         }
 
@@ -29,7 +27,7 @@ class  SelectedCards extends React.Component {
           if (this.state.active) {
               this.setState({active: null});
           } else {
-              this.setState({ active: cardId, winningCard: cardPlayerId });   
+              this.setState({ active: cardId, winningPlayerId: cardPlayerId });   
           }
         }
 
@@ -55,9 +53,8 @@ class  SelectedCards extends React.Component {
       return (
         <div>
         <Row className="selectedCardButton-Row">
-        {(this.props.game.host === this.props.player._id) && (this.props.game.selectedCards.length === this.props.game.players.length) ? <Button className="button-choose-winner" variant="outline-light" type='button' onClick={this.handleWinningSubmit}>Submit Winner Card</Button> : console.log('A winner has not been submitted yet')}
+        {(this.props.game.host === this.props.player._id) && (this.props.game.status === "HOST_SELECTING") ? <Button className="button-choose-winner" variant="outline-light" type='button' onClick={this.handleWinningSubmit}>Submit Winner Card</Button> : console.log('A winner has not been submitted yet')}
         </Row>
-
         <Row className='cards-row'> 
           {this.props.selectedCards.map((card) => 
             <Card style={{ width: '10rem' }} key={card._id}>
@@ -70,10 +67,7 @@ class  SelectedCards extends React.Component {
         </Row>
 
       </div>
-    )
-=======
     )}
-
   }
 } 
 
