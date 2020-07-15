@@ -13,12 +13,11 @@ class Game extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleRestartSubmit = this.handleRestartSubmit.bind(this);
     } 
-    
 
- handleSubmit(event) {
-        event.preventDefault();
-        socket.emit("leave-game", {code: this.props.game.entranceCode, playerId: this.props.player._id});
- }
+    handleSubmit(event) {
+            event.preventDefault();
+            socket.emit("leave-game", {code: this.props.game.entranceCode, playerId: this.props.player._id});
+    }
   
    handleRestartSubmit(event) {
         event.preventDefault();

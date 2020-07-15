@@ -70,10 +70,15 @@ module.exports = io => {
       const game = await Game.findOne({
         entranceCode: data.code
       })
+      if (!game) {
+        socket.emit("bad-game-code", {})
+        return
+      }
       if (!game.players.includes(data.playerId)) {
         game.players.push(data.playerId);
         await game.save();
       }
+     
       socket.join(game.entranceCode)
       sendPopulateGame(game._id);
     })
@@ -177,14 +182,21 @@ module.exports = io => {
       const leavingPlayer = await Player.findOne({
         _id: data.playerId
       });
-      game.players = game.players.filter(player => {
-        player._id != leavingPlayer._id
+      
+      game.players = game.players.filter(playerId => {
+        return String(playerId) != String(leavingPlayer._id)
       });
+
       await game.save();
+
       socket.leave(game.entranceCode);
+
       leavingPlayer.score = 0;
       leavingPlayer.sentenceCards = [];
+     
       await leavingPlayer.save();
+
+      sendPopulateGame(game._id);
       socket.emit("updated_game", null);
     })
 
