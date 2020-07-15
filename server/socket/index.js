@@ -293,11 +293,12 @@ module.exports = io => {
       if (!countdown) {
         clearInterval(this);
 
-        let playerId;
-        // TODO: maybe change it to -1 to the host
-        // if (countdownGame.selectedCards.length != 0) {
-        //   playerId = countdownGame.selectedCards[Math.floor(Math.random() * countdownGame.players.length)].player;
-        // }
+       const player = await Player.findOne({
+         _id: countdownGame.host
+       })
+       player.score --
+       await player.save()
+
         start_new_round(countdownGame.entranceCode)
         await countdownGame.save();
         sendPopulateGame(countdownGame._id);
