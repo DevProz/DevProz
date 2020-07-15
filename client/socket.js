@@ -1,5 +1,5 @@
 import io from 'socket.io-client'
-import store, {updateNewGame, updatePlayer, receiveMessage, receiveCountdown } from './store'
+import store, {updateNewGame, receiveMessage, receiveCountdown } from './store'
 
 const socket = io(window.location.origin)
 
