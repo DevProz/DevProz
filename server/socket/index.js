@@ -1,6 +1,6 @@
 const Game = require("../db/models/game");
 const Player = require("../db/models/player");
-const ImageCard = require("../db/models/imageCard")
+const ImageCard = require("../db/models/imageCard");
 const SentenceCard = require("../db/models/sentenceCard");
 
 function shuffleArray(array) {
