@@ -1,17 +1,16 @@
 import React from "react";
-import { Button } from 'react-bootstrap'
-import { connect } from 'react-redux'
-import socket from '../socket'
+import { Button } from "react-bootstrap";
+import { connect } from "react-redux";
+import socket from "../socket";
 
 class StartGame extends React.Component {
-
     constructor(){
         super()
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit(){
-        socket.emit("start_game", { playerId: this.props.player._id, code: this.props.game.entranceCode})
+        socket.emit("start_game", { playerId: this.props.player._id, code: this.props.game.entranceCode});
     }
 
     render() {
@@ -28,7 +27,7 @@ class StartGame extends React.Component {
                     </ol>
                 })}</h4>
                 <div className="start-button-align">
-                    {(this.props.game.players[0]._id === this.props.player._id) ? <Button className="button-start-game" variant="outline-light" type='submit'  onClick={this.handleSubmit}>Start Game</Button> :  <div className="please-wait" >Waiting for host to start the game...</div>} 
+                    {(this.props.game.players[0]._id === this.props.player._id) ? <Button className="button-start-game" variant="outline-light" type="submit"  onClick={this.handleSubmit}>Start Game</Button> :  <div className="please-wait" >Waiting for host to start the game...</div>} 
                 </div>
 
             </div>
@@ -43,5 +42,4 @@ const mapState = (state) => {
     }
 }
 
-
-export default connect(mapState)(StartGame)
+export default connect(mapState)(StartGame);

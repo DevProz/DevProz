@@ -1,7 +1,7 @@
 import React from "react";
-import { connect } from 'react-redux';
-import { Card, Button, Row, Col } from 'react-bootstrap';
-import socket from '../socket';
+import { connect } from "react-redux";
+import { Card, Button, Col } from "react-bootstrap";
+import socket from "../socket";
 
 class MySentenceCards extends React.Component {
     constructor(){
@@ -31,14 +31,14 @@ class MySentenceCards extends React.Component {
             <Col>
                 <div className="button-row">
                 {(this.props.player._id !== this.props.game.host && this.props.game.status == "ALL_SELECTING") 
-                    ? <Button onClick ={this.handleSubmit} disabled={!(!!this.state.active)} type='submit' variant='outline-light' className="button-submit-card">Submit Card</Button> 
-                    : console.log('you are host') }
+                    ? <Button onClick ={this.handleSubmit} disabled={!(!!this.state.active)} type="submit" variant="outline-light" className="button-submit-card">Submit Card</Button> 
+                    : console.log("you are host") }
                 </div>
                 <div className="cards-row">   
                     {this.props.player.sentenceCards.map((card) =>
-                        <Card className='sentenceCards' style={{ width: '10rem' }} key={card._id}>
+                        <Card className="sentenceCards" style={{ width: "10rem" }} key={card._id}>
                             <Card.Body className = {this.state.active === card._id ? "active" : null}
-                            id={card._id} title={card.sentence} onClick = {() => this.handleClick(card._id, event)} style={{ width: '10rem' }}>
+                            id={card._id} title={card.sentence} onClick = {() => this.handleClick(card._id, event)} style={{ width: "10rem" }}>
                                     {card.sentence}   
                             </Card.Body>
                         </Card>

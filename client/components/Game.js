@@ -1,11 +1,11 @@
 import React from "react";
-import { Card, Row, Col, Button } from 'react-bootstrap';
+import { Card, Row, Col, Button } from "react-bootstrap";
 import MySentenceCards from "./MySentenceCards";
-import { connect } from 'react-redux';
-import ImageCard from './ImageCard';
+import { connect } from "react-redux";
+import ImageCard from "./ImageCard";
 import Chat from "./Chat";
-import SelectedCards from './SelectedCards';
-import socket from '../socket';
+import SelectedCards from "./SelectedCards";
+import socket from "../socket";
 
 class Game extends React.Component {
     constructor(){
@@ -23,9 +23,8 @@ class Game extends React.Component {
         event.preventDefault();
         socket.emit("start_game", { playerId: this.props.player._id, code: this.props.game.entranceCode});
     }
-   
 
-      render() {
+    render() {
         return (
             <div>
                 <div>
@@ -36,16 +35,16 @@ class Game extends React.Component {
                 <p className="meme-color">MEME</p>
                 <p className="question-mark-color">?</p>
                 </div>
-                <Button type='submit' onClick ={this.handleSubmit} variant='outline-light' className="button-leave-game">Leave the game</Button>
-                <Button type='button' onClick ={this.handleRestartSubmit} variant='outline-light' className="button-leave-game">Restart the game</Button>
+                <Button type="submit" onClick ={this.handleSubmit} variant="outline-light" className="button-leave-game">Leave the game</Button>
+                <Button type="button" onClick ={this.handleRestartSubmit} variant="outline-light" className="button-leave-game">Restart the game</Button>
                     <Row>
                         <Col>
-                        <Card className='score'  style={{ width: '10rem' }}>
+                        <Card className="score"  style={{ width: "10rem" }}>
                             <Card.Header className="countdown-style">
                                 Countdown: {this.props.countdown}
                             </Card.Header>
                         </Card>
-                        <Card  className='score' style={{ width: '10rem' }}>
+                        <Card  className="score" style={{ width: "10rem" }}>
                             <Card.Header> Score:  </Card.Header>
                                 <Card.Body>
                                 {this.props.game.players.map((player) => {
@@ -65,10 +64,10 @@ class Game extends React.Component {
                         <ImageCard currentImage={this.props.game.currentImage}/>
                         </Col>
                         <Col>
-                            <Card className='score' style={{ width: '20rem' }}>
+                            <Card className="score" style={{ width: "20rem" }}>
                             <Card.Header> Live Chat:  </Card.Header>
                             <Card.Body>
-                                    <Card.Text className='chat-text'>
+                                    <Card.Text className="chat-text">
                                         <Chat/>
                                     </Card.Text>
                             </Card.Body>
@@ -76,7 +75,7 @@ class Game extends React.Component {
                         </Col>
                     </Row>
                     <Row className="selectedCards-Row">
-                        {(this.props.game.selectedCards.length > 0) ? <SelectedCards selectedCards={this.props.game.selectedCards}/> : console.log('there are no selected cards')}
+                        {(this.props.game.selectedCards.length > 0) ? <SelectedCards selectedCards={this.props.game.selectedCards}/> : console.log("there are no selected cards")}
                     </Row>
                     <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>
                 </div>
@@ -93,7 +92,7 @@ const mapState = (state) => {
     }
 }
 
-export default connect(mapState)(Game)
+export default connect(mapState)(Game);
 
 
 

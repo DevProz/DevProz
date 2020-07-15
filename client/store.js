@@ -3,8 +3,8 @@ import {
     applyMiddleware
 } from "redux";
 import thunkMiddleware from "redux-thunk";
-import socket from "./socket"
-import axios from "axios"
+import socket from "./socket";
+import axios from "axios";
 import {
     createLogger
 } from "redux-logger";
@@ -73,18 +73,18 @@ export const me = () => async dispatch => {
     }
 };
 
-export const fetchPlayers = () => async (dispatch) => {
+export const fetchPlayers = () => async dispatch => {
     try {
         const {
             data
-        } = await axios.get("/api/players")
-        dispatch(getPlayers(data))
+        } = await axios.get("/api/players");
+        dispatch(getPlayers(data));
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
 }
 
-export const fetchNewGame = (player) => async () => {
+export const fetchNewGame = player => async () => {
     try {
         socket.emit("new_game", {
             playerId: player._id
@@ -94,7 +94,7 @@ export const fetchNewGame = (player) => async () => {
     }
 }
 
-export const changeName = (playerName) => async (dispatch) => {
+export const changeName = playerName => async dispatch => {
     try {
         const {
             data
@@ -118,48 +118,49 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state, players: action.players
             }
-            case UPDATE_PLAYER:
-                return {
-                    ...state, player: action.player
-                }
-                case ADD_PLAYER:
-                    return {
-                        ...state, player: action.player
-                    }
-                    case UPDATE_NEW_GAME:
-                        if (action.game != null) {
-                            const player = action.game.players.find(player => player._id == state.player._id)
-                            return {
-                                ...state,
-                                game: action.game,
-                                player
-                            }
-                        } else {
-                            return {
-                                ...state,
-                                game: action.game,
-                                player: {
-                                    ...state.player,
-                                    sentenceCards: [],
-                                    score: 0
-                                },
-                                messages: []
-                            }
-                        }
-                        case RECEIVE_MESSAGE:
-                            return {
-                                ...state, messages: [...state.messages, action.message]
-                            }
-                            case RECEIVE_COUNTDOWN:
-                                return {
-                                    ...state, countdown: action.countdown
-                                }
-                                default:
-                                    return state
+    case UPDATE_PLAYER:
+        return {
+            ...state, player: action.player
+        }
+    case ADD_PLAYER:
+        return {
+            ...state, player: action.player
+        }
+    case UPDATE_NEW_GAME:
+        if (action.game != null) {
+            const player = action.game.players.find(player => player._id == state.player._id);
+            return {
+                ...state,
+                game: action.game,
+                player
+            }
+        } else {
+            return {
+                ...state,
+                game: action.game,
+                player: {
+                    ...state.player,
+                    sentenceCards: [],
+                    score: 0
+                },
+                messages: []
+            }
+        }
+    case RECEIVE_MESSAGE:
+        return {
+            ...state, messages: [...state.messages, action.message]
+        }
+    case RECEIVE_COUNTDOWN:
+        return {
+            ...state, countdown: action.countdown
+        }
+    default:
+        return state
     }
 }
 
 const store = createStore(reducer, applyMiddleware(thunkMiddleware, createLogger({
     collapsed: true
 })));
+
 export default store;
