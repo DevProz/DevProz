@@ -41,15 +41,14 @@ class Game extends React.Component {
                 <Button type='button' onClick ={this.handleRestartSubmit} variant='outline-light' className="button-leave-game">Restart the game</Button>
                     <Row>
                         <Col>
-                        <Card border="info board-margin" style={{ width: '10rem' }}>
+                        <Card className='score'  style={{ width: '10rem' }}>
                             <Card.Header className="countdown-style">
                                 Countdown: {this.props.countdown}
                             </Card.Header>
                         </Card>
-                        <Card  border="info" style={{ width: '10rem' }}>
+                        <Card  className='score' style={{ width: '10rem' }}>
                             <Card.Header> Score:  </Card.Header>
                                 <Card.Body>
-                                <Card.Text>
                                 {this.props.game.players.map((player) => {
                                     return (
                                         <table className="table">
@@ -60,7 +59,6 @@ class Game extends React.Component {
                                         </table>
                                     )
                                 })}
-                                </Card.Text>
                                 </Card.Body>
                         </Card>
                         </Col>
@@ -68,10 +66,10 @@ class Game extends React.Component {
                         <ImageCard currentImage={this.props.game.currentImage}/>
                         </Col>
                         <Col>
-                            <Card border="info board-margin" style={{ width: '20rem' }}>
+                            <Card className='score' style={{ width: '20rem' }}>
                             <Card.Header> Live Chat:  </Card.Header>
                             <Card.Body>
-                                    <Card.Text>
+                                    <Card.Text className='chat-text'>
                                         <Chat/>
                                     </Card.Text>
                             </Card.Body>
