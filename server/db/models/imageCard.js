@@ -1,11 +1,14 @@
-const { Schema, model, Types } = require("mongoose");
+const {
+    Schema,
+    model
+} = require("mongoose");
 
 const imageCardSchema = new Schema({
-    image:{
-        type: String,     
+    image: {
+        type: String,
     }
-},
-{timestamps:true}
-);
+}, {
+    timestamps: true
+});
 
-module.exports = model("ImageCard", imageCardSchema );
+module.exports = model("ImageCard", imageCardSchema);

@@ -310,9 +310,11 @@ label {
   }
 }
 
-.border-info {
+
+/* .border-info {
   margin-left: 30px;
-}
+} */
+
 
 .image-meme-style {
   display: flex;
@@ -331,9 +333,13 @@ label {
   cursor: pointer;
 }
 
-.active {
+
+/* .active {
   border: 5px solid yellow;
-}
+} */
+
+
+
 
 .winner {
   border: 5px solid #cc66ff;
@@ -420,10 +426,11 @@ not needed aat the moment
   display: flex;
 }
 
-.score-board-name,
-.score-board-score {
-  margin-right: 5px;
-  font-weight: lighter;
+
+.score-board-name, .score-board-score {
+    margin-right: 5px;
+    font-weight: lighter;
+    color: white;
 }
 
 .messages {
@@ -455,3 +462,56 @@ not needed aat the moment
   justify-content: center;
   margin-bottom: 10px;
 }
+
+
+.sentenceCards {
+    background-color: inherit;
+    border: 2px solid white;
+    color: white;
+}
+
+
+.sentenceCards:hover{
+    background-color: white;
+    color: #231733
+}
+
+
+.active{
+    background-color: white;
+    color: #231733;
+}
+
+.score {
+    background-color: inherit;
+    color: white;  
+    border: 2px solid white;
+    margin: 5%;
+}
+
+.border-info {
+    margin-left: 30px;
+    
+}
+
+.chat-text {
+    color: black
+}
+
+.jumbotron{
+    background-color: #6d597a;
+    color: white;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button-winning-page {
+    margin: 1%;
+}
+
+
+
+

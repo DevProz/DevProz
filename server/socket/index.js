@@ -1,10 +1,7 @@
-const Game = require('../db/models/game');
-const Player = require('../db/models/player');
-const ImageCard = require('../db/models/imageCard')
-const SentenceCard = require('../db/models/sentenceCard');
-const {
-  update
-} = require('../db/models/game');
+const Game = require("../db/models/game");
+const Player = require("../db/models/player");
+const ImageCard = require("../db/models/imageCard");
+const SentenceCard = require("../db/models/sentenceCard");
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -20,34 +17,34 @@ module.exports = io => {
   function sendPopulateGame(gameId) {
     Game.findOne({
       _id: gameId
-    }).populate('players').populate({
-      path: 'players',
+    }).populate("players").populate({
+      path: "players",
       populate: {
-        path: 'sentenceCards',
-        model: 'SentenceCard'
+        path: "sentenceCards",
+        model: "SentenceCard"
       }
-    }).populate('currentImage').populate('sentenceCards').populate({
-      path: 'selectedCards',
+    }).populate("currentImage").populate("sentenceCards").populate({
+      path: "selectedCards",
       populate: {
-        path: 'sentenceCard',
-        model: 'SentenceCard'
+        path: "sentenceCard",
+        model: "SentenceCard"
       },
     }).populate({
-      path: 'selectedCards',
+      path: "selectedCards",
       populate: {
-        path: 'player',
-        model: 'Player'
+        path: "player",
+        model: "Player"
       }
     }).then(populatedGame => {
       console.log("sending back game")
-      io.to(populatedGame.entranceCode).emit('updated_game', populatedGame);
+      io.to(populatedGame.entranceCode).emit("updated_game", populatedGame);
     })
   }
 
-  io.on('connection', socket => {
+  io.on("connection", socket => {
     console.log(`A socket connection to the server has been made: ${socket.id}`);
 
-    socket.on('new_game', async data => {
+    socket.on("new_game", async data => {
       const player = await Player.findOne({
         _id: data.playerId
       })
@@ -66,19 +63,24 @@ module.exports = io => {
       sendPopulateGame(newGame._id);
     })
 
-    socket.on('join_game', async data => {
+    socket.on("join_game", async data => {
       const game = await Game.findOne({
         entranceCode: data.code
       })
+      if (!game) {
+        socket.emit("bad-game-code", {})
+        return
+      }
       if (!game.players.includes(data.playerId)) {
         game.players.push(data.playerId);
         await game.save();
       }
+
       socket.join(game.entranceCode)
       sendPopulateGame(game._id);
     })
 
-    socket.on('start_game', async data => {
+    socket.on("start_game", async data => {
       const game = await Game.findOne({
         entranceCode: data.code
       })
@@ -127,17 +129,17 @@ module.exports = io => {
       sendPopulateGame(game._id)
     })
 
-    socket.on('send-message', async data => {
+    socket.on("send-message", async data => {
       const player = await Player.findOne({
         _id: data.playerId
       })
-      io.to(data.code).emit('receive-message', {
+      io.to(data.code).emit("receive-message", {
         message: data.message,
         playerName: player.name
       });
     })
 
-    socket.on('submit_card', async data => {
+    socket.on("submit_card", async data => {
       const game = await Game.findOne({
         entranceCode: data.code
       })
@@ -156,7 +158,7 @@ module.exports = io => {
         const newCardsArray = player.sentenceCards.filter(savedCardId => {
           return savedCardId != data.sentenceCardId;
         })
-        
+
         if (game.players.length - 1 == game.selectedCards.length) {
           game.status = "HOST_SELECTING";
           startHostCountdown(game._id);
@@ -170,21 +172,28 @@ module.exports = io => {
       }
     });
 
-    socket.on('leave-game', async data => {
+    socket.on("leave-game", async data => {
       const game = await Game.findOne({
         entranceCode: data.code
       });
       const leavingPlayer = await Player.findOne({
         _id: data.playerId
       });
-      game.players = game.players.filter(player => {
-        player._id != leavingPlayer._id
+
+      game.players = game.players.filter(playerId => {
+        return String(playerId) != String(leavingPlayer._id)
       });
+
       await game.save();
+
       socket.leave(game.entranceCode);
+
       leavingPlayer.score = 0;
       leavingPlayer.sentenceCards = [];
+
       await leavingPlayer.save();
+
+      sendPopulateGame(game._id);
       socket.emit("updated_game", null);
     })
 
@@ -213,7 +222,7 @@ module.exports = io => {
       sendPopulateGame(game._id);
     })
 
-    socket.on('disconnect', () => {
+    socket.on("disconnect", () => {
       console.log(`Connection ${socket.id} has left the building`);
     })
   })
@@ -226,7 +235,6 @@ module.exports = io => {
     await player.save();
   }
 
-  // Starts a new round and gives this player id the score
   async function start_new_round(game_code, player_id) {
     const game = await Game.findOne({
       entranceCode: game_code
@@ -281,11 +289,12 @@ module.exports = io => {
       if (!countdown) {
         clearInterval(this);
 
-        let playerId;
-        // TODO: maybe change it to -1 to the host
-        // if (countdownGame.selectedCards.length != 0) {
-        //   playerId = countdownGame.selectedCards[Math.floor(Math.random() * countdownGame.players.length)].player;
-        // }
+       const player = await Player.findOne({
+         _id: countdownGame.host
+       })
+       player.score --
+       await player.save()
+
         start_new_round(countdownGame.entranceCode)
         await countdownGame.save();
         sendPopulateGame(countdownGame._id);
@@ -314,22 +323,20 @@ module.exports = io => {
         sendPopulateGame(countdownGame._id);
       }
     }
-
     setInterval(countdownFunction, 1000);
   };
 
   async function popUpWinningCard(code) {
     let countdown = 10;
     async function countdownFunction() {
-      
+
       countdown--;
       io.to(code).emit("receive-countdown", countdown)
-      if (!countdown) { // counter hit 0
+      if (!countdown) {
         clearInterval(this);
         start_new_round(code);
       }
     }
-
     setInterval(countdownFunction, 1000);
   };
 }

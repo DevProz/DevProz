@@ -1,19 +1,19 @@
 import React from "react";
-import { Button } from 'react-bootstrap'
-import { fetchNewGame, me } from '../store'
-import { connect } from 'react-redux'
-import socket from '../socket'
+import { Button } from "react-bootstrap";
+import { fetchNewGame, me } from "../store";
+import { connect } from "react-redux";
+import socket from "../socket";
 
 class NewGame extends React.Component {
     constructor(){
         super()
-        this.handleSubmit = this.handleSubmit.bind(this)
-        this.handleCodeSubmit = this.handleCodeSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleCodeSubmit = this.handleCodeSubmit.bind(this);
     }
 
     handleSubmit(event){
-        event.preventDefault()
-        this.props.getGame(this.props.player)
+        event.preventDefault();
+        this.props.getGame(this.props.player);
     }
 
     handleCodeSubmit(event) {
@@ -35,9 +35,9 @@ class NewGame extends React.Component {
                 It’s the perfect excuse to call up the crew, and get everyone together for guaranteed laughs.
                 </p>
                 <div className="new-game-join-game">
-                    <Button type='submit' className="button-create" variant="outline-light" onClick={this.handleSubmit}>Start New Game</Button>
+                    <Button type="submit" className="button-create" variant="outline-light" onClick={this.handleSubmit}>Start New Game</Button>
                     <form className="buttons" onSubmit={this.handleCodeSubmit}>
-                        <Button type='submit' className="button-join" variant="outline-light">Join Game</Button>
+                        <Button type="submit" className="button-join" variant="outline-light">Join Game</Button>
                         <input
                         type="text"
                         className="input-enter-code"
@@ -65,6 +65,4 @@ const mapDispatch = (dispatch) => {
     }
 }
 
-
-
-export default connect(mapState, mapDispatch)(NewGame)
+export default connect(mapState, mapDispatch)(NewGame);

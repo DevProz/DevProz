@@ -8,86 +8,64 @@ const cookieParser = require("cookie-parser");
 const MongoStore = require("connect-mongo")(session);
 const mongoose = require("mongoose");
 const PORT = process.env.PORT || 5000;
-//we need http for the configuration process of socket.io
-const server = require('http').createServer(app).listen(PORT)
-const io = require('socket.io').listen(server)
+const server = require("http").createServer(app).listen(PORT);
+const io = require("socket.io").listen(server);
 
-/////////
-//testing with socket.io
-require('./socket')(io)
+require("./socket")(io);
 
-/////////////
-
-
-//secrets file
 require("dotenv").config();
 
-// logging middleware
 app.use(morgan("dev"));
 
-// body parsing middleware
 app.use(express.json());
 app.use(express.urlencoded({
     extended: true
 }));
 
-// compression middleware (make things smaller before sending to network)
 app.use(compression());
 
-// static middleware
 app.use("/static", express.static(path.join(__dirname, "../public")));
 
-// cookie middleware 
 app.use(cookieParser());
 
-//connecting to database
-console.log(process.env.NODE_ENV)
 const uri = process.env.NODE_ENV === "development" ? "mongodb://localhost:27017/devproz" : process.env.DB_SECRET;
 mongoose.connect(uri, { 
     useNewUrlParser: true, 
     useCreateIndex: true,  
     useUnifiedTopology: true 
 });
-console.log(uri)
+
 const connection = mongoose.connection;
 connection.on("error", console.error.bind(console, "connection error:"));
 connection.once("open", ()  => {
   console.log("we are connected");
 });
 
-// session middleware with passport
 app.use(session({
     secret: process.env.SECRET_KEY, 
     saveUninitialized : true, 
     resave : true, 
     cookie: {
-        maxAge: 1000 * 60 * 60 * 24 * 7 //one week
+        maxAge: 1000 * 60 * 60 * 24 * 7
     },
-    store: new MongoStore({mongooseConnection: connection})
+    store: new MongoStore({mongooseConnection: connection});
 }));
 
-// routes
 app.use("/api", require("./api")); 
 
 app.use("/", (req, res, next) => {
-    res.sendFile(path.join(__dirname, '..', 'public/index.html'))
+    res.sendFile(path.join(__dirname, "..", "public/index.html"));
 })
 
-// error handling middleware
 app.use((err, req, res, next) => {
     if (process.env.NODE_ENV !== "test") console.error(err.stack);
     res.status(err.status || 500).send(err.message || "Internal server error");
 });
 
-// error handling endware
 app.use((err, req, res, next) => {
     console.error(err);
     console.error(err.stack);
     res.status(err.status || 500).send(err.message || "Internal server error.");
 });
-
-// app.listen(PORT, () =>
-//     console.log(`Connected to ${PORT}`)
-// );
 
 module.exports = app;

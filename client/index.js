@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import store from './store';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import store from "./store";
 import App from "./components/App";
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import ChangeName from './components/ChangeName';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import ChangeName from "./components/ChangeName";
 
 ReactDOM.render(
   <Provider store={store}>
@@ -15,5 +15,5 @@ ReactDOM.render(
       </Switch>
     </BrowserRouter>
   </Provider> ,
-  document.getElementById('app') // make sure this is the same as the id of the div in your index.html
+  document.getElementById("app")
 );
