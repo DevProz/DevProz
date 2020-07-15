@@ -17,6 +17,10 @@ socket.on('connect', () => {
   socket.on("receive-countdown", countdown => {
     store.dispatch(receiveCountdown(countdown));
   })
+
+  socket.on("bad-game-code", data => {
+    alert("Bad game code");
+  })
 })
 
   
