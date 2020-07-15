@@ -12,6 +12,7 @@ const UPDATE_NEW_GAME = 'UPDATE_NEW_GAME';
 const UPDATE_PLAYER = 'UPDATE_PLAYER ';
 const SELECTED_CARD = 'SELECTED_CARD';
 const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
+const RECEIVE_COUNTDOWN = 'RECEIVE_COUNTDOWN';
 
 export const getPlayers = (players) => {
     return {
@@ -41,7 +42,12 @@ export const updatePlayer = player => {
     }
 };
 
-
+export const receiveCountdown = countdown => {
+    return {
+        type: RECEIVE_COUNTDOWN,
+        countdown
+    }
+};
 
 export const receiveMessage = message => {
     return {
@@ -93,7 +99,8 @@ export const changeName = (playerName) => async (dispatch) => {
 const initialState = {
     game: null,
     player: null,
-    messages: []
+    messages: [],
+    countdown: 30,
 }
 
 //reducer
@@ -114,7 +121,9 @@ const reducer = (state = initialState, action) => {
             } 
         case RECEIVE_MESSAGE:
             return {...state, messages: [...state.messages, action.message]}
-         default:
+        case RECEIVE_COUNTDOWN:
+            return {...state, countdown: action.countdown}
+        default:
             return state
     }
 }

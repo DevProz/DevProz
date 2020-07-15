@@ -1,5 +1,5 @@
 import io from 'socket.io-client'
-import store, {updateNewGame, updatePlayer, receiveMessage } from './store'
+import store, {updateNewGame, updatePlayer, receiveMessage, receiveCountdown } from './store'
 
 const socket = io(window.location.origin)
 
@@ -12,6 +12,10 @@ socket.on('connect', () => {
 
   socket.on("receive-message", data => {
     store.dispatch(receiveMessage(data))
+  })
+
+  socket.on("receive-countdown", countdown => {
+    store.dispatch(receiveCountdown(countdown));
   })
 })
 
