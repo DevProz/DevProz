@@ -317,7 +317,6 @@ module.exports = io => {
         sendPopulateGame(countdownGame._id);
       }
     }
-
     setInterval(countdownFunction, 1000);
   };
 
@@ -332,7 +331,6 @@ module.exports = io => {
         start_new_round(code);
       }
     }
-
     setInterval(countdownFunction, 1000);
   };
 }
