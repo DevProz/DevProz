@@ -1,146 +1,177 @@
 li {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 /* front-page page */
 .title-front-page {
-    font-style: oblique;
-    font-size: 50px;
-    font-weight: bolder;
-    display: flex;
-    justify-content: center;
-    padding-top: 100px;
+  font-style: oblique;
+  font-size: 50px;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
 }
 
 .what-color {
-    color: #66cdaa;
-    padding-right: 10px;
+  color: #66cdaa;
+  padding-right: 10px;
 }
 
 .do-color {
-    color: #66cdaa;
-    padding-right: 10px;
+  color: #66cdaa;
+  padding-right: 10px;
 }
 
 .you-color {
-    color: yellow;
-    padding-right: 10px;
+  color: yellow;
+  padding-right: 10px;
 }
 
 .meme-color {
-    color: white;
-    padding-right: 10px;
+  color: white;
+  padding-right: 10px;
 }
 
 .question-mark-color {
-    color: yellow;
+  color: yellow;
 }
 
 .button-enter-name {
-    margin-top: 10px;
-    align-self: center;
+  margin-top: 10px;
+  align-self: center;
 }
 
 .label-style {
-    text-align: center;
+  text-align: center;
 }
 
 /* New Game Component */
 .title-new-game-join-game {
-    font-style: oblique;
-    font-size: 50px;
-    font-weight: bolder;
-    display: flex;
-    justify-content: center;
-    padding-top: 100px;
-    color: #66cdaa;
+  font-style: oblique;
+  font-size: 50px;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+  color: #66cdaa;
 }
 
 .container-game-page {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .new-game-join-game {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .buttons {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .button-create {
-    margin-top: 10px;
-    align-self: center;
-    width: 150px;
+  margin-top: 10px;
+  align-self: center;
+  width: 150px;
 }
 
 .button-join {
-    margin-top: 10px;
-    align-self: center;
-    margin-top: 30px;
-    width: 150px;
+  margin-top: 10px;
+  align-self: center;
+  margin-top: 30px;
+  width: 150px;
 }
 
 .input-enter-code {
-    align-self: center;
-    margin-top: 20px;
-    margin-bottom: 50px;
-    border-radius: 15px;
-    border: solid 4px #66cdaa;
+  align-self: center;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  border-radius: 15px;
+  border: solid 4px #66cdaa;
 }
 
 .description {
-    align-self: center;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-top: 20px;
-    color: white;
+  align-self: center;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 20px;
+  color: white;
 }
 
 /* Start Game Component */
 .title-new-game {
-    font-style: oblique;
-    font-size: 50px;
-    font-weight: bolder;
-    display: flex;
-    justify-content: center;
-    padding-top: 100px;
-    color: #66cdaa;
+  font-style: oblique;
+  font-size: 50px;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+  color: #66cdaa;
 }
 
 .code-style {
-    font-weight: bolder;
-    display: flex;
-    justify-content: center;
-    padding-top: 30px;
-    border: solid 2pxwhite;
-    color: white;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+  border: solid 2pxwhite;
+  color: white;
 }
 
 .names {
-    color: white
+  color: white
 }
 
 .button-start-game {
-    margin-top: 10px;
-    align-self: center;
+  margin-top: 10px;
+  align-self: center;
 }
 
 .please-wait {
-    align-self: center;
-    color: white;
+  align-self: center;
+  color: white;
 }
 
 .start-button-align {
-    align-self: center;
-    justify-content: center;
-    display: flex;
+  align-self: center;
+  justify-content: center;
+  display: flex;
+}
+
+.host-notification {
+  text-align: center;
+  color: #eeeeee;
+  font-family: "Arvo";
+  font-size: 34px;
+  padding: 50px 50px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  margin-top: 20px;
+
+  
+}
+@keyframes glowing {
+  0% {
+    background-color: #cc66ff;
+    box-shadow: 0 0 5px #cc66ff;
+  }
+  50% {
+    background-color: purple;
+    box-shadow: 0 0 20px purple;
+  }
+  100% {
+    background-color: #cc66ff;
+    box-shadow: 0 0 5px #cc66ff;
+  }
+}
+.host-notification {
+  animation: glowing 1300ms infinite;
 }
 
 /*Font Page animation*/
@@ -149,195 +180,225 @@ li {
 
 /* iconicfill */
 [class*="iconicfill-"]:before {
-    font-family: 'IconicFill', sans-serif;
+  font-family: "IconicFill", sans-serif;
 }
 
 body,
 html {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 body {
-    font-family: 'Arvo';
-    background: #4f3b5b;
-    background: -moz-radial-gradient(center, ellipse cover, #4f3b5b 0%, #231733 100%);
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #4f3b5b), color-stop(100%, #231733));
-    background: -webkit-radial-gradient(center, ellipse cover, #4f3b5b 0%, #231733 100%);
-    background: -o-radial-gradient(center, ellipse cover, #4f3b5b 0%, #231733 100%);
-    background: -ms-radial-gradient(center, ellipse cover, #4f3b5b 0%, #231733 100%);
-    background: radial-gradient(ellipse at center, #4f3b5b 0%, #231733 100%);
+  font-family: "Arvo";
+  background: #4f3b5b;
+  background: -moz-radial-gradient(
+    center,
+    ellipse cover,
+    #4f3b5b 0%,
+    #231733 100%
+  );
+  background: -webkit-gradient(
+    radial,
+    center center,
+    0px,
+    center center,
+    100%,
+    color-stop(0%, #4f3b5b),
+    color-stop(100%, #231733)
+  );
+  background: -webkit-radial-gradient(
+    center,
+    ellipse cover,
+    #4f3b5b 0%,
+    #231733 100%
+  );
+  background: -o-radial-gradient(
+    center,
+    ellipse cover,
+    #4f3b5b 0%,
+    #231733 100%
+  );
+  background: -ms-radial-gradient(
+    center,
+    ellipse cover,
+    #4f3b5b 0%,
+    #231733 100%
+  );
+  background: radial-gradient(ellipse at center, #4f3b5b 0%, #231733 100%);
 }
 
 .wrap {
-    width: 300px;
+  width: 300px;
 }
 
 .center {
-    position: relative;
-    margin: auto;
+  position: relative;
+  margin: auto;
 }
 
 .input-front-page {
-    display: block;
-    width: 300px;
-    padding: 15px 0 15px 12px;
-    font-family: "Arvo";
-    font-weight: 400;
-    color: #377D6A;
-    background: rgba(0, 0, 0, 0.3);
-    border: none;
-    outline: none;
-    color: #fff;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    border-radius: 4px;
-    box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.2), 0 1px 1px rgba(255, 255, 255, 0.2);
-    text-indent: 60px;
-    transition: all .3s ease-in-out;
-    position: relative;
-    font-size: 16px;
+  display: block;
+  width: 300px;
+  padding: 15px 0 15px 12px;
+  font-family: "Arvo";
+  font-weight: 400;
+  color: #377d6a;
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  outline: none;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.2),
+    0 1px 1px rgba(255, 255, 255, 0.2);
+  text-indent: 60px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  font-size: 16px;
 }
 
 .input-front-page:focus {
-    text-indent: 12px;
-    box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2);
+  text-indent: 12px;
+  box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.4),
+    0 1px 1px rgba(255, 255, 255, 0.2);
 }
 
 label {
-    display: block;
-    position: static;
-    margin: 0;
-    padding: 0;
-    color: #fff;
-    font-size: 25px;
-    font-family: 'Arvo';
+  display: block;
+  position: static;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-size: 25px;
+  font-family: "Arvo";
 }
 
 .wrap-label {
-    width: 300px;
-    position: relative;
-    bottom: -15px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+  width: 300px;
+  position: relative;
+  bottom: -15px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .iconicfill-pen-alt2 {
-    position: absolute;
-    left: 10px;
-    color: #fff;
-    font-size: 19px;
-    opacity: 1;
-    top: -2px;
-    transform: translateX(-100px);
+  position: absolute;
+  left: 10px;
+  color: #fff;
+  font-size: 19px;
+  opacity: 1;
+  top: -2px;
+  transform: translateX(-100px);
 }
 
 /* ==== Pen animation ==== */
 .move-pen {
-    animation: move-pen 1s ease-in infinite alternate;
+  animation: move-pen 1s ease-in infinite alternate;
 }
 
 @keyframes move-pen {
-    from {
-        transform: translateX(-4px) rotate(6deg);
-    }
+  from {
+    transform: translateX(-4px) rotate(6deg);
+  }
 
-    to {
-        transform: translateX(4px) rotate(-3deg);
-    }
+  to {
+    transform: translateX(4px) rotate(-3deg);
+  }
 }
 
 .border-info {
-    margin-left: 30px;
+  margin-left: 30px;
 }
 
 .image-meme-style {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  margin-top: 20px;
 }
 
 .cards-row {
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
 }
 
-.card:hover{
-    cursor: pointer;
+.card:hover {
+  cursor: pointer;
 }
 
-.active{
-    border: 5px solid yellow;
+.active {
+  border: 5px solid yellow;
 }
 
-.winner{
-    border: 5px solid #cc66ff;
+.winner {
+  border: 5px solid #cc66ff;
 }
 
-.button-submit-card{
-    margin-top: 20px;
-    margin-bottom: 20px;
+.button-submit-card {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .button-row {
-    justify-content: center;
-    display: flex;
+  justify-content: center;
+  display: flex;
 }
 
 .title-game-page {
-    display: flex;
-    margin-top: 10px;
-    margin-left: 10px;
+  display: flex;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 .row-game-board {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 .card.border-info {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .each-card-style {
-    color: black;
-    font-weight: bold;
-    font-style: unset;
-    text-align: end;
+  color: black;
+  font-weight: bold;
+  font-style: unset;
+  text-align: end;
 }
 
 .row.chat-style-text {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 .type-message-input {
-    background-color: white;
-    color: black;
-    width: -webkit-fill-available;
-    border: solid 1px black;
+  background-color: white;
+  color: black;
+  width: -webkit-fill-available;
+  border: solid 1px black;
 }
 
 .form-chat {
-    width: fit-content;
+  width: fit-content;
 }
 
 .chat-one-message {
-    border-radius: 15px;
-    border: solid 3px purple;
-    padding: 5px;
-    margin-bottom: 5px;
-    background-color: whitesmoke;
-    display: flex;
-    flex-direction: row;
+  border-radius: 15px;
+  border: solid 3px purple;
+  padding: 5px;
+  margin-bottom: 5px;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: row;
 }
 
 .name-chat {
-    margin-right: 3px;
-    color: purple;
-    text-decoration: underline;
+  margin-right: 3px;
+  color: purple;
+  text-decoration: underline;
 }
 
 /* .text-chat {
@@ -345,51 +406,52 @@ not needed aat the moment
 } */
 
 .chat-box {
-    display: flex;
-    justify-content: center;
-    flex-direction: inherit;
+  display: flex;
+  justify-content: center;
+  flex-direction: inherit;
 }
 
 .chat-button:hover {
-    background-color: #66cdaa;
-    color: white;
-} 
-
-.score-board {
-    display: flex;
+  background-color: #66cdaa;
+  color: white;
 }
 
-.score-board-name, .score-board-score {
-    margin-right: 5px;
-    font-weight: lighter;
+.score-board {
+  display: flex;
+}
+
+.score-board-name,
+.score-board-score {
+  margin-right: 5px;
+  font-weight: lighter;
 }
 
 .messages {
-    overflow: scroll;
-    max-height: 200px;
+  overflow: scroll;
+  max-height: 200px;
 }
 
 .mySentenceCards {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .image-column {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .selectedCards-Row {
-    display: contents;
+  display: contents;
 }
 
 .button-leave-game {
-    padding-left: 10px;
+  padding-left: 10px;
 }
 
 .selectedCardButton-Row {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
 }

@@ -6,7 +6,7 @@ import ImageCard from './ImageCard';
 import Chat from "./Chat";
 import SelectedCards from './SelectedCards';
 import socket from '../socket';
-
+// import Host from './Host 
 class Game extends React.Component {
     constructor(){
         super()
@@ -83,6 +83,13 @@ class Game extends React.Component {
                     </Row>
                     <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>
                 </div>
+                <Row className="selectedCardButton-Row">
+                        {(this.props.game.host === this.props.player._id) && (this.props.game.selectedCards.length === this.props.game.players.length) ? <Button className="button-choose-winner" variant="outline-light" type='button' onClick={this.handleWinningSubmit}>Submit Winner Card</Button> : console.log('A winner has not been submitted yet')}
+                    </Row>
+                    <br/>
+                    <div className="host-notification">
+                        {(this.props.game.host === this.props.player._id) ? <div> YOU ARE THE HOST! </div> : <div> Please submit a card </div>}
+                    </div>
             </div>
         )
     }
