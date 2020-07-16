@@ -288,6 +288,15 @@ const sentenceCards = [
   new SentenceCard({
     sentence: "Me in California in 80 degree weather",
   }),
+  new SentenceCard({
+    sentence: "How to lower your household expenses",
+  }),
 ];
 
 module.exports = sentenceCards;
+// new SentenceCard({
+//   sentence: "",
+// }),
+// new SentenceCard({
+//   sentence: "",
+// }),
