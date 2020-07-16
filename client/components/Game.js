@@ -46,7 +46,7 @@ class Game extends React.Component {
                         </div>
                     </div>
                     <div className="host-notification">
-                        {(this.props.game.host === this.props.player._id) ? <div>Your turn to select <FaCrown /></div> : <div> Please submit a card <GiReturnArrow /></div>}
+                        {(this.props.game.host === this.props.player._id) ? <div>Wait until each player selects the card. After you  choose the winner card! <FaCrown /></div> : <div> Please submit a card <GiReturnArrow /></div>}
                     </div>
 
                         <Row>
@@ -91,7 +91,7 @@ class Game extends React.Component {
                     <Row className="selectedCards-Row">
                         {(this.props.game.selectedCards.length > 0) ? <SelectedCards selectedCards={this.props.game.selectedCards}/> : console.log('there are no selected cards')}
                     </Row>
-                    <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>
+                    {(this.props.player._id !== this.props.game.host) ? <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>: console.log('you are host')}
                 </div>
                 <Row className="selectedCardButton-Row">
                         {(this.props.game.host === this.props.player._id) && (this.props.game.selectedCards.length === this.props.game.players.length) ? <Button className="button-choose-winner" variant="outline-light" type='button' onClick={this.handleWinningSubmit}>Submit Winner Card</Button> : console.log('A winner has not been submitted yet')}
