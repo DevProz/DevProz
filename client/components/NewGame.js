@@ -70,8 +70,10 @@ class NewGame extends React.Component {
                 <div className="title-new-game-join-game">Lets Play!</div>
                 <div className="new-game-join-game">
                     <Button type="submit" className="button-create" variant="outline-light" onClick={this.handleSubmit}>Start New Game</Button>
+                    <div className="or-style">OR</div>
                     <form className="buttons" onSubmit={this.handleCodeSubmit}>
                         <Button type="submit" className="button-join" variant="outline-light">Join Game</Button>
+                        <div className="arrow down"></div>
                         <input
                         type="text"
                         className="input-enter-code"
