@@ -37,7 +37,13 @@ class NewGame extends React.Component {
         return (
             <div className="container-game-page">
                  <Button type="button" href="/change_name" className="button-create" variant="outline-light">Change name</Button>
-                <div className="title-new-game-join-game">What Do You Meme</div>
+                <div className="title-new-game-join-game">
+                        <p className="what-color">WHAT</p>
+                        <p className="do-color">DO </p>
+                        <p className="you-color">YOU </p>
+                        <p className="meme-color">MEME</p>
+                        <p className="question-mark-color">?</p>
+                </div>
                 <p className="description">
                 What Do You Meme™ is the adult party game taking the internet by storm. 
                 Find out who will be crowned Meme Queen/King by competing with friends 

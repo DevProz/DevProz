@@ -48,7 +48,6 @@ li {
 
 /* New Game Component */
 .title-new-game-join-game {
-  font-style: oblique;
   font-size: 50px;
   font-weight: bolder;
   display: flex;
