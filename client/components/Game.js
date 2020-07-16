@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Row, Col, Button, Jumbotron } from 'react-bootstrap';
+import { Card, Row, Col, Button, Jumbotron } from "react-bootstrap";
 import MySentenceCards from "./MySentenceCards";
 import { connect } from "react-redux";
 import ImageCard from "./ImageCard";
@@ -35,35 +35,29 @@ class Game extends React.Component {
                 <div>
                     <div>
                     <div className="title-game-page">
-                            <p className="what-color">WHAT</p>
-                            <p className="do-color">DO </p>
-                            <p className="you-color">YOU </p>
-                            <p className="meme-color">MEME</p>
-                            <p className="question-mark-color">?</p>
                         <p className="what-color">WHAT</p>
                         <p className="do-color">DO </p>
                         <p className="you-color">YOU </p>
                         <p className="meme-color">MEME</p>
                         <p className="question-mark-color">?</p>
-                        <div className='game-code'><h5>Game Code: </h5><h5 className='code'>{this.props.game.entranceCode}</h5></div>
+                        <div className="game-code"><h5>Game Code: </h5><h5 className="code">{this.props.game.entranceCode}</h5></div>
                         <div className="buttons-align-left">
-                        <Button type='submit' onClick ={this.handleSubmit} size="sm" variant='outline-light' className="button-leave-game">Leave the game</Button>
-                        <Button type='button' onClick ={this.handleRestartSubmit} size="sm" variant='outline-light' className="button-leave-game">Restart the game</Button>
+                        <Button type="submit" onClick ={this.handleSubmit} size="sm" variant="outline-light" className="button-leave-game">Leave the game</Button>
+                        <Button type="button" onClick ={this.handleRestartSubmit} size="sm" variant="outline-light" className="button-leave-game">Restart the game</Button>
                         </div>
                     </div>
-                    {/* <p className='code'>Game Code: {this.props.game.entranceCode}</p> */}
                     <div className="host-notification">
                         {(this.props.game.host === this.props.player._id) ? <div>Wait for players to select cards, then choose your favorite! <FaCrown /></div> : <div> Please submit a card <GiReturnArrow /></div>}
                     </div>
 
                         <Row className="shrink-row">
                             <Col style={{ width: "33%"}}>
-                            <Card className='score'>
+                            <Card className="score">
                                 <Card.Header className="countdown-style">
                                     Countdown: {this.props.countdown}
                                 </Card.Header>
                             </Card>
-                            <Card  className='score'>
+                            <Card  className="score">
                                 <Card.Header> Score:  </Card.Header>
                                     <Card.Body>
                                     {this.props.game.players.map((player) => {
@@ -85,11 +79,11 @@ class Game extends React.Component {
                             
 
                             <Col style={{ width: "33%"}}>
-                                <Card className='score'>
+                                <Card className="score">
                                 <Card.Header> Live Chat:  </Card.Header>
 
                                 <Card.Body>
-                                        <Card.Text className='chat-text'>
+                                        <Card.Text className="chat-text">
                                             <Chat/>
                                         </Card.Text>
                                 </Card.Body>
@@ -98,21 +92,21 @@ class Game extends React.Component {
                         </Col>
                     </Row>
                     <Row className="selectedCards-Row">
-                        {(this.props.game.selectedCards.length > 0) ? <SelectedCards selectedCards={this.props.game.selectedCards}/> : console.log('there are no selected cards')}
+                        {(this.props.game.selectedCards.length > 0) ? <SelectedCards selectedCards={this.props.game.selectedCards}/> : console.log("there are no selected cards")}
                     </Row>
-                    {(this.props.player._id !== this.props.game.host) ? <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>: console.log('you are host')}
+                    {(this.props.player._id !== this.props.game.host) ? <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>: console.log("you are host")}
                 </div>
                 <Row className="selectedCardButton-Row">
-                        {(this.props.game.host === this.props.player._id) && (this.props.game.selectedCards.length === this.props.game.players.length) ? <Button className="button-choose-winner" variant="outline-light" type='button' onClick={this.handleWinningSubmit}>Submit Winner Card</Button> : console.log('A winner has not been submitted yet')}
+                        {(this.props.game.host === this.props.player._id) && (this.props.game.selectedCards.length === this.props.game.players.length) ? <Button className="button-choose-winner" variant="outline-light" type="button" onClick={this.handleWinningSubmit}>Submit Winner Card</Button> : console.log("A winner has not been submitted yet")}
                 </Row>
                 <br/>
             </div>
 
           )} else {
               return(
-                  <Jumbotron className='jumbotron'>
+                  <Jumbotron className="jumbotron">
                     <h1>Congratulations {winningPlayer.name}! You are the winner!</h1>
-                    <Button className='button-winning-page' type='submit' onClick ={this.handleSubmit} variant='outline-light'>Play Again</Button>
+                    <Button className="button-winning-page" type="submit" onClick ={this.handleSubmit} variant="outline-light">Play Again</Button>
                   </Jumbotron>
               )
           }
