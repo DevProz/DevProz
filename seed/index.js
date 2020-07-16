@@ -42,7 +42,7 @@ runSeed();
 
 const runSeedCards = async () => {
   try {
-    const manyCards = buildManyCards(400);
+    const manyCards = buildManyCards();
     const seedCards = await Promise.all(
       manyCards.map((sentenceCard) => SentenceCard.create(sentenceCard))
     );
@@ -55,7 +55,7 @@ runSeedCards();
 
 const runMemeCards = async () => {
   try {
-    const manyMemes = buildManyMemes(200);
+    const manyMemes = buildManyMemes();
     const seedMemes = await Promise.all(
       manyMemes.map((memeCard) => ImageCard.create(memeCard))
     );
