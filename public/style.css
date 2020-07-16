@@ -303,10 +303,12 @@ label {
   }
 }
 
+.shrink-row{
+  display: flex; 
+}
 
-/* .border-info {
-  margin-left: 30px;
-} */
+
+
 
 
 .image-meme-style {

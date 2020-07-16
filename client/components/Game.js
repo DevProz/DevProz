@@ -49,14 +49,14 @@ class Game extends React.Component {
                         {(this.props.game.host === this.props.player._id) ? <div>Wait until each player selects the card. After you  choose the winner card! <FaCrown /></div> : <div> Please submit a card <GiReturnArrow /></div>}
                     </div>
 
-                        <Row>
-                            <Col>
-                            <Card className='score'  style={{ width: '20rem' }}>
+                        <Row className="shrink-row">
+                            <Col style={{ width: "33%"}}>
+                            <Card className='score'>
                                 <Card.Header className="countdown-style">
                                     Countdown: {this.props.countdown}
                                 </Card.Header>
                             </Card>
-                            <Card  className='score' style={{ width: '20rem' }}>
+                            <Card  className='score'>
                                 <Card.Header> Score:  </Card.Header>
                                     <Card.Body>
                                     {this.props.game.players.map((player) => {
@@ -72,11 +72,13 @@ class Game extends React.Component {
                                     </Card.Body>
                             </Card>
                             </Col>
-                            <Col className="image-column">
+                            <Col className="image-column" style={{ width: "33%"}}>
                             <ImageCard currentImage={this.props.game.currentImage}/>
                             </Col>
-                            <Col>
-                                <Card className='score' style={{ width: '20rem' }}>
+                            
+
+                            <Col style={{ width: "33%"}}>
+                                <Card className='score'>
                                 <Card.Header> Live Chat:  </Card.Header>
 
                                 <Card.Body>
