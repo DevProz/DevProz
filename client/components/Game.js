@@ -35,18 +35,18 @@ class Game extends React.Component {
                 <div>
                     <div>
                     <div className="title-game-page">
-                        <p className="what-color">WHAT</p>
-                        <p className="do-color">DO </p>
-                        <p className="you-color">YOU </p>
-                        <p className="meme-color">MEME</p>
-                        <p className="question-mark-color">?</p>
+                            <p className="what-color">WHAT</p>
+                            <p className="do-color">DO </p>
+                            <p className="you-color">YOU </p>
+                            <p className="meme-color">MEME</p>
+                            <p className="question-mark-color">?</p>
                         <div className="buttons-align-left">
                         <Button type='submit' onClick ={this.handleSubmit} size="sm" variant='outline-light' className="button-leave-game">Leave the game</Button>
                         <Button type='button' onClick ={this.handleRestartSubmit} size="sm" variant='outline-light' className="button-leave-game">Restart the game</Button>
                         </div>
                     </div>
                     <div className="host-notification">
-                        {(this.props.game.host === this.props.player._id) ? <div>Wait until each player selects the card. After you  choose the winner card! <FaCrown /></div> : <div> Please submit a card <GiReturnArrow /></div>}
+                        {(this.props.game.host === this.props.player._id) ? <div>Wait for players to select cards, then choose your favorite! <FaCrown /></div> : <div> Please submit a card <GiReturnArrow /></div>}
                     </div>
 
                         <Row>

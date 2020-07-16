@@ -3,7 +3,7 @@ import { changeName } from "../store";
 import { connect } from "react-redux";
 import { Button } from "react-bootstrap";
 import { Redirect } from "react-router";
-
+import { FaCrown } from "react-icons/fa";
 
 class Home extends React.Component {
     constructor(props) {
@@ -47,7 +47,8 @@ class Home extends React.Component {
           </div>
           <form className="wrap-label" onSubmit={this.handleSubmit}>
               <label className="label-style" htmlFor="name">
-              Your name:
+              <div><FaCrown /></div>
+              <div className="typewriter">Your name:</div>
               <input className="input-front-page" type="text"  id="name" name="title" onChange={this.handleChange}
               value={this.state.name}
               />

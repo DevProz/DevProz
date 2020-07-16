@@ -24,13 +24,12 @@ class NewGame extends React.Component {
 
     handleDirections(event){
         event.preventDefault();
-        const directions = document.getElementById('game-rules')
-        if(directions.style.display === 'block'){
-            directions.style.display = 'none'
-        }else{
-            directions.style.display = 'block'
+        const directions = document.getElementById("game-rules")
+        if (directions.style.display === "block"){
+            directions.style.display = "none"
+        } else {
+            directions.style.display = "block"
         }
-
     }
 
     render() {
@@ -46,17 +45,17 @@ class NewGame extends React.Component {
                 It’s the perfect excuse to call up the crew, and get everyone together for guaranteed laughs.
                 </p>
                 <Button className="button-create" variant="outline-light" onClick={this.handleDirections}>Directions</Button>
-                <div id='game-rules'>
+                <div id="game-rules">
                 <div className="title-new-game-join-game">How to Play</div>
                 <h3>Setting up a game:</h3>
-                <ul className='game-bullets'>
-                    <li>Choose one player to click the 'Start New Game' button (that player will recieve a game code)</li>
+                <ul className="game-bullets">
+                    <li>Choose one player to click the "Start New Game" button (that player will recieve a game code)</li>
                     <li>This player should send out the game code to all other participants</li>
-                    <li>The remaining participants should enter the given game code and click the 'Join Game' button</li>
-                    <li>Once all participants names appear on the screen, the player who initially started the game can hit the 'Start Game' button</li>
+                    <li>The remaining participants should enter the given game code and click the "Join Game" button</li>
+                    <li>Once all participants names appear on the screen, the player who initially started the game can hit the "Start Game" button</li>
                 </ul>
                 <h3>Game Rules:</h3>
-                <ul className='game-bullets'>
+                <ul className="game-bullets">
                     <li>Each player will be dealt 7 sentence cards</li>
                     <li>An image will be displayed in the center of the screen, each player will select and submit one sentence card they think best matches the image</li>
                     <li>Watch out for the time! You only have 30 seconds to submit a card otherwise you forfeit that round</li>
