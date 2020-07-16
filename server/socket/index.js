@@ -71,12 +71,24 @@ module.exports = io => {
         socket.emit("bad-game-code", {})
         return
       }
+     
+
+      // If player is not in game, add player
       if (!game.players.includes(data.playerId)) {
         game.players.push(data.playerId);
         await game.save();
+        socket.join(game.entranceCode)
+
+        // if game is started, give person cards
+        if (game.status != undefined) {
+          const newPlayer = await Player.findOne({_id: data.playerId})
+          newPlayer.score = 0;
+          const cards = game.sentenceCards.splice(0, 7);
+          newPlayer.sentenceCards = cards;
+          await newPlayer.save();
+        }
       }
 
-      socket.join(game.entranceCode)
       sendPopulateGame(game._id);
     })
 
@@ -102,7 +114,7 @@ module.exports = io => {
         const player = await Player.findOne({
           _id: playerId
         });
-       player.score = 0;
+        player.score = 0;
         const cards = newDeck.splice(0, 7);
         player.sentenceCards = cards;
         await player.save();
