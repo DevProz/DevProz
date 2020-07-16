@@ -2,11 +2,7 @@ const SentenceCard = require("../server/db/models/sentenceCard");
 
 const sentenceCards = [
   new SentenceCard({
-    sentence: "I may be a sucker, but i'm no lollipop!",
-  }),
-  new SentenceCard({
-    sentence:
-      "A word to the wise ain't necessary – it's the stupid ones that need the advice",
+    sentence: "I may be a sucker, but I'm no lollipop!",
   }),
   new SentenceCard({
     sentence: "ACKCHYUALLY",
@@ -15,7 +11,7 @@ const sentenceCards = [
     sentence: "When your meme gets 11 likes",
   }),
   new SentenceCard({
-    sentence: "When you try your best and it still isnt enough",
+    sentence: "When you try your best and it still isn't enough",
   }),
   new SentenceCard({
     sentence:
@@ -23,23 +19,20 @@ const sentenceCards = [
   }),
   new SentenceCard({
     sentence:
-      "When your shampoo says 'damage repair' but you're still borken on the inside",
+      `When your shampoo says "damage repair" but you're still broken on the inside`,
   }),
   new SentenceCard({
-    sentence: "When someone says, 'Oh, shut up, you kmow you love me!'",
+    sentence: `When someone says, "Oh, shut up, you kmow you love me!"`,
   }),
   new SentenceCard({
     sentence:
-      "When your teacher tells you to stop laughing but yoru friends are too funny",
+      "When your teacher tells you to stop laughing but your friends are too funny",
   }),
   new SentenceCard({
     sentence: "Hospitals calculating your medical bill",
   }),
   new SentenceCard({
     sentence: "Where's my mask?",
-  }),
-  new SentenceCard({
-    sentence: "It's time to stop",
   }),
   new SentenceCard({
     sentence: "Sips Tea",
@@ -51,13 +44,10 @@ const sentenceCards = [
     sentence: "I have achieved comedy",
   }),
   new SentenceCard({
-    sentence: "Favorite song comes up on Spotify...accidently hit dislike",
+    sentence: "When my favorite song comes up on Spotify and I accidently hit dislike",
   }),
   new SentenceCard({
-    sentence: "When you see another end of decade list",
-  }),
-  new SentenceCard({
-    sentence: "I'm not a regular mom; I'm a cool mom",
+    sentence: `"I'm not a regular mom; I'm a cool mom"`,
   }),
   new SentenceCard({
     sentence: "The face you make when you hit a pothole",
@@ -66,7 +56,7 @@ const sentenceCards = [
     sentence: "When you phone is at one percent",
   }),
   new SentenceCard({
-    sentence: "Me after hearing someone cough on my roundtrip flight to Italy",
+    sentence: "Me after hearing someone cough on my $18 roundtrip flight to Italy",
   }),
   new SentenceCard({
     sentence: "What I'm actually doing underneath my mask",
@@ -91,7 +81,7 @@ const sentenceCards = [
     sentence: "Finally found the perfect background for my Zoom meetings",
   }),
   new SentenceCard({
-    sentence: "Getting fired on a day off",
+    sentence: "Getting fired on my day off",
   }),
   new SentenceCard({
     sentence: "Ok boomer",
@@ -103,16 +93,13 @@ const sentenceCards = [
     sentence: "When someone calls me instead of texting like a normal person",
   }),
   new SentenceCard({
-    sentence: "When someone calls me instead of texting like a normal person",
-  }),
-  new SentenceCard({
-    sentence: "'Where do you see yourslf in 50 years?' Me: ",
+    sentence: `"Where do you see yourslf in 50 years?" Me: `,
   }),
   new SentenceCard({
     sentence: "When you die of anxiety over something that ended up fine",
   }),
   new SentenceCard({
-    sentence: "What actually happens vs how imma narrate the the story...",
+    sentence: "What actually happens vs. how imma narrate the the story...",
   }),
   new SentenceCard({
     sentence: "Me trying to get out of my comfort zone",
@@ -123,38 +110,34 @@ const sentenceCards = [
   }),
   new SentenceCard({
     sentence:
-      "When you accidently clicked 'open in new window' instead of 'open in new tab'",
+      `When you accidently clicked "open in new window" instead of "open in new tab"`,
   }),
   new SentenceCard({
     sentence:
-      "Suspect hiding from police passes gas so loudly it gives up their hiding spot",
+      "Suspect hiding from police passes gas so loudly it gives up hiding spot",
   }),
   new SentenceCard({
     sentence:
-      "Teacher:'No eating in class!'. Students in the back of the class: ",
+      `Teacher: "No eating in class!". Students in the back of the class: `,
   }),
   new SentenceCard({
-    sentence: "Ermahgerd",
+    sentence: "ERMAHGERD",
   }),
   new SentenceCard({
     sentence:
-      "I don't always use Internet Explorer...But when I do, it's usually to download a bettter browser",
+      `"I don't always use Internet Explorer but when I do, it's usually to download a bettter browser"`,
   }),
   new SentenceCard({
     sentence: "Shut up and take my money!",
   }),
   new SentenceCard({
-    sentence: "On my way to a 'party' circa 7th grade",
+    sentence: `On my way to a "party" circa 7th grade`,
   }),
   new SentenceCard({
-    sentence: "Me at my professor's office hours after failing my midterm",
+    sentence: "Me at my professor's office hours after failing the midterm",
   }),
   new SentenceCard({
     sentence: "Feelin' cute, might delete later",
-  }),
-  new SentenceCard({
-    sentence:
-      "Me: They aplogized, I should just let it go. Also me: bring up that thing that pissed you off three weeks ago. Finish them.",
   }),
   new SentenceCard({
     sentence: "Ain't nobody got time for that",
@@ -176,7 +159,7 @@ const sentenceCards = [
   }),
   new SentenceCard({
     sentence:
-      "When Netflix asks if you're 'still watching' and you see your reflection in the black screen",
+      `When Netflix asks if you're still watching and you see your reflection in the black screen`,
   }),
   new SentenceCard({
     sentence:
@@ -184,7 +167,7 @@ const sentenceCards = [
   }),
   new SentenceCard({
     sentence:
-      "When the caption says 'tag your friends but' you have no friends",
+      `When the caption says "tag your friends" but you have no friends`,
   }),
   new SentenceCard({
     sentence:
@@ -204,7 +187,7 @@ const sentenceCards = [
     sentence: "i DON'T get why I'm NOT losing weight",
   }),
   new SentenceCard({
-    sentence: "So you mean to tell me that you giys hav an orange president?",
+    sentence: "So you mean to tell me that you guys have an orange president?",
   }),
   new SentenceCard({
     sentence:
@@ -224,11 +207,11 @@ const sentenceCards = [
     sentence: "2020 got me like...",
   }),
   new SentenceCard({
-    sentence: "Me a few months ago about the Coronavirus vs. me today",
+    sentence: "Me a few months ago about the coronavirus vs. me today",
   }),
   new SentenceCard({
     sentence:
-      "That moment when you raise your handand someone else yells out the answer",
+      "That moment when you raise your hand and someone else yells out the answer",
   }),
   new SentenceCard({
     sentence: "Me in the corner watching my family argue",
@@ -257,11 +240,11 @@ const sentenceCards = [
       "When you're waiting to tell a joke, but the conversation starts to change",
   }),
   new SentenceCard({
-    sentence: "Asking the teacher for help vs Sitting there like an idiot",
+    sentence: "Asking the teacher for help vs. sitting there like an idiot",
   }),
   new SentenceCard({
     sentence:
-      "When you think of something funny at a really inappropriate time",
+      "When you think of something funny at an inappropriate time",
   }),
   new SentenceCard({
     sentence:
@@ -271,7 +254,7 @@ const sentenceCards = [
     sentence: "I need to poop",
   }),
   new SentenceCard({
-    sentence: "Them: 'Mamma Mia', Me: 'HERE I GO AGAIN'",
+    sentence: `Them: "Mamma Mia", Me: "HERE I GO AGAIN"`,
   }),
   new SentenceCard({
     sentence: "An accurate picture of my social life",
@@ -280,7 +263,7 @@ const sentenceCards = [
     sentence: "Quarantine got me like...",
   }),
   new SentenceCard({
-    sentence: "When someone bumps into me without without saying 'excuse me'",
+    sentence: `When someone bumps into me without without saying "excuse me"`,
   }),
   new SentenceCard({
     sentence: "Bad hair day",
@@ -288,6 +271,58 @@ const sentenceCards = [
   new SentenceCard({
     sentence: "Me in California in 80 degree weather",
   }),
+  new SentenceCard({
+    sentence: "Are you not entertained?",
+  }),
+  new SentenceCard({
+    sentence: "Hide yo kids, hide yo wife",
+  }),
+  new SentenceCard({
+    sentence: "Haters gonna say it's fake",
+  }),
+  new SentenceCard({
+    sentence: "#winning",
+  }),
+  new SentenceCard({
+    sentence: "Bye, Felicia",
+  }),
+  new SentenceCard({
+    sentence: "It's not fast food if you eat it slowly",
+  }),
+  new SentenceCard({
+    sentence: "U mad bro?",
+  }),
+  new SentenceCard({
+    sentence: "*Wet fart*",
+  }),
+  new SentenceCard({
+    sentence: "Get in loser, we're going shopping",
+  }),
+  new SentenceCard({
+    sentence: `When people say "You are what you eat"`,
+  }),
+  new SentenceCard({
+    sentence: "Me ripping up the study guide after failing the test",
+  }),
+  new SentenceCard({
+    sentence: "When water goes down your windpipe and you're trying not to make a scene",
+  }),
+  new SentenceCard({
+    sentence: "Me on February 14 pretending to be shocked by the roses & chocolate outside my door that I put there",
+  }),
+  new SentenceCard({
+    sentence: "Jesus three days later",
+  }),
+  new SentenceCard({
+    sentence: "When you die and realize that auto-save was on",
+  }),
+  new SentenceCard({
+    sentence: "When your parents ask what happened to all of the garlic bread",
+  }),
+  new SentenceCard({
+    sentence: "When your friends are arguing about whether the answer was 44 or 45 and your answer was South Africa",
+  }),
+
 ];
 
 module.exports = sentenceCards;

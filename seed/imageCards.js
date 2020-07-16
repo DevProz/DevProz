@@ -249,8 +249,84 @@ new ImageCard({
 new ImageCard({
   image: "https://akns-images.eonline.com/eol_images/Entire_Site/2020313/rs_600x600-200413145437-600.tyra.jpg?fit=around|1080:1080&output-quality=90&crop=1080:1080;center,top",
 }),
+new ImageCard({
+  image: "https://assets3.thrillist.com/v1/image/2625863/1584x3000/scale;jpeg_quality=60.jpg",
+}),
+new ImageCard({
+  image: "https://media1.tenor.com/images/54451401d52c0dd2fe9ee5752857d53c/tenor.gif?itemid=3579864",
+}),
+new ImageCard({
+  image: "https://acerta.ca/wp-content/uploads/2019/12/Gladiator.jpg",
+}),
+new ImageCard({
+  image: "https://i.kym-cdn.com/entries/icons/facebook/000/002/858/Paranoia.jpg",
+}),
+new ImageCard({
+  image: "https://i.imgflip.com/12fqg2.jpg",
+}),
+new ImageCard({
+  image: "https://assets3.thrillist.com/v1/image/2625988/1584x1054/crop;jpeg_quality=60.jpg",
+}),
+new ImageCard({
+  image: "https://i.imgflip.com/1dtl93.jpg",
+}),
+new ImageCard({
+  image: "https://i.imgflip.com/3fldan.png",
+}),
+new ImageCard({
+  image: "https://i.imgur.com/xnxoKUA.jpg",
+}),
+new ImageCard({
+  image: "https://i.pinimg.com/474x/7e/39/1c/7e391c06f7706fd7799c55abbb39aeee.jpg",
+}),
+new ImageCard({
+  image: "https://memegenerator.net/img/images/300x300/2910815.jpg",
+}),
+
+new ImageCard({
+  image: "https://pbs.twimg.com/media/EY4ETTcWoAApMqI.jpg",
+}),
+new ImageCard({
+  image: "https://i.insider.com/5e3a52385bc79c610333bdb4?width=1136&format=jpeg",
+}),
+new ImageCard({
+  image: "https://i2-prod.mirror.co.uk/incoming/article894438.ece/ALTERNATES/s615/KIM%20KARDASHIAN.jpg",
+}),
+new ImageCard({
+  image: "https://i.pinimg.com/474x/a6/fd/29/a6fd29c097dfc28805bac8bc2fd8df59.jpg",
+}),
+new ImageCard({
+  image: "https://i.pinimg.com/originals/df/64/8f/df648f885cc3cc442d4a9ff75432d57b.png",
+}),
+new ImageCard({
+  image: "https://i.imgflip.com/zx06e.jpg",
+}),
+
 
 ];
+
+
+// new ImageCard({
+//   image: "",
+// }),
+// new ImageCard({
+//   image: "",
+// }),
+// new ImageCard({
+//   image: "",
+// }),
+// new ImageCard({
+//   image: "",
+// }),
+// new ImageCard({
+//   image: "",
+// }),
+// new ImageCard({
+//   image: "",
+// }),
+// new ImageCard({
+//   image: "",
+// }),
 
 
   module.exports = imageCards;
