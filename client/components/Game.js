@@ -40,23 +40,30 @@ class Game extends React.Component {
                             <p className="you-color">YOU </p>
                             <p className="meme-color">MEME</p>
                             <p className="question-mark-color">?</p>
+                        <p className="what-color">WHAT</p>
+                        <p className="do-color">DO </p>
+                        <p className="you-color">YOU </p>
+                        <p className="meme-color">MEME</p>
+                        <p className="question-mark-color">?</p>
+                        <div className='game-code'><h5>Game Code: </h5><h5 className='code'>{this.props.game.entranceCode}</h5></div>
                         <div className="buttons-align-left">
                         <Button type='submit' onClick ={this.handleSubmit} size="sm" variant='outline-light' className="button-leave-game">Leave the game</Button>
                         <Button type='button' onClick ={this.handleRestartSubmit} size="sm" variant='outline-light' className="button-leave-game">Restart the game</Button>
                         </div>
                     </div>
+                    {/* <p className='code'>Game Code: {this.props.game.entranceCode}</p> */}
                     <div className="host-notification">
                         {(this.props.game.host === this.props.player._id) ? <div>Wait for players to select cards, then choose your favorite! <FaCrown /></div> : <div> Please submit a card <GiReturnArrow /></div>}
                     </div>
 
-                        <Row>
-                            <Col>
-                            <Card className='score'  style={{ width: '20rem' }}>
+                        <Row className="shrink-row">
+                            <Col style={{ width: "33%"}}>
+                            <Card className='score'>
                                 <Card.Header className="countdown-style">
                                     Countdown: {this.props.countdown}
                                 </Card.Header>
                             </Card>
-                            <Card  className='score' style={{ width: '20rem' }}>
+                            <Card  className='score'>
                                 <Card.Header> Score:  </Card.Header>
                                     <Card.Body>
                                     {this.props.game.players.map((player) => {
@@ -72,11 +79,13 @@ class Game extends React.Component {
                                     </Card.Body>
                             </Card>
                             </Col>
-                            <Col className="image-column">
+                            <Col className="image-column" style={{ width: "33%"}}>
                             <ImageCard currentImage={this.props.game.currentImage}/>
                             </Col>
-                            <Col>
-                                <Card className='score' style={{ width: '20rem' }}>
+                            
+
+                            <Col style={{ width: "33%"}}>
+                                <Card className='score'>
                                 <Card.Header> Live Chat:  </Card.Header>
 
                                 <Card.Body>
