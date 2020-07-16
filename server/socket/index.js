@@ -11,6 +11,8 @@ function shuffleArray(array) {
   return array;
 }
 
+const timerIntervalsCache = {}
+
 module.exports = io => {
 
   //use this function to populate a Game
@@ -36,7 +38,6 @@ module.exports = io => {
         model: "Player"
       }
     }).then(populatedGame => {
-      console.log("sending back game")
       io.to(populatedGame.entranceCode).emit("updated_game", populatedGame);
     })
   }
@@ -69,21 +70,30 @@ module.exports = io => {
       })
       if (!game) {
         socket.emit("bad-game-code", {})
-        return
+        return;
       }
+     
       if (!game.players.includes(data.playerId)) {
         game.players.push(data.playerId);
         await game.save();
+        socket.join(game.entranceCode);
+
+        if (game.status != undefined) {
+          const newPlayer = await Player.findOne({_id: data.playerId});
+          newPlayer.score = 0;
+          const cards = game.sentenceCards.splice(0, 7);
+          newPlayer.sentenceCards = cards;
+          await newPlayer.save();
+        }
       }
 
-      socket.join(game.entranceCode)
       sendPopulateGame(game._id);
     })
 
     socket.on("start_game", async data => {
       const game = await Game.findOne({
         entranceCode: data.code
-      })
+      });
 
       game.status = "ALL_SELECTING";
 
@@ -102,6 +112,7 @@ module.exports = io => {
         const player = await Player.findOne({
           _id: playerId
         });
+        player.score = 0;
         const cards = newDeck.splice(0, 7);
         player.sentenceCards = cards;
         await player.save();
@@ -111,7 +122,11 @@ module.exports = io => {
 
       game.selectedCards = [];
 
-      startAllSelectCountdown(game._id);
+      if (timerIntervalsCache[game.entranceCode]) {
+        clearInterval(timerIntervalsCache[game.entranceCode])
+      }
+
+      startAllSelectCountdown(game.entranceCode);
 
       await game.save();
 
@@ -161,7 +176,7 @@ module.exports = io => {
 
         if (game.players.length - 1 == game.selectedCards.length) {
           game.status = "HOST_SELECTING";
-          startHostCountdown(game._id);
+          startHostCountdown(game.entranceCode);
         }
 
         player.sentenceCards = newCardsArray;
@@ -270,15 +285,15 @@ module.exports = io => {
 
     await game.save();
 
-    startAllSelectCountdown(game._id);
+    startAllSelectCountdown(game.entranceCode);
     sendPopulateGame(game._id);
   }
 
-  async function startHostCountdown(gameId) {
+  async function startHostCountdown(entranceCode) {
     let countdown = 60;
     async function countdownFunction() {
       const countdownGame = await Game.findOne({
-        _id: gameId
+        entranceCode: entranceCode
       });
       if (countdownGame.status != "HOST_SELECTING") {
         clearInterval(this);
@@ -292,22 +307,22 @@ module.exports = io => {
        const player = await Player.findOne({
          _id: countdownGame.host
        })
-       player.score --
-       await player.save()
+       player.score--;
+       await player.save();
 
         start_new_round(countdownGame.entranceCode)
         await countdownGame.save();
         sendPopulateGame(countdownGame._id);
       }
     }
-    setInterval(countdownFunction, 1000);
+    timerIntervalsCache[entranceCode] = setInterval(countdownFunction, 1000);
   };
 
-  async function startAllSelectCountdown(gameId) {
+  async function startAllSelectCountdown(entranceCode) {
     let countdown = 30;
     async function countdownFunction() {
       const countdownGame = await Game.findOne({
-        _id: gameId
+        entranceCode: entranceCode
       });
       if (countdownGame.status == "HOST_SELECTING") {
         clearInterval(this);
@@ -319,11 +334,11 @@ module.exports = io => {
         clearInterval(this);
         countdownGame.status = "HOST_SELECTING";
         await countdownGame.save();
-        startHostCountdown(countdownGame._id);
+        startHostCountdown(countdownGame.entranceCode);
         sendPopulateGame(countdownGame._id);
       }
     }
-    setInterval(countdownFunction, 1000);
+    timerIntervalsCache[entranceCode] = setInterval(countdownFunction, 1000);
   };
 
   async function popUpWinningCard(code) {
@@ -337,6 +352,6 @@ module.exports = io => {
         start_new_round(code);
       }
     }
-    setInterval(countdownFunction, 1000);
+    timerIntervalsCache[code] = setInterval(countdownFunction, 1000);
   };
 }

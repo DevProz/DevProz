@@ -27,7 +27,20 @@ class StartGame extends React.Component {
                     </ol>
                 })}</h4>
                 <div className="start-button-align">
-                    {(this.props.game.players[0]._id === this.props.player._id) ? <Button className="button-start-game" variant="outline-light" type="submit"  onClick={this.handleSubmit}>Start Game</Button> :  <div className="please-wait" >Waiting for host to start the game...</div>} 
+                    {(this.props.game.players[0]._id === this.props.player._id) 
+                    ? <Button className="button-start-game" variant="outline-light" type="submit"  onClick={this.handleSubmit}>Start Game</Button> 
+                    : <div className="loader-back">
+                        <div className="ex-container">
+                            <div class="ex"></div>
+                            <div class="ex"></div>
+                            <div class="ex"></div>
+                            <div class="ex"></div>
+                            <div className="please-wait head2 text-center">
+                                Waiting for host to start the game...
+                            </div>
+                        </div>
+                    </div>
+                    } 
                 </div>
 
             </div>
