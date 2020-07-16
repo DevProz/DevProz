@@ -48,13 +48,13 @@ li {
 
 /* New Game Component */
 .title-new-game-join-game {
-  font-style: oblique;
   font-size: 50px;
   font-weight: bolder;
   display: flex;
   justify-content: center;
   padding-top: 10px;
   color: #66cdaa;
+  flex-wrap: wrap;
 }
 
 .container-game-page {
@@ -324,6 +324,7 @@ label {
   justify-content: space-around;
   flex-direction: row;
   flex-wrap: wrap;
+  padding-bottom: 20px;
 }
 
 .card:hover {
@@ -737,4 +738,8 @@ not needed aat the moment
 @keyframes blink-caret {
   from, to { border-color: transparent }
   70% { border-color: orange }
+}
+
+.align-change-name {
+  align-self: flex-end;
 }
