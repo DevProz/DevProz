@@ -336,7 +336,7 @@ label {
 
 
 .buttons-align-left {
-    margin-left: auto;
+    /* margin-left: auto; */
 }
 
 .winner {
@@ -665,6 +665,22 @@ not needed aat the moment
   -webkit-transform:rotate(-360deg)
   }
 }
+
+.game-code {
+  display: flex;
+  margin: auto;
+  color: white;
+}
+
+.code{
+  color: #66cdaa;
+  padding-left: 5px;
+}
+
+.crown {
+  color: gold;
+}
+
 
 
 

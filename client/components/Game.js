@@ -40,11 +40,13 @@ class Game extends React.Component {
                         <p className="you-color">YOU </p>
                         <p className="meme-color">MEME</p>
                         <p className="question-mark-color">?</p>
+                        <div className='game-code'><h5>Game Code: </h5><h5 className='code'>{this.props.game.entranceCode}</h5></div>
                         <div className="buttons-align-left">
                         <Button type='submit' onClick ={this.handleSubmit} size="sm" variant='outline-light' className="button-leave-game">Leave the game</Button>
                         <Button type='button' onClick ={this.handleRestartSubmit} size="sm" variant='outline-light' className="button-leave-game">Restart the game</Button>
                         </div>
                     </div>
+                    {/* <p className='code'>Game Code: {this.props.game.entranceCode}</p> */}
                     <div className="host-notification">
                         {(this.props.game.host === this.props.player._id) ? <div>Wait until each player selects the card. After you  choose the winner card! <FaCrown /></div> : <div> Please submit a card <GiReturnArrow /></div>}
                     </div>
