@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Card, Row, Button } from "react-bootstrap";
 import socket from "../socket";
+import { FaCrown } from "react-icons/fa";
 
 
 class  SelectedCards extends React.Component {
@@ -31,8 +32,25 @@ class  SelectedCards extends React.Component {
   }
 
   render () {  
-      
-    if (this.props.game.status == "ALL_SELECTING") {
+    if (this.props.game.status == "VIEW_WINNING_CARD") {
+      return (
+        <div>
+          <div className="crown-align">
+           <FaCrown color="yellow" size={60}/>
+           </div>
+          <Row className="winning-row"> 
+          {this.props.selectedCards.map((card) => 
+            <Card className="winning-card-pop-up" style={{ width: "30rem" }} key={card._id}>      
+              <Card.Body className="winning-card-text">
+                {card.sentenceCard.sentence}
+              </Card.Body>
+            </Card>
+          )}
+        </Row>
+      </div>
+    )}
+
+    else if (this.props.game.status == "ALL_SELECTING") {
       return (
         <Row className="cards-row"> 
         {this.props.selectedCards.map((card) => 
