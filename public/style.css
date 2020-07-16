@@ -53,7 +53,7 @@ li {
   font-weight: bolder;
   display: flex;
   justify-content: center;
-  padding-top: 100px;
+  padding-top: 10px;
   color: #66cdaa;
 }
 
@@ -61,6 +61,7 @@ li {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin: 2%;
 }
 
 .new-game-join-game {
@@ -76,15 +77,13 @@ li {
 }
 
 .button-create {
-  margin-top: 10px;
+  margin: 1%;
   align-self: center;
   width: 150px;
 }
 
 .button-join {
-  margin-top: 10px;
   align-self: center;
-  margin-top: 30px;
   width: 150px;
 }
 
@@ -102,6 +101,8 @@ li {
   padding-right: 40px;
   padding-top: 20px;
   color: white;
+  line-height: 1.5;
+  font-size: 1.25rem;
 }
 
 /* Start Game Component */
@@ -505,5 +506,163 @@ not needed aat the moment
 .button-winning-page {
     margin: 1%;
 }
+
+#game-rules {
+  color: white;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: none;
+}
+
+.winning-card-pop-up {
+  position: relative;
+}
+
+.winning-card-pop-up:before, .winning-card-pop-up:after
+{
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width:300px;
+  background: #777;
+  -webkit-box-shadow: 0 15px 10px #777;
+  -moz-box-shadow: 0 15px 10px #777;
+  box-shadow: 0 15px 10px #777;
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+}
+.winning-card-pop-up:after
+{
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  transform: rotate(3deg);
+  right: 10px;
+  left: auto;
+}
+
+.winning-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+}
+
+.winning-card-text {
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.crown-align {
+  display: flex;
+  justify-content: center;
+}
+
+
+.game-bullets {
+  list-style: none;
+}
+
+.game-bullets li::before {
+  content: '\2022';
+  color: white;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+
+.loader-backdrop {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.7);
+  z-index: 9;
+}
+
+.ex-container {
+  width: 90px;
+  margin: auto;
+  vertical-align: middle;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding-top: 100px;
+}
+
+.ex {
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-align: center;
+  -webkit-animation: fade 3s infinite;
+  font-size: 4em;
+  width: 40px;
+  height: 40px;
+  margin-top: -17px;
+  display: inline-block;
+  border: 4px double #fff;
+}
+
+.ex:nth-child(1) {
+  -webkit-animation: spin1 2s infinite .5s;
+  -webkit-transform-origin: 50% 52%;
+  margin-left: 10px;
+}
+
+.ex:nth-child(2) {
+  -webkit-animation: spin2 2s infinite .5s;
+  -webkit-transform-origin: 50% 52%;
+  margin-left: -20px;
+}
+
+.ex:nth-child(3) {
+  -webkit-animation: spin2 2s infinite .5s;
+  -webkit-transform-origin: 50% 52%;
+  margin-left: 10px;
+}
+
+.ex:nth-child(4) {
+  -webkit-animation: spin1 2s infinite .5s;
+  -webkit-transform-origin: 50% 52%;
+  margin-left: -20px;
+}
+
+.ex-container .head2 {
+  color: #fff;
+}
+
+.head2 {
+  font-size: 14px;
+}
+
+
+@keyframes spin1 { 0% {
+  -webkit-transform: rotate(0deg)
+} 100% {
+  -webkit-transform: rotate(360deg)
+  }
+}
+
+@keyframes spin2 { 0% {
+  -webkit-transform:rotate(0deg)
+} 100% {
+  -webkit-transform:rotate(-360deg)
+  }
+}
+
 
 

@@ -1,7 +1,7 @@
 {
   "name": "devproz",
   "version": "1.0.0",
-  "description": "What do you meme online real-time board game",
+  "description": "What Do You Meme Board Game",
   "main": "index.js",
   "scripts": {
     "start": "node server",
@@ -49,6 +49,7 @@
     "react-bootstrap": "^1.1.0",
     "react-dom": "^16.13.1",
     "react-icons": "^3.10.0",
+    "react-modal": "^3.11.2",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",

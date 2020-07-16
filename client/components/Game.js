@@ -95,8 +95,8 @@ class Game extends React.Component {
                 </div>
                 <Row className="selectedCardButton-Row">
                         {(this.props.game.host === this.props.player._id) && (this.props.game.selectedCards.length === this.props.game.players.length) ? <Button className="button-choose-winner" variant="outline-light" type='button' onClick={this.handleWinningSubmit}>Submit Winner Card</Button> : console.log('A winner has not been submitted yet')}
-                    </Row>
-                    <br/>
+                </Row>
+                <br/>
             </div>
 
           )} else {
