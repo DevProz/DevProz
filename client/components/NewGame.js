@@ -36,8 +36,8 @@ class NewGame extends React.Component {
     render() {
         return (
             <div className="container-game-page">
-                 <Button type="button" href="/change_name" className="button-create" variant="outline-light">Change name</Button>
-                <div className="title-new-game-join-game">
+                 <Button type="button" href="/change_name" className="button-create align-change-name" variant="outline-light">Change name</Button>
+                <div className="title-new-game-join-game spacing-title">
                         <p className="what-color">WHAT</p>
                         <p className="do-color">DO </p>
                         <p className="you-color">YOU </p>
