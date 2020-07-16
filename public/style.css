@@ -53,7 +53,7 @@ li {
   font-weight: bolder;
   display: flex;
   justify-content: center;
-  padding-top: 100px;
+  padding-top: 10px;
   color: #66cdaa;
 }
 
@@ -61,6 +61,7 @@ li {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin: 2%;
 }
 
 .new-game-join-game {
@@ -76,15 +77,13 @@ li {
 }
 
 .button-create {
-  margin-top: 10px;
+  margin: 1%;
   align-self: center;
   width: 150px;
 }
 
 .button-join {
-  margin-top: 10px;
   align-self: center;
-  margin-top: 30px;
   width: 150px;
 }
 
@@ -102,6 +101,8 @@ li {
   padding-right: 40px;
   padding-top: 20px;
   color: white;
+  line-height: 1.5;
+  font-size: 1.25rem;
 }
 
 /* Start Game Component */
@@ -506,6 +507,23 @@ not needed aat the moment
     margin: 1%;
 }
 
+#game-rules {
+  color: white;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: none;
+}
 
+.game-bullets {
+  list-style: none;
+}
 
+.game-bullets li::before {
+  content: '\2022';
+  color: white;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
 
