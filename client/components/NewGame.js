@@ -9,6 +9,7 @@ class NewGame extends React.Component {
         super()
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleCodeSubmit = this.handleCodeSubmit.bind(this);
+        this.handleDirections = this.handleDirections.bind(this)
     }
 
     handleSubmit(event){
@@ -21,19 +22,52 @@ class NewGame extends React.Component {
         socket.emit("join_game", {playerId: this.props.player._id, code: event.target.code.value});
     }
 
+    handleDirections(event){
+        event.preventDefault();
+        const directions = document.getElementById('game-rules')
+        if(directions.style.display === 'block'){
+            directions.style.display = 'none'
+        }else{
+            directions.style.display = 'block'
+        }
+
+    }
+
     render() {
         return (
             <div className="container-game-page">
                  <Button type="button" href="/change_name" className="button-create" variant="outline-light">Change name</Button>
-                <div className="title-new-game-join-game">How to play</div>
+                <div className="title-new-game-join-game">What Do You Meme</div>
                 <p className="description">
-                Find 4 or more players, start new game, and share the code with your friends.
                 What Do You Meme™ is the adult party game taking the internet by storm. 
                 Find out who will be crowned Meme Queen/King by competing with friends 
                 (or family if you’re brave) to match photo cards with caption cards, 
                 creating your own outrageously funny meme combinations. 
                 It’s the perfect excuse to call up the crew, and get everyone together for guaranteed laughs.
                 </p>
+                <Button className="button-create" variant="outline-light" onClick={this.handleDirections}>Directions</Button>
+                <div id='game-rules'>
+                <div className="title-new-game-join-game">How to Play</div>
+                <h3>Setting up a game:</h3>
+                <ul className='game-bullets'>
+                    <li>Choose one player to click the 'Start New Game' button (that player will recieve a game code)</li>
+                    <li>This player should send out the game code to all other participants</li>
+                    <li>The remaining participants should enter the given game code and click the 'Join Game' button</li>
+                    <li>Once all participants names appear on the screen, the player who initially started the game can hit the 'Start Game' button</li>
+                </ul>
+                <h3>Game Rules:</h3>
+                <ul className='game-bullets'>
+                    <li>Each player will be dealt 7 sentence cards</li>
+                    <li>An image will be displayed in the center of the screen, each player will select and submit one sentence card they think best matches the image</li>
+                    <li>Watch out for the time! You only have 30 seconds to submit a card otherwise you forfeit that round</li>
+                    <li>A new host will be named at the start of each round. If you are the host, you will not submit a sentence card but rather you will chose the winning card once the players have submitted them</li>
+                    <li>The player that submitted the winning card will be awarded 1 point</li>
+                    <li>Again watch out for the time! The host has 60 seconds to choose a winner and if time runs out, the host will lose 1 point</li>
+                    <li>The first player to reach 5 points wins!</li>
+                    <li>Happy playing :)</li>
+                </ul>
+                </div>
+                <div className="title-new-game-join-game">Lets Play!</div>
                 <div className="new-game-join-game">
                     <Button type="submit" className="button-create" variant="outline-light" onClick={this.handleSubmit}>Start New Game</Button>
                     <form className="buttons" onSubmit={this.handleCodeSubmit}>
