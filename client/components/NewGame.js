@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { fetchNewGame, me } from "../store";
 import { connect } from "react-redux";
+import { FaCrown } from "react-icons/fa";
 import socket from "../socket";
 
 class NewGame extends React.Component {
@@ -53,6 +54,7 @@ class NewGame extends React.Component {
                     <li>Choose one player to click the 'Start New Game' button (that player will recieve a game code)</li>
                     <li>This player should send out the game code to all other participants</li>
                     <li>The remaining participants should enter the given game code and click the 'Join Game' button</li>
+                    <li>There is no specified number of players, but we recommend 4-8 players</li>
                     <li>Once all participants names appear on the screen, the player who initially started the game can hit the 'Start Game' button</li>
                 </ul>
                 <h3>Game Rules:</h3>
@@ -63,7 +65,7 @@ class NewGame extends React.Component {
                     <li>A new host will be named at the start of each round. If you are the host, you will not submit a sentence card but rather you will chose the winning card once the players have submitted them</li>
                     <li>The player that submitted the winning card will be awarded 1 point</li>
                     <li>Again watch out for the time! The host has 60 seconds to choose a winner and if time runs out, the host will lose 1 point</li>
-                    <li>The first player to reach 5 points wins!</li>
+                    <li>The first player to reach 5 points wins and will be crowned Meme King or Queen! <FaCrown className='crown' /></li>
                     <li>Happy playing :)</li>
                 </ul>
                 </div>
