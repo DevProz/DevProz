@@ -35,6 +35,11 @@ class Game extends React.Component {
                 <div>
                     <div>
                     <div className="title-game-page">
+                            <p className="what-color">WHAT</p>
+                            <p className="do-color">DO </p>
+                            <p className="you-color">YOU </p>
+                            <p className="meme-color">MEME</p>
+                            <p className="question-mark-color">?</p>
                         <p className="what-color">WHAT</p>
                         <p className="do-color">DO </p>
                         <p className="you-color">YOU </p>
@@ -48,7 +53,7 @@ class Game extends React.Component {
                     </div>
                     {/* <p className='code'>Game Code: {this.props.game.entranceCode}</p> */}
                     <div className="host-notification">
-                        {(this.props.game.host === this.props.player._id) ? <div>Wait until each player selects the card. After you  choose the winner card! <FaCrown /></div> : <div> Please submit a card <GiReturnArrow /></div>}
+                        {(this.props.game.host === this.props.player._id) ? <div>Wait for players to select cards, then choose your favorite! <FaCrown /></div> : <div> Please submit a card <GiReturnArrow /></div>}
                     </div>
 
                         <Row className="shrink-row">
