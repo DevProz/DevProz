@@ -102,6 +102,7 @@ module.exports = io => {
         const player = await Player.findOne({
           _id: playerId
         });
+       player.score = 0;
         const cards = newDeck.splice(0, 7);
         player.sentenceCards = cards;
         await player.save();
