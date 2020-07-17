@@ -47,7 +47,10 @@ class Game extends React.Component {
                         </div>
                     </div>
                     <div className="host-notification">
-                        {(this.props.game.host === this.props.player._id) ? <div>Wait for players to select cards, then choose your favorite! <FaCrown /></div> : <div> Please submit a card <GiReturnArrow /></div>}
+                        {(this.props.game.host === this.props.player._id) ? <div>Wait for players to select cards, then choose your favorite! <FaCrown /></div> : console.log('you arent the host')}
+                    </div>
+                    <div className="player">
+                        {(this.props.game.host !== this.props.player._id) ? <div> Please submit a card! <FaCrown /></div> : console.log('you are the host')}
                     </div>
 
                         <Row className="shrink-row">
@@ -93,10 +96,24 @@ class Game extends React.Component {
                     <Row className="selectedCards-Row">
                         {(this.props.game.selectedCards.length > 0) ? <SelectedCards selectedCards={this.props.game.selectedCards}/> : console.log("there are no selected cards")}
                     </Row>
-                    {(this.props.player._id !== this.props.game.host) ? <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>: console.log("You are the host")}
+                    {(this.props.player._id !== this.props.game.host) ? <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>: console.log("hi")}
                 </div>
-                <Row className="selectedCardButton-Row">
-                        {(this.props.game.host === this.props.player._id) && (this.props.game.selectedCards.length === this.props.game.players.length) ? <Button className="button-choose-winner" variant="outline-light" type="button" onClick={this.handleWinningSubmit}>Submit Winner Card</Button> : console.log("A winner has not been submitted yet")}
+                {/* <Row className="selectedCardButton-Row">
+                        {(this.props.game.host === this.props.player._id) && (this.props.game.selectedCards.length === this.props.game.players.length-1) ? <Button className="button-choose-winner" variant="outline-light" type="button" onClick={this.handleWinningSubmit}>Submit Winner Card</Button> : console.log("A winner has not been submitted yet")}
+                </Row> */}
+                <Row>
+                {(this.props.player._id === this.props.game.host && this.props.game.status == "ALL_SELECTING") ? <div className="loader-back-two">
+                        <div className="ex-container-two">
+                            <div class="ex"></div>
+                            <div class="ex"></div>
+                            <div class="ex"></div>
+                            <div class="ex"></div>
+                            <div className="please-wait head2 text-center-two">
+                                Waiting for players to submit cards...
+                            </div>
+                        </div>
+                    </div>
+                    : console.log("please submit")}
                 </Row>
                 <br/>
             </div>
