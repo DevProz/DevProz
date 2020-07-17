@@ -8,6 +8,7 @@ import SelectedCards from "./SelectedCards";
 import socket from "../socket";
 import { FaCrown } from "react-icons/fa";
 import { GiReturnArrow } from "react-icons/gi";
+import { GiPodiumWinner } from "react-icons/gi";
 
 class Game extends React.Component {
     constructor(){
@@ -64,7 +65,9 @@ class Game extends React.Component {
                                         return (
                                             <table className="table">
                                             <tr className="score-board">
-                                                <td className="score-board-name">{player.name}:</td>
+                                                {(player._id == this.props.game.host) 
+                                                ? <td className="score-board-name-2"><GiPodiumWinner size={20} color="yellow" /> {player.name} </td> 
+                                                :  <td className="score-board-name">{player.name}</td>}
                                                 <td className="score-board-score">{player.score}</td>
                                             </tr>
                                             </table>
