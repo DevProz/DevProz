@@ -363,6 +363,63 @@ const sentenceCards = [
   new SentenceCard({
     sentence: "When you are the only child",
   }),
+  new SentenceCard({
+    sentence: "When can we eat?",
+  }),
+  new SentenceCard({
+    sentence: "Rise and shine",
+  }),
+  new SentenceCard({
+    sentence: "When you think what to wear",
+  }),
+  new SentenceCard({
+    sentence: "Did she get a spoonful of virgin period in her tea this morning?",
+  }),
+  new SentenceCard({
+    sentence: "The idea is to die young...as late as possible",
+  }),
+  new SentenceCard({
+    sentence: "Whatever!",
+  }),
+  new SentenceCard({
+    sentence: "Please wash your hands",
+  }),
+  new SentenceCard({
+    sentence: "We lost Tom",
+  }),
+  new SentenceCard({
+    sentence: "That is the key!",
+  }),
+  new SentenceCard({
+    sentence: "My secret dream",
+  }),
+  new SentenceCard({
+    sentence: "Why do not you like me?!",
+  }),
+  new SentenceCard({
+    sentence: "When you think like a proton",
+  }),
+  new SentenceCard({
+    sentence: "Stay off!",
+  }),
+  new SentenceCard({
+    sentence: "When I stepped on a Corn Flake and now I'm a Cereal Killer",
+  }),
+  new SentenceCard({
+    sentence: "When a demonic starbucks napkin stole my goldfish crackers",
+  }),
+  new SentenceCard({
+    sentence: "Banana error",
+  }),
+  new SentenceCard({
+    sentence: "When cloth is yum like paper",
+  }),
+  new SentenceCard({
+    sentence: "Screw world peace, I want a pony",
+  }),
+  new SentenceCard({
+    sentence: "There's a purple mushroom in my backyard, screaming Taco's!",
+  })
 ];
 
 module.exports = sentenceCards;
