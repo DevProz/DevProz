@@ -150,9 +150,9 @@ li {
   display: flex;
   justify-content: center;
 }
-@keyframes glowing {
+@keyframes glowing-host {
   0% {
-    background-color: yellow;
+    background-color: #cc66ff;;
     box-shadow: 0 0 5px #cc66ff;
   }
   100% {
@@ -161,6 +161,31 @@ li {
   }
 }
 .host-notification {
+  animation: glowing-host 2000ms infinite;
+}
+
+
+
+
+.player {
+  text-align: center;
+  color: #eeeeee;
+  font-family: "Arvo";
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+}
+@keyframes glowing {
+  0% {
+    background-color: blue;
+    box-shadow: 0 0 5px blue;
+  }
+  100% {
+    background-color: #66cdaa;
+    box-shadow: 0 0 5px #66cdaa;
+  }
+}
+.player {
   animation: glowing 2000ms infinite;
 }
 
