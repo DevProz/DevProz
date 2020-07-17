@@ -1,6 +1,6 @@
 What Do You Meme™ is the adult party game taking the internet by storm. Find out who will be crowned Meme Queen/King by competing with friends (or family if you’re brave) to match photo cards with caption cards, creating your own outrageously funny meme combinations. It’s the perfect excuse to call up the crew, and get everyone together for guaranteed laughs.
 
-DevProz: NAMES HERE 
+DevProz: Anna Morozova, Danielle Sisk, Samantha Hering, Maria Belousova 
 
 Fullstack appplication running on....
 Front end: Javascript, React/Redux, Bootstrap, Socket.io 
