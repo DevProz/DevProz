@@ -60,8 +60,8 @@ class Game extends React.Component {
                                 </Card.Header>
                             </Card>
                             <Card  className="score">
-                                <Card.Header> Score:  </Card.Header>
-                                    <Card.Body>
+                                <Card.Header className='score-header'> Score:  </Card.Header>
+                                    <Card.Body className='score-body'>
                                     {this.props.game.players.map((player) => {
                                         return (
                                             <table className="table">
@@ -97,17 +97,7 @@ class Game extends React.Component {
                     <Row className="selectedCards-Row">
                         {(this.props.game.selectedCards.length > 0) ? <SelectedCards selectedCards={this.props.game.selectedCards}/> : console.log("there are no selected cards")}
                     </Row>
-
-                    {(this.props.player._id !== this.props.game.host) ? <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>:    
-                    <div className="ex-container-two">
-                            <div class="ex"></div>
-                            <div class="ex"></div>
-                            <div class="ex"></div>
-                            <div class="ex"></div>
-                            <div className="please-wait head2 text-center">
-                               Waiting for players to submit cards...
-                            </div>
-                        </div>}
+                    {(this.props.player._id !== this.props.game.host) ? <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>: console.log("You are the host")}
                 </div>
                 <Row className="selectedCardButton-Row">
                         {(this.props.game.host === this.props.player._id) && (this.props.game.selectedCards.length === this.props.game.players.length) ? <Button className="button-choose-winner" variant="outline-light" type="button" onClick={this.handleWinningSubmit}>Submit Winner Card</Button> : console.log("A winner has not been submitted yet")}
