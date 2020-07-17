@@ -110,7 +110,6 @@ li {
   font-weight: bolder;
   display: flex;
   justify-content: center;
-  padding-top: 100px;
   color: #66cdaa;
 }
 
@@ -124,6 +123,15 @@ li {
 
 .names {
   color: white
+}
+
+.winner-name {
+  font-size: 32px;
+  font-weight: bolder;
+  letter-spacing: 3px;
+  color: yellow;
+  align-self: center;
+  padding-left: 5px;
 }
 
 .button-start-game {
@@ -745,6 +753,11 @@ label {
   display: none;
 }
 
+.requiring-players {
+  color: white;
+  text-align: center;
+}
+
 @media(max-width: 700px){
   .title-game-page {
     flex-direction: column;
@@ -801,11 +814,13 @@ label {
 .blinking:active{
   color: yellow;
 }
-@keyframes blinkingText{
+
+@keyframes blinkingText {
   0%{     color: red;    }
   49%{    color: red; }
   60%{    color: transparent; }
   99%{    color: transparent;  }
   100%{   color: red;    }
 }
+
 

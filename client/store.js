@@ -82,7 +82,7 @@ export const fetchPlayers = () => async dispatch => {
     } catch (error) {
         console.log(error);
     }
-}
+};
 
 export const fetchNewGame = player => async () => {
     try {
@@ -92,7 +92,7 @@ export const fetchNewGame = player => async () => {
     } catch (error) {
         console.log(error);
     }
-}
+};
 
 export const changeName = playerName => async dispatch => {
     try {
@@ -103,7 +103,7 @@ export const changeName = playerName => async dispatch => {
     } catch (error) {
         console.log(error);
     }
-}
+};
 
 const initialState = {
     game: null,

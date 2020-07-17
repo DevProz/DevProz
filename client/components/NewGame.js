@@ -61,7 +61,7 @@ class NewGame extends React.Component {
                     <li>The remaining participants should enter the given game code and click the "Join Game" button</li>
                     <li>Once all participants names appear on the screen, the player who initially started the game can hit the "Start Game" button</li>
                     <li>The remaining participants should enter the given game code and click the 'Join Game' button</li>
-                    <li>There is no specified number of players, but we recommend 4-8 players</li>
+                    <li>There is no specified maximum number of players, however at least 2 players are required to start the game. Our recommendation is 4-8 players</li>
                     <li>Once all participants names appear on the screen, the player who initially started the game can hit the 'Start Game' button</li>
                 </ul>
                 <h3>Game Rules:</h3>
@@ -72,7 +72,7 @@ class NewGame extends React.Component {
                     <li>A new host will be named at the start of each round. If you are the host, you will not submit a sentence card but rather you will chose the winning card once the players have submitted them</li>
                     <li>The player that submitted the winning card will be awarded 1 point</li>
                     <li>Again watch out for the time! The host has 60 seconds to choose a winner and if time runs out, the host will lose 1 point</li>
-                    <li>The first player to reach 5 points wins and will be crowned Meme King or Queen! <FaCrown className='crown' /></li>
+                    <li>The first player to reach 5 points wins and will be crowned Meme King or Queen! <FaCrown className="crown" /></li>
                     <li>Happy playing :)</li>
                 </ul>
                 </div>

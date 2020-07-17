@@ -20,6 +20,7 @@ class StartGame extends React.Component {
                 <div className="title-new-game">
                     New Game
                 </div>
+                <div className="requiring-players">**requires at least two players</div>
                 <h3 className="code-style">Code: {this.props.game.entranceCode}</h3>
                 <h4>{this.props.game.players.map((player) => {
                     return <ol>
@@ -28,7 +29,7 @@ class StartGame extends React.Component {
                 })}</h4>
                 <div className="start-button-align">
                     {(this.props.game.players[0]._id === this.props.player._id) 
-                    ? <Button className="button-start-game" variant="outline-light" type="submit" onClick={this.handleSubmit}>Start Game</Button> 
+                    ? <Button className="button-start-game" variant="outline-light" type="submit"  disabled={this.props.game.players.length < 2} onClick={this.handleSubmit}>Start Game</Button> 
                     : <div className="loader-back">
                         <div className="ex-container">
                             <div class="ex"></div>
