@@ -421,7 +421,7 @@ new ImageCard({
 new ImageCard({
   image: "https://www.askideas.com/media/08/Funny-3d-Boy-Gif-Image.gif",
 }),
-
+]
 
 
   module.exports = imageCards;
