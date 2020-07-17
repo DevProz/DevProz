@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const Game = require("../server/db/models/game");
 const Player = require("../server/db/models/player");
 const ImageCard = require("../server/db/models/imageCard");
-const imageCard = require("./imageCards");
 const chalk = require("chalk");
 const SentenceCard = require("../server/db/models/sentenceCard");
 const { buildManyCards, buildManyMemes } = require("../seed/methods");
