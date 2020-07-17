@@ -55,7 +55,7 @@ class NewGame extends React.Component {
                     <li>The remaining participants should enter the given game code and click the "Join Game" button</li>
                     <li>Once all participants names appear on the screen, the player who initially started the game can hit the "Start Game" button</li>
                     <li>The remaining participants should enter the given game code and click the 'Join Game' button</li>
-                    <li>There is no specified number of players, but we recommend 4-8 players</li>
+                    <li>There is no specified maximum number of players, however at least 2 players are required to start the game. Our recommendation is 4-8 players</li>
                     <li>Once all participants names appear on the screen, the player who initially started the game can hit the 'Start Game' button</li>
                 </ul>
                 <h3>Game Rules:</h3>

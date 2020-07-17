@@ -249,6 +249,9 @@ new ImageCard({
 new ImageCard({
   image: "https://akns-images.eonline.com/eol_images/Entire_Site/2020313/rs_600x600-200413145437-600.tyra.jpg?fit=around|1080:1080&output-quality=90&crop=1080:1080;center,top",
 }),
+new ImageCard({
+    image: "https://media.tenor.com/images/6f325225aeebe2f01e4fcfeab6d710ff/tenor.gif",
+}),
 
 ];
 

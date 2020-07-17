@@ -755,6 +755,11 @@ not needed aat the moment
   display: none;
 }
 
+.requiring-players {
+  color: white;
+  text-align: center;
+}
+
 @media(max-width: 700px){
   .title-game-page {
     flex-direction: column;
