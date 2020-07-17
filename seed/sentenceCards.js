@@ -27,7 +27,7 @@ const sentenceCards = [
   }),
   new SentenceCard({
     sentence:
-      "When your teacher tells you to stop laughing but yoru friends are too funny",
+      "When your teacher tells you to stop laughing but your friends are too funny",
   }),
   new SentenceCard({
     sentence: "Hospitals calculating your medical bill",
@@ -274,7 +274,7 @@ const sentenceCards = [
     sentence: "Quarantine got me like...",
   }),
   new SentenceCard({
-    sentence: "When someone bumps into me without without saying 'excuse me'",
+    sentence: `When someone bumps into me without without saying "excuse me"`,
   }),
   new SentenceCard({
     sentence: "Bad hair day",
@@ -284,6 +284,9 @@ const sentenceCards = [
   }),
   new SentenceCard({
     sentence: "How to lower your household expenses",
+  }),
+  new SentenceCard({
+  sentence: "FALSE",
   }),
   new SentenceCard({
     sentence: "I’m on a seafood diet. I see food, and then I eat it.",

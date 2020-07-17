@@ -160,12 +160,12 @@ li {
 }
 @keyframes glowing-host {
   0% {
-    background-color: #cc66ff;;
-    box-shadow: 0 0 5px #cc66ff;
+    background-color: #aa4ed8;
+    box-shadow: 0 0 5px #aa4ed8;
   }
   100% {
-    background-color: #66cdaa;
-    box-shadow: 0 0 5px #66cdaa;
+    background-color: #8b008b;
+    box-shadow: 0 0 5px #8b008b;
   }
 }
 .host-notification {
@@ -185,12 +185,12 @@ li {
 }
 @keyframes glowing {
   0% {
-    background-color: blue;
-    box-shadow: 0 0 5px blue;
+    background-color:#66cdaa;
+    box-shadow: 0 0 5px #66cdaa;
   }
   100% {
-    background-color: #66cdaa;
-    box-shadow: 0 0 5px #66cdaa;
+    background-color: #439479;
+    box-shadow: 0 0 5px #439479;
   }
 }
 .player {
@@ -748,6 +748,45 @@ label {
   padding: 10px
 }
 
+
+.small-title {
+  display: none;
+}
+
+@media(max-width: 700px){
+  .title-game-page {
+    flex-direction: column;
+  }
+  .buttons-align-left {
+    margin: auto;
+  }
+  .what-color{
+    display: none;
+  }
+  .do-color{
+    display: none;
+  }
+  .you-color{
+    display: none;
+  }
+  .meme-color{
+    display: none;
+  }
+  .question-mark-color{
+    display: none;
+  }
+  .small-title{
+    display: block;
+    color: white;
+    margin: auto;
+    color: yellow;
+  }
+  .small-title-game {
+    margin-bottom: 0;
+  }
+
+}
+
 .align-change-name {
   align-self: flex-end;
 }
@@ -770,10 +809,13 @@ label {
 .blinking:active{
   color: yellow;
 }
-@keyframes blinkingText{
+
+@keyframes blinkingText {
   0%{     color: red;    }
   49%{    color: red; }
   60%{    color: transparent; }
   99%{    color: transparent;  }
   100%{   color: red;    }
 }
+
+

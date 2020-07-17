@@ -41,6 +41,7 @@ class Game extends React.Component {
                         <p className="you-color">YOU </p>
                         <p className="meme-color">MEME</p>
                         <p className="question-mark-color">?</p>
+                        <div className='small-title'><p className='small-title-game'>WHAT DO YOU MEME?</p></div>
                         <div className="game-code"><h5>Game Code: </h5><h5 className="code">{this.props.game.entranceCode}</h5></div>
                         <div className="buttons-align-left">
                         <Button type="submit" onClick ={this.handleSubmit} size="sm" variant="outline-light" className="button-leave-game">Leave the game</Button>
