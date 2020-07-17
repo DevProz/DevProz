@@ -420,9 +420,10 @@ new ImageCard({
 new ImageCard({
   image: "https://www.askideas.com/media/08/Funny-3d-Boy-Gif-Image.gif",
 }),
-new ImageCard({
+  new ImageCard({
   image: "https://i.ytimg.com/vi/q_YxKeTxTtk/maxresdefault.jpg",
 }),
+]
 
 
 
