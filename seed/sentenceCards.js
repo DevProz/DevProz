@@ -286,7 +286,40 @@ const sentenceCards = [
     sentence: "How to lower your household expenses",
   }),
   new SentenceCard({
-  sentence: "FALSE",
+    sentence: "FALSE",
+  }),
+  new SentenceCard({
+    sentence: "Didn't care yesterday, don't care today, probably won't care tomorrow",
+  }),
+  new SentenceCard({
+    sentence: "I found your nose, it was in my business",
+  }),
+  new SentenceCard({
+    sentence: "Did I ask you?",
+  }),
+  new SentenceCard({
+    sentence: "When you try your best and it still isn't enough",
+  }),
+  new SentenceCard({
+    sentence: "When you just got roasted",
+  }),
+  new SentenceCard({
+    sentence: "You good bro?",
+  }),
+  new SentenceCard({
+    sentence: "I like the sound you make when you stop talking",
+  }),
+  new SentenceCard({
+    sentence: "Like a good neighbor, stay over there",
+  }),
+  new SentenceCard({
+    sentence: "They see me rollin...",
+  }),
+  new SentenceCard({
+    sentence: "How I look on my way to work",
+  }),
+  new SentenceCard({
+    sentence: "Keep calm and carry on",
   }),
   new SentenceCard({
     sentence: "I’m on a seafood diet. I see food, and then I eat it.",

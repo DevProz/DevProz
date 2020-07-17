@@ -210,7 +210,6 @@ new ImageCard({
 new ImageCard({
   image: "https://www.mygeekconfessions.com/wp-content/uploads/2012/08/654-e1343835413558-242x300.jpg",
 }),
-
 new ImageCard({
   image: "https://etcanada.com/wp-content/uploads/2016/06/58c0500b2ac4c342c6fc4ab096ada150.jpg?quality=80&strip=all&crop=0px%2C21px%2C500px%2C333px&resize=720%2C480",
 }),
@@ -227,7 +226,7 @@ new ImageCard({
   image: "https://akns-images.eonline.com/eol_images/Entire_Site/2020313/rs_600x600-200413145437-600.tyra.jpg?fit=around|1080:1080&output-quality=90&crop=1080:1080;center,top",
 }),
 new ImageCard({
-  image: "https://i.ytimg.com/vi/q_YxKeTxTtk/maxresdefault.jpg",
+    image: "https://media.tenor.com/images/6f325225aeebe2f01e4fcfeab6d710ff/tenor.gif", 
 }),
 new ImageCard({
   image: "https://www.sarahtylerphotography.com/wp-content/uploads/2015/12/27-3881-post/funny-faces-kids-make.jpg",
@@ -420,6 +419,9 @@ new ImageCard({
 }),
 new ImageCard({
   image: "https://www.askideas.com/media/08/Funny-3d-Boy-Gif-Image.gif",
+}),
+new ImageCard({
+  image: "https://i.ytimg.com/vi/q_YxKeTxTtk/maxresdefault.jpg",
 }),
 
 
