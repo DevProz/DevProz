@@ -81,7 +81,6 @@ class Game extends React.Component {
                             <Col style={{ width: "33%"}}>
                                 <Card className="score">
                                 <Card.Header> Live Chat:  </Card.Header>
-
                                 <Card.Body>
                                         <Card.Text className="chat-text">
                                             <Chat/>
