@@ -2,9 +2,6 @@ const mongoose = require("mongoose");
 const Game = require("../server/db/models/game");
 const Player = require("../server/db/models/player");
 const ImageCard = require("../server/db/models/imageCard");
-const games = require("./games");
-const players = require("./players");
-const imageCard = require("./imageCards");
 const chalk = require("chalk");
 const SentenceCard = require("../server/db/models/sentenceCard");
 const { buildManyCards, buildManyMemes } = require("../seed/methods");
@@ -25,20 +22,6 @@ const seed = async () => {
   }
 };
 seed();
-
-const runSeed = async () => {
-  try {
-    await Game.create(games, () => {
-      console.log(chalk.green("Game data have been seeded successfully"));
-    });
-    await Player.create(players, () => {
-      console.log(chalk.green("Player data have been seeded successfully"));
-    });
-  } catch (error) {
-    console.error(chalk.red("ERROR HANDLED", error.message));
-  }
-};
-runSeed();
 
 const runSeedCards = async () => {
   try {
