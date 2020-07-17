@@ -9,9 +9,6 @@ const sentenceCards = [
       "A word to the wise ain't necessary – it's the stupid ones that need the advice",
   }),
   new SentenceCard({
-    sentence: "ACKCHYUALLY",
-  }),
-  new SentenceCard({
     sentence: "When your meme gets 11 likes",
   }),
   new SentenceCard({
@@ -26,11 +23,11 @@ const sentenceCards = [
       "When your shampoo says 'damage repair' but you're still borken on the inside",
   }),
   new SentenceCard({
-    sentence: "When someone says, 'Oh, shut up, you kmow you love me!'",
+    sentence: "When someone says, 'Oh, shut up, you know you love me!'",
   }),
   new SentenceCard({
     sentence:
-      "When your teacher tells you to stop laughing but yoru friends are too funny",
+      "When your teacher tells you to stop laughing but your friends are too funny",
   }),
   new SentenceCard({
     sentence: "Hospitals calculating your medical bill",
@@ -103,9 +100,6 @@ const sentenceCards = [
     sentence: "When someone calls me instead of texting like a normal person",
   }),
   new SentenceCard({
-    sentence: "When someone calls me instead of texting like a normal person",
-  }),
-  new SentenceCard({
     sentence: "'Where do you see yourslf in 50 years?' Me: ",
   }),
   new SentenceCard({
@@ -172,7 +166,7 @@ const sentenceCards = [
     sentence: "When your grandma finds out you haven't eaten all day",
   }),
   new SentenceCard({
-    sentence: "Oh lort - I can't even...",
+    sentence: "Oh lord - I can't even...",
   }),
   new SentenceCard({
     sentence:
@@ -204,7 +198,7 @@ const sentenceCards = [
     sentence: "i DON'T get why I'm NOT losing weight",
   }),
   new SentenceCard({
-    sentence: "So you mean to tell me that you giys hav an orange president?",
+    sentence: "So you mean to tell me that you guys have an orange president?",
   }),
   new SentenceCard({
     sentence:
@@ -228,7 +222,7 @@ const sentenceCards = [
   }),
   new SentenceCard({
     sentence:
-      "That moment when you raise your handand someone else yells out the answer",
+      "That moment when you raise your hand and someone else yells out the answer",
   }),
   new SentenceCard({
     sentence: "Me in the corner watching my family argue",
@@ -280,7 +274,7 @@ const sentenceCards = [
     sentence: "Quarantine got me like...",
   }),
   new SentenceCard({
-    sentence: "When someone bumps into me without without saying 'excuse me'",
+    sentence: `When someone bumps into me without without saying "excuse me"`,
   }),
   new SentenceCard({
     sentence: "Bad hair day",
@@ -327,12 +321,243 @@ const sentenceCards = [
   new SentenceCard({
     sentence: "Keep calm and carry on",
   }),
+  new SentenceCard({
+    sentence: "I’m on a seafood diet. I see food, and then I eat it.",
+  }),
+  new SentenceCard({
+    sentence: "When Aunt Muriel asks when you’re going to have kids",
+  }),
+  new SentenceCard({
+    sentence: "When your friend complains about Weight Watchers",
+  }),
+  new SentenceCard({
+    sentence: "When Beyoncé concert tickets go on sale",
+  }),
+  new SentenceCard({
+    sentence: "When your friends give you the single raised eyebrow",
+  }),
+  new SentenceCard({
+    sentence: "When you’re told to get your butt off the couch",
+  }),
+  new SentenceCard({
+    sentence: "Nope",
+  }),
+  new SentenceCard({
+    sentence: "Can you not?!",
+  }),
+  new SentenceCard({
+    sentence: "When you’re stuck",
+  }),
+  new SentenceCard({
+    sentence: "You can’t have everything",
+  }),
+  new SentenceCard({
+    sentence: "Dude!",
+  }),
+  new SentenceCard({
+    sentence: "My ex",
+  }),
+  new SentenceCard({
+    sentence: "When your dentist suggests adult braces",
+  }),
+  new SentenceCard({
+    sentence: "When your family is concerned about your weight",
+  }),
+  new SentenceCard({
+    sentence: "When people ask why you’re still single",
+  }),
+  new SentenceCard({
+    sentence: "When you finally decide to stop procrastinating",
+  }),
+  new SentenceCard({
+    sentence: "When others second-guess your life choices",
+  }),
+  new SentenceCard({
+    sentence: "When your family jokes about you being over the hill",
+  }),
+  new SentenceCard({
+    sentence: "When your spouse addresses your late-night snacking",
+  }),
+  new SentenceCard({
+    sentence: "When it’s time to get a haircut",
+  }),
+  new SentenceCard({
+    sentence: "When you’re contemplating the advancements of humanity since the dawn of time",
+  }),
+  new SentenceCard({
+    sentence: "When someone asks how you like your job",
+  }),
+  new SentenceCard({
+    sentence: "When someone calls you crazy",
+  }),
+  new SentenceCard({
+    sentence: "When you’re asked about your religious beliefs",
+  }),
+  new SentenceCard({
+    sentence: "When you are the only child",
+  }),
+  new SentenceCard({
+    sentence: "When can we eat?",
+  }),
+  new SentenceCard({
+    sentence: "Rise and shine",
+  }),
+  new SentenceCard({
+    sentence: "When you think what to wear",
+  }),
+  new SentenceCard({
+    sentence: "Did she get a spoonful of virgin period in her tea this morning?",
+  }),
+  new SentenceCard({
+    sentence: "The idea is to die young...as late as possible",
+  }),
+  new SentenceCard({
+    sentence: "Whatever!",
+  }),
+  new SentenceCard({
+    sentence: "Please wash your hands",
+  }),
+  new SentenceCard({
+    sentence: "We lost Tom",
+  }),
+  new SentenceCard({
+    sentence: "That is the key!",
+  }),
+  new SentenceCard({
+    sentence: "My secret dream",
+  }),
+  new SentenceCard({
+    sentence: "Why do not you like me?!",
+  }),
+  new SentenceCard({
+    sentence: "When you think like a proton",
+  }),
+  new SentenceCard({
+    sentence: "Stay off!",
+  }),
+  new SentenceCard({
+    sentence: "When I stepped on a Corn Flake and now I'm a Cereal Killer",
+  }),
+  new SentenceCard({
+    sentence: "When a demonic starbucks napkin stole my goldfish crackers",
+  }),
+  new SentenceCard({
+    sentence: "Banana error",
+  }),
+  new SentenceCard({
+    sentence: "When cloth is yum like paper",
+  }),
+  new SentenceCard({
+    sentence: "Screw world peace, I want a pony",
+  }),
+  new SentenceCard({
+    sentence: "There's a purple mushroom in my backyard, screaming Taco's!",
+  }),
+  new SentenceCard({
+    sentence: "When the person you hooked up with once invites you over to meet their parents",
+  }),
+  new SentenceCard({
+    sentence: "When he says he is going out with his boys at 10pm so you schedule an argument at 9:45pm",
+  }),
+  new SentenceCard({
+    sentence: "When your grandma asks you to help her with technology",
+  }),
+  new SentenceCard({
+    sentence: "When the friend you are supposed to go out with tonight starts talking about how tired they are",
+  }),
+  new SentenceCard({
+    sentence: "When you finally get a text but it is from your service provider saying you have used 90% of your data this month",
+  }),
+  new SentenceCard({
+    sentence: "When you think you have been charging your phone for the last 3 hours but it was not plugged in",
+  }),
+  new SentenceCard({
+    sentence: "When you are a vegan and have not told anyone in 7 minutes",
+  }),
+  new SentenceCard({
+    sentence: "When you find that perfectly ripe avocado at the supermarket",
+  }),
+  new SentenceCard({
+    sentence: "When it is your birthday and your Facebook wall reminds you that you have friends",
+  }),
+  new SentenceCard({
+    sentence: "When your shampoo says 'Damage Control' but you are still broken on the inside",
+  }),
+  new SentenceCard({
+    sentence: "When you are taking a poop and forget your phone outside the bathroom",
+  }),
+  new SentenceCard({
+    sentence: "When you wake up after blacking out and realize your Snapchat story is 11 minutes long",
+  }),
+  new SentenceCard({
+    sentence: "When you are on a first data and they start talking about horoscopes",
+  }),
+  new SentenceCard({
+    sentence: "When you are all ready to go out but your phone's at 6%",
+  }),
+  new SentenceCard({
+    sentence: "When you hear someone say 'moist'",
+  }),
+  new SentenceCard({
+    sentence: "When you accidently get something vegan",
+  }),
+  new SentenceCard({
+    sentence: "When your friends are all starting to have kids, but you can't manage to keep a cactus alive",
+  }),
+  new SentenceCard({
+    sentence: "When you mistake a used pregnancy test for a thermometer",
+  }),
+  new SentenceCard({
+    sentence: "When your gynecologist gives you a high five",
+  }),
+  new SentenceCard({
+    sentence: "When you show up on a blind data and they are wearing a fedora",
+  }),
+  new SentenceCard({
+    sentence: "When your parents forget to leave uou a trust fund",
+  }),
+  new SentenceCard({
+    sentence: "When everyone else at the starting line is Jamaican",
+  }),
+  new SentenceCard({
+    sentence: "When there is no toilet paper left so you have to twerk",
+  }),
+  new SentenceCard({
+    sentence: "When someone congratulates you on being pregnant but you are not pregnant",
+  }),
+  new SentenceCard({
+    sentence: "When you find out you are adopted",
+  }),
+  new SentenceCard({
+    sentence: "When you finally get home and can be ugly in peace",
+  }),
+  new SentenceCard({
+    sentence: "When you see a comma in your bank account",
+  }),
+  new SentenceCard({
+    sentence: "When you thought someone was chill but then you see them put ketchup on their pasta",
+  }),
+  new SentenceCard({
+    sentence: "When your drug dealer starts talking about things other than drugs",
+  }),
+  new SentenceCard({
+    sentence: "When it is Monday morning and you are deciding whether to go to work or call in dead",
+  }),
+  new SentenceCard({
+    sentence: "This Friday mood",
+  }),
+  new SentenceCard({
+    sentence: "When your voice cracks during erotic phone sex",
+  }),
+  new SentenceCard({
+    sentence: "When you finally get some booty after 4 months of quarantine ",
+  }),
+  new SentenceCard({
+    sentence: "When you can't stop smiling during an uncomfortable situation",
+  }),
+  new SentenceCard({
+    sentence: "When restaurants put calorie counts on their menu",
+  }),
 ];
 
 module.exports = sentenceCards;
-// new SentenceCard({
-//   sentence: "",
-// }),
-// new SentenceCard({
-//   sentence: "",
-// }),

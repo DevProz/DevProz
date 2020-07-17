@@ -56,6 +56,5 @@ const mapState = (state) => {
     }
 }
 
-
 export default connect(mapState)(MySentenceCards);
 

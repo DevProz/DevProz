@@ -7,7 +7,8 @@ import Chat from "./Chat";
 import SelectedCards from "./SelectedCards";
 import socket from "../socket";
 import { FaCrown } from "react-icons/fa";
-import { GiReturnArrow } from "react-icons/gi";
+import { GiPodiumWinner } from "react-icons/gi";
+import { GiSandsOfTime } from "react-icons/gi";
 
 class Game extends React.Component {
     constructor(){
@@ -48,14 +49,17 @@ class Game extends React.Component {
                         </div>
                     </div>
                     <div className="host-notification">
-                        {(this.props.game.host === this.props.player._id) ? <div>Wait for players to select cards, then choose your favorite! <FaCrown /></div> : <div> Please submit a card <GiReturnArrow /></div>}
+                        {(this.props.game.host === this.props.player._id) ? <div>Wait for players to select cards, then choose your favorite! <FaCrown /></div> : console.log('you arent the host')}
+                    </div>
+                    <div className="player">
+                        {(this.props.game.host !== this.props.player._id) ? <div> Please submit a card! <FaCrown /></div> : console.log('you are the host')}
                     </div>
 
                         <Row className="shrink-row">
                             <Col style={{ width: "33%"}}>
                             <Card className="score">
-                                <Card.Header className="countdown-style">
-                                    Countdown: {this.props.countdown}
+                                <Card.Header className="countdown-style blinking">
+                                <GiSandsOfTime /> HURRY UP: {this.props.countdown} 
                                 </Card.Header>
                             </Card>
                             <Card  className="score">
@@ -65,7 +69,9 @@ class Game extends React.Component {
                                         return (
                                             <table className="table">
                                             <tr className="score-board">
-                                                <td className="score-board-name">{player.name}:</td>
+                                                {(player._id == this.props.game.host) 
+                                                ? <td className="score-board-name-2"><GiPodiumWinner size={20} color="yellow" /> {player.name} </td> 
+                                                :  <td className="score-board-name">{player.name}</td>}
                                                 <td className="score-board-score">{player.score}</td>
                                             </tr>
                                             </table>
@@ -75,14 +81,11 @@ class Game extends React.Component {
                             </Card>
                             </Col>
                             <Col className="image-column" style={{ width: "33%"}}>
-                            <ImageCard currentImage={this.props.game.currentImage}/>
+                                <ImageCard currentImage={this.props.game.currentImage}/>
                             </Col>
-                            
-
                             <Col style={{ width: "33%"}}>
                                 <Card className="score">
                                 <Card.Header> Live Chat:  </Card.Header>
-
                                 <Card.Body>
                                         <Card.Text className="chat-text">
                                             <Chat/>
@@ -95,10 +98,21 @@ class Game extends React.Component {
                     <Row className="selectedCards-Row">
                         {(this.props.game.selectedCards.length > 0) ? <SelectedCards selectedCards={this.props.game.selectedCards}/> : console.log("there are no selected cards")}
                     </Row>
-                    {(this.props.player._id !== this.props.game.host) ? <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>: console.log("you are host")}
+                    {(this.props.player._id !== this.props.game.host) ? <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>: console.log("hi")}
                 </div>
-                <Row className="selectedCardButton-Row">
-                        {(this.props.game.host === this.props.player._id) && (this.props.game.selectedCards.length === this.props.game.players.length) ? <Button className="button-choose-winner" variant="outline-light" type="button" onClick={this.handleWinningSubmit}>Submit Winner Card</Button> : console.log("A winner has not been submitted yet")}
+                <Row>
+                {(this.props.player._id === this.props.game.host && this.props.game.status == "ALL_SELECTING") ? <div className="loader-back-two">
+                        <div className="ex-container-two">
+                            <div class="ex"></div>
+                            <div class="ex"></div>
+                            <div class="ex"></div>
+                            <div class="ex"></div>
+                            <div className="please-wait head2 text-center-two">
+                                Waiting for players to submit cards...
+                            </div>
+                        </div>
+                    </div>
+                    : console.log("please submit")}
                 </Row>
                 <br/>
             </div>
@@ -109,7 +123,7 @@ class Game extends React.Component {
                     <h1>Congratulations {winningPlayer.name}! You are the winner!</h1>
                     <Button className="button-winning-page" type="submit" onClick ={this.handleSubmit} variant="outline-light">Play Again</Button>
                   </Jumbotron>
-              )
+            )
           }
         }  
     }
