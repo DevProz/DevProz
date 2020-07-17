@@ -26,20 +26,6 @@ const seed = async () => {
 };
 seed();
 
-const runSeed = async () => {
-  try {
-    await Game.create(games, () => {
-      console.log(chalk.green("Game data have been seeded successfully"));
-    });
-    await Player.create(players, () => {
-      console.log(chalk.green("Player data have been seeded successfully"));
-    });
-  } catch (error) {
-    console.error(chalk.red("ERROR HANDLED", error.message));
-  }
-};
-runSeed();
-
 const runSeedCards = async () => {
   try {
     const manyCards = buildManyCards();
