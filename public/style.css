@@ -48,13 +48,13 @@ li {
 
 /* New Game Component */
 .title-new-game-join-game {
-  font-style: oblique;
   font-size: 50px;
   font-weight: bolder;
   display: flex;
   justify-content: center;
   padding-top: 10px;
   color: #66cdaa;
+  flex-wrap: wrap;
 }
 
 .container-game-page {
@@ -324,6 +324,7 @@ label {
   justify-content: space-around;
   flex-direction: row;
   flex-wrap: wrap;
+  padding-bottom: 20px;
 }
 
 .card:hover {
@@ -381,7 +382,7 @@ label {
 .type-message-input {
   background-color: white;
   color: black;
-  width: -webkit-fill-available;
+  width: 100%;
   border: solid 1px black;
 }
 
@@ -403,6 +404,7 @@ label {
   margin-right: 3px;
   color: purple;
   text-decoration: underline;
+  display: flex; 
 }
 
 /* .text-chat {
@@ -596,6 +598,17 @@ not needed aat the moment
   padding-top: 100px;
 }
 
+.ex-container-two {
+  width: 90px;
+  margin: auto;
+  vertical-align: middle;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding-top: 500px;
+ 
+}
 .ex {
   color: #fff;
   text-transform: uppercase;
@@ -739,6 +752,7 @@ not needed aat the moment
   70% { border-color: orange }
 }
 
+
 .table {
   margin-bottom: 0;
 }
@@ -750,3 +764,8 @@ not needed aat the moment
 .score-body {
   padding: 10px
 }
+
+.align-change-name {
+  align-self: flex-end;
+}
+

@@ -26,7 +26,7 @@ const sentenceCards = [
       "When your shampoo says 'damage repair' but you're still borken on the inside",
   }),
   new SentenceCard({
-    sentence: "When someone says, 'Oh, shut up, you kmow you love me!'",
+    sentence: "When someone says, 'Oh, shut up, you know you love me!'",
   }),
   new SentenceCard({
     sentence:
@@ -172,7 +172,7 @@ const sentenceCards = [
     sentence: "When your grandma finds out you haven't eaten all day",
   }),
   new SentenceCard({
-    sentence: "Oh lort - I can't even...",
+    sentence: "Oh lord - I can't even...",
   }),
   new SentenceCard({
     sentence:
@@ -204,7 +204,7 @@ const sentenceCards = [
     sentence: "i DON'T get why I'm NOT losing weight",
   }),
   new SentenceCard({
-    sentence: "So you mean to tell me that you giys hav an orange president?",
+    sentence: "So you mean to tell me that you guys have an orange president?",
   }),
   new SentenceCard({
     sentence:
@@ -228,7 +228,7 @@ const sentenceCards = [
   }),
   new SentenceCard({
     sentence:
-      "That moment when you raise your handand someone else yells out the answer",
+      "That moment when you raise your hand and someone else yells out the answer",
   }),
   new SentenceCard({
     sentence: "Me in the corner watching my family argue",
