@@ -84,10 +84,10 @@ class  SelectedCards extends React.Component {
 } 
 
 const mapState = (state) => {
-  return {
-      game: state.game,
-      player: state.player
-  }
+    return {
+        game: state.game,
+        player: state.player
+    }
 }
 
 export default connect(mapState)(SelectedCards);
