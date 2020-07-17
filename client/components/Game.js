@@ -58,8 +58,8 @@ class Game extends React.Component {
                                 </Card.Header>
                             </Card>
                             <Card  className="score">
-                                <Card.Header> Score:  </Card.Header>
-                                    <Card.Body>
+                                <Card.Header className='score-header'> Score:  </Card.Header>
+                                    <Card.Body className='score-body'>
                                     {this.props.game.players.map((player) => {
                                         return (
                                             <table className="table">

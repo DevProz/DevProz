@@ -752,6 +752,20 @@ not needed aat the moment
   70% { border-color: orange }
 }
 
+
+.table {
+  margin-bottom: 0;
+}
+
+.score-header {
+  padding-bottom: 0;
+}
+
+.score-body {
+  padding: 10px
+}
+
 .align-change-name {
   align-self: flex-end;
 }
+
