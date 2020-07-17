@@ -1,7 +1,7 @@
 {
   "name": "devproz",
   "version": "1.0.0",
-  "description": "What Do You Meme Board Game",
+  "description": "What Do You Meme Classic Board Game",
   "main": "index.js",
   "scripts": {
     "start": "node server",
