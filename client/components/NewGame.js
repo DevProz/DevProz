@@ -66,7 +66,7 @@ class NewGame extends React.Component {
                     <li>A new host will be named at the start of each round. If you are the host, you will not submit a sentence card but rather you will chose the winning card once the players have submitted them</li>
                     <li>The player that submitted the winning card will be awarded 1 point</li>
                     <li>Again watch out for the time! The host has 60 seconds to choose a winner and if time runs out, the host will lose 1 point</li>
-                    <li>The first player to reach 5 points wins and will be crowned Meme King or Queen! <FaCrown className='crown' /></li>
+                    <li>The first player to reach 5 points wins and will be crowned Meme King or Queen! <FaCrown className="crown" /></li>
                     <li>Happy playing :)</li>
                 </ul>
                 </div>

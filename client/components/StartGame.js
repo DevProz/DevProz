@@ -20,7 +20,7 @@ class StartGame extends React.Component {
                 <div className="title-new-game">
                     New Game
                 </div>
-                <div className='requiring-players'>**requires at least two players</div>
+                <div className="requiring-players">**requires at least two players</div>
                 <h3 className="code-style">Code: {this.props.game.entranceCode}</h3>
                 <h4>{this.props.game.players.map((player) => {
                     return <ol>
