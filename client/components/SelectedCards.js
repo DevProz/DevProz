@@ -4,7 +4,6 @@ import { Card, Row, Button } from "react-bootstrap";
 import socket from "../socket";
 import { FaCrown } from "react-icons/fa";
 
-
 class  SelectedCards extends React.Component {
   constructor() {
     super()

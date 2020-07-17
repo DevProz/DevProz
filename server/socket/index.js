@@ -103,11 +103,12 @@ module.exports = io => {
 
       const imageCards = await ImageCard.find();
       const sentenceCards = await SentenceCard.find();
-
+   
       game.imageCards = shuffleArray(imageCards);
       game.currentImage = game.imageCards.pop();
 
       const newDeck = shuffleArray(sentenceCards);
+     
       await game.players.forEach(async playerId => {
         const player = await Player.findOne({
           _id: playerId
@@ -117,11 +118,11 @@ module.exports = io => {
         player.sentenceCards = cards;
         await player.save();
       });
-
+     
       game.sentenceCards = newDeck;
 
       game.selectedCards = [];
-
+    
       if (timerIntervalsCache[game.entranceCode]) {
         clearInterval(timerIntervalsCache[game.entranceCode])
       }

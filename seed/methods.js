@@ -1,5 +1,5 @@
 const sentenceCards = require("./sentenceCards");
-const imageCard = require("./imageCards");
+const imageCards = require("./imageCards");
 
 function buildSentence(sentenceCard) {
   return {
@@ -12,28 +12,19 @@ function buildMeme(imageCard) {
     image: imageCard.image
   };
 }
-function randomSentence(sentence) {
-  let thisSentence = sentence[Math.floor(Math.random() * sentence.length)];
-  return thisSentence;
-}
 
-function randomMeme(image) {
-  let thisMeme = image[Math.floor(Math.random() * image.length)];
-  return thisMeme;
-}
-
-function buildManyCards(numOfCards) {
+function buildManyCards() {
   let cards = [];
-  for (let i = 0; i < numOfCards; i++) {
-    cards.push(buildSentence(randomSentence(sentenceCards)));
+  for (let i = 0; i < sentenceCards.length; i++) {
+    cards.push(buildSentence(sentenceCards[i]));
   }
   return cards;
 }
 
-function buildManyMemes(numOfMemes) {
+function buildManyMemes() {
   let memes = [];
-  for (let i = 0; i < numOfMemes; i++) {
-    memes.push(buildMeme(randomMeme(imageCard)));
+  for (let i = 0; i < imageCards.length; i++) {
+    memes.push(buildMeme(imageCards[i]));
   }
   return memes;
 }
