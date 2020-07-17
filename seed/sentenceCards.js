@@ -291,12 +291,81 @@ const sentenceCards = [
   new SentenceCard({
     sentence: "How to lower your household expenses",
   }),
+  new SentenceCard({
+    sentence: "I’m on a seafood diet. I see food, and then I eat it.",
+  }),
+  new SentenceCard({
+    sentence: "When Aunt Muriel asks when you’re going to have kids",
+  }),
+  new SentenceCard({
+    sentence: "When your friend complains about Weight Watchers",
+  }),
+  new SentenceCard({
+    sentence: "When Beyoncé concert tickets go on sale",
+  }),
+  new SentenceCard({
+    sentence: "When your friends give you the single raised eyebrow",
+  }),
+  new SentenceCard({
+    sentence: "When you’re told to get your butt off the couch",
+  }),
+  new SentenceCard({
+    sentence: "Nope",
+  }),
+  new SentenceCard({
+    sentence: "Can you not?!",
+  }),
+  new SentenceCard({
+    sentence: "When you’re stuck",
+  }),
+  new SentenceCard({
+    sentence: "You can’t have everything",
+  }),
+  new SentenceCard({
+    sentence: "Dude!",
+  }),
+  new SentenceCard({
+    sentence: "My ex",
+  }),
+  new SentenceCard({
+    sentence: "When your dentist suggests adult braces",
+  }),
+  new SentenceCard({
+    sentence: "When your family is concerned about your weight",
+  }),
+  new SentenceCard({
+    sentence: "When people ask why you’re still single",
+  }),
+  new SentenceCard({
+    sentence: "When you finally decide to stop procrastinating",
+  }),
+  new SentenceCard({
+    sentence: "When others second-guess your life choices",
+  }),
+  new SentenceCard({
+    sentence: "When your family jokes about you being over the hill",
+  }),
+  new SentenceCard({
+    sentence: "When your spouse addresses your late-night snacking",
+  }),
+  new SentenceCard({
+    sentence: "When it’s time to get a haircut",
+  }),
+  new SentenceCard({
+    sentence: "When you’re contemplating the advancements of humanity since the dawn of time",
+  }),
+  new SentenceCard({
+    sentence: "When someone asks how you like your job",
+  }),
+  new SentenceCard({
+    sentence: "When someone calls you crazy",
+  }),
+  new SentenceCard({
+    sentence: "When you’re asked about your religious beliefs",
+  }),
+  new SentenceCard({
+    sentence: "When you are the only child",
+  }),
 ];
 
 module.exports = sentenceCards;
-// new SentenceCard({
-//   sentence: "",
-// }),
-// new SentenceCard({
-//   sentence: "",
-// }),

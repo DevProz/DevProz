@@ -103,13 +103,13 @@ new ImageCard({
   image: "https://cdn.pocket-lint.com/r/s/660x/assets/images/140427-apps-news-the-best-stupidest-and-most-famous-internet-memes-around-image14-t8xdzkveuw-jpg.webp?v1",
 }),
 new ImageCard({
-  image: "https://cdn.pocket-lint.com/r/s/660x/assets/images/140427-apps-news-the-best-stupidest-and-most-famous-internet-memes-around-image19-18djwreakh-jpg.webp?v1",
+  image: "https://assets.londonist.com/uploads/2016/04/pelican.jpg",
 }),
 new ImageCard ({
-  image: "https://cdn.pocket-lint.com/r/s/660x/assets/images/140427-apps-news-the-best-stupidest-and-most-famous-internet-memes-around-image23-w4px8e3kso-jpg.webp?v1",
+  image: "https://everywherewild.com/wp-content/uploads/2019/04/Weird-Animals.jpg",
 }),
 new ImageCard({
-  image: "https://cdn.pocket-lint.com/r/s/660x/assets/images/140427-apps-news-the-best-stupidest-and-most-famous-internet-memes-around-image28-y6z02lcaxg-jpg.webp?v1",
+  image: "https://www.travelportland.com/wp-content/uploads/fly-images/15169/Weird-Division-Street-Festival-1440x864-c.jpg",
 }),
 new ImageCard({
   image: "https://api.time.com/wp-content/uploads/2016/11/evil-kermit-the-frog-meme-dark-side.jpg?quality=85&w=1024&h=512&crop=1",
