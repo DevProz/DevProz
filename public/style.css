@@ -750,3 +750,41 @@ not needed aat the moment
 .score-body {
   padding: 10px
 }
+
+.small-title {
+  display: none;
+}
+
+@media(max-width: 700px){
+  .title-game-page {
+    flex-direction: column;
+  }
+  .buttons-align-left {
+    margin: auto;
+  }
+  .what-color{
+    display: none;
+  }
+  .do-color{
+    display: none;
+  }
+  .you-color{
+    display: none;
+  }
+  .meme-color{
+    display: none;
+  }
+  .question-mark-color{
+    display: none;
+  }
+  .small-title{
+    display: block;
+    color: white;
+    margin: auto;
+    color: yellow;
+  }
+  .small-title-game {
+    margin-bottom: 0;
+  }
+
+}
