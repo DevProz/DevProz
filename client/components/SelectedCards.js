@@ -36,6 +36,7 @@ class  SelectedCards extends React.Component {
         <div>
           <div className="crown-align">
            <FaCrown color="yellow" size={60}/>
+            <div className="winner-name">{this.props.selectedCards.map((card) => card.player.name)}</div>
            </div>
           <Row className="winning-row"> 
           {this.props.selectedCards.map((card) => 

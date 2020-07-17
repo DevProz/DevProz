@@ -102,9 +102,6 @@ class Game extends React.Component {
                     </Row>
                     {(this.props.player._id !== this.props.game.host) ? <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>: console.log("hi")}
                 </div>
-                {/* <Row className="selectedCardButton-Row">
-                        {(this.props.game.host === this.props.player._id) && (this.props.game.selectedCards.length === this.props.game.players.length-1) ? <Button className="button-choose-winner" variant="outline-light" type="button" onClick={this.handleWinningSubmit}>Submit Winner Card</Button> : console.log("A winner has not been submitted yet")}
-                </Row> */}
                 <Row>
                 {(this.props.player._id === this.props.game.host && this.props.game.status == "ALL_SELECTING") ? <div className="loader-back-two">
                         <div className="ex-container-two">
