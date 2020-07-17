@@ -193,9 +193,6 @@ new ImageCard({
   image: "https://i.pinimg.com/474x/bb/44/82/bb4482c9c7637c6c817982588a00c86a--ghetto-funny-funny-mems.jpg",
 }),
 new ImageCard({
-  image: "https://i.pinimg.com/474x/75/ef/61/75ef6125a6a8a74c086819ed6765a552.jpg",
-}),
-new ImageCard({
   image: "https://i.pinimg.com/474x/27/b2/47/27b2470594b3da1f23038a6c6ef8329f.jpg",
 }),
 new ImageCard({
@@ -231,9 +228,7 @@ new ImageCard({
 new ImageCard({
   image: "https://www.mygeekconfessions.com/wp-content/uploads/2012/08/654-e1343835413558-242x300.jpg",
 }),
-new ImageCard({
-  image: "https://themultifacetsofblujewel.files.wordpress.com/2014/06/little-girl-finger-crossed.jpg",
-}),
+
 new ImageCard({
   image: "https://etcanada.com/wp-content/uploads/2016/06/58c0500b2ac4c342c6fc4ab096ada150.jpg?quality=80&strip=all&crop=0px%2C21px%2C500px%2C333px&resize=720%2C480",
 }),
@@ -246,9 +241,7 @@ new ImageCard({
 new ImageCard({
   image: "https://i.kym-cdn.com/entries/icons/facebook/000/033/470/200401165532-ina-garten-cocktail-cosmo.jpg",
 }),
-new ImageCard({
-  image: "https://akns-images.eonline.com/eol_images/Entire_Site/2020313/rs_600x600-200413145437-600.tyra.jpg?fit=around|1080:1080&output-quality=90&crop=1080:1080;center,top",
-}),
+
 
 ];
 
