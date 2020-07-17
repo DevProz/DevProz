@@ -2,7 +2,6 @@ li {
   list-style-type: none;
 }
 
-/* front-page page */
 .title-front-page {
   font-style: oblique;
   font-size: 50px;
@@ -46,15 +45,14 @@ li {
   text-align: center;
 }
 
-/* New Game Component */
 .title-new-game-join-game {
-  font-style: oblique;
   font-size: 50px;
   font-weight: bolder;
   display: flex;
   justify-content: center;
   padding-top: 10px;
   color: #66cdaa;
+  flex-wrap: wrap;
 }
 
 .container-game-page {
@@ -106,7 +104,6 @@ li {
   font-size: 1.25rem;
 }
 
-/* Start Game Component */
 .title-new-game {
   font-style: oblique;
   font-size: 50px;
@@ -122,8 +119,7 @@ li {
   display: flex;
   justify-content: center;
   padding-top: 30px;
-  border: solid 2pxwhite;
-  color: white;
+  color: yellow;
 }
 
 .names {
@@ -154,17 +150,42 @@ li {
   display: flex;
   justify-content: center;
 }
-@keyframes glowing {
+@keyframes glowing-host {
   0% {
-    background-color: yellow;
-    box-shadow: 0 0 5px #cc66ff;
+    background-color: #aa4ed8;
+    box-shadow: 0 0 5px #aa4ed8;
   }
   100% {
-    background-color: #66cdaa;
-    box-shadow: 0 0 5px #66cdaa;
+    background-color: #8b008b;
+    box-shadow: 0 0 5px #8b008b;
   }
 }
 .host-notification {
+  animation: glowing-host 2000ms infinite;
+}
+
+
+
+
+.player {
+  text-align: center;
+  color: #eeeeee;
+  font-family: "Arvo";
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+}
+@keyframes glowing {
+  0% {
+    background-color:#66cdaa;
+    box-shadow: 0 0 5px #66cdaa;
+  }
+  100% {
+    background-color: #439479;
+    box-shadow: 0 0 5px #439479;
+  }
+}
+.player {
   animation: glowing 2000ms infinite;
 }
 
@@ -172,10 +193,6 @@ li {
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js);
 @import url(https://fonts.googleapis.com/css?family=Arvo);
 
-/* iconicfill */
-[class*="iconicfill-"]:before {
-  font-family: "IconicFill", sans-serif;
-}
 
 body,
 html {
@@ -279,38 +296,9 @@ label {
   flex-direction: column;
 }
 
-.iconicfill-pen-alt2 {
-  position: absolute;
-  left: 10px;
-  color: #fff;
-  font-size: 19px;
-  opacity: 1;
-  top: -2px;
-  transform: translateX(-100px);
-}
-
-/* ==== Pen animation ==== */
-.move-pen {
-  animation: move-pen 1s ease-in infinite alternate;
-}
-
-@keyframes move-pen {
-  from {
-    transform: translateX(-4px) rotate(6deg);
-  }
-
-  to {
-    transform: translateX(4px) rotate(-3deg);
-  }
-}
-
 .shrink-row{
   display: flex; 
 }
-
-
-
-
 
 .image-meme-style {
   display: flex;
@@ -324,17 +312,12 @@ label {
   justify-content: space-around;
   flex-direction: row;
   flex-wrap: wrap;
+  padding-bottom: 20px;
 }
 
 .card:hover {
   cursor: pointer;
 }
-
-
-/* .active {
-  border: 5px solid yellow;
-} */
-
 
 .buttons-align-left {
     /* margin-left: auto; */
@@ -381,7 +364,7 @@ label {
 .type-message-input {
   background-color: white;
   color: black;
-  width: -webkit-fill-available;
+  width: 100%;
   border: solid 1px black;
 }
 
@@ -403,11 +386,8 @@ label {
   margin-right: 3px;
   color: purple;
   text-decoration: underline;
+  display: flex; 
 }
-
-/* .text-chat {
-not needed aat the moment
-} */
 
 .chat-box {
   display: flex;
@@ -541,8 +521,8 @@ not needed aat the moment
   -ms-transform: rotate(-3deg);
   transform: rotate(-3deg);
 }
-.winning-card-pop-up:after
-{
+
+.winning-card-pop-up:after {
   -webkit-transform: rotate(3deg);
   -moz-transform: rotate(3deg);
   -o-transform: rotate(3deg);
@@ -596,6 +576,17 @@ not needed aat the moment
   padding-top: 100px;
 }
 
+.ex-container-two {
+  width: 90px;
+  margin: auto;
+  vertical-align: middle;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding-top: 500px;
+ 
+}
 .ex {
   color: #fff;
   text-transform: uppercase;
@@ -712,32 +703,30 @@ not needed aat the moment
   color: gold;
 }
 
-/* DEMO-SPECIFIC STYLES */
 .typewriter {
   color: #fff;
   font-family: monospace;
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid orange; /* The typwriter cursor */
-  white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: .15em; /* Adjust as needed */
+  overflow: hidden; 
+  border-right: .15em solid orange;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .15em;
   width: 70%;
   animation: 
     typing 3.5s steps(30, end),
     blink-caret .5s step-end infinite;
 }
 
-/* The typing effect */
 @keyframes typing {
   from { width: 0 }
   to { width: 70% }
 }
 
-/* The typewriter cursor effect */
 @keyframes blink-caret {
   from, to { border-color: transparent }
   70% { border-color: orange }
 }
+
 
 .table {
   margin-bottom: 0;
@@ -750,6 +739,7 @@ not needed aat the moment
 .score-body {
   padding: 10px
 }
+
 
 .small-title {
   display: none;
@@ -788,3 +778,34 @@ not needed aat the moment
   }
 
 }
+
+.align-change-name {
+  align-self: flex-end;
+}
+
+.score-board-name-2 {
+  color: yellow;
+  font-weight: bolder;
+}
+
+.countdown-style {
+  font-weight: bolder;
+  animation: glowing2 2000ms infinite;
+  color: yellow;
+}
+
+.blinking{
+  animation:blinkingText 1s infinite;
+}
+
+.blinking:active{
+  color: yellow;
+}
+@keyframes blinkingText{
+  0%{     color: red;    }
+  49%{    color: red; }
+  60%{    color: transparent; }
+  99%{    color: transparent;  }
+  100%{   color: red;    }
+}
+

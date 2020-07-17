@@ -26,11 +26,11 @@ const sentenceCards = [
       "When your shampoo says 'damage repair' but you're still borken on the inside",
   }),
   new SentenceCard({
-    sentence: "When someone says, 'Oh, shut up, you kmow you love me!'",
+    sentence: "When someone says, 'Oh, shut up, you know you love me!'",
   }),
   new SentenceCard({
     sentence:
-      "When your teacher tells you to stop laughing but yoru friends are too funny",
+      "When your teacher tells you to stop laughing but your friends are too funny",
   }),
   new SentenceCard({
     sentence: "Hospitals calculating your medical bill",
@@ -103,9 +103,6 @@ const sentenceCards = [
     sentence: "When someone calls me instead of texting like a normal person",
   }),
   new SentenceCard({
-    sentence: "When someone calls me instead of texting like a normal person",
-  }),
-  new SentenceCard({
     sentence: "'Where do you see yourslf in 50 years?' Me: ",
   }),
   new SentenceCard({
@@ -172,7 +169,7 @@ const sentenceCards = [
     sentence: "When your grandma finds out you haven't eaten all day",
   }),
   new SentenceCard({
-    sentence: "Oh lort - I can't even...",
+    sentence: "Oh lord - I can't even...",
   }),
   new SentenceCard({
     sentence:
@@ -204,7 +201,7 @@ const sentenceCards = [
     sentence: "i DON'T get why I'm NOT losing weight",
   }),
   new SentenceCard({
-    sentence: "So you mean to tell me that you giys hav an orange president?",
+    sentence: "So you mean to tell me that you guys have an orange president?",
   }),
   new SentenceCard({
     sentence:
@@ -228,7 +225,7 @@ const sentenceCards = [
   }),
   new SentenceCard({
     sentence:
-      "That moment when you raise your handand someone else yells out the answer",
+      "That moment when you raise your hand and someone else yells out the answer",
   }),
   new SentenceCard({
     sentence: "Me in the corner watching my family argue",
@@ -280,7 +277,7 @@ const sentenceCards = [
     sentence: "Quarantine got me like...",
   }),
   new SentenceCard({
-    sentence: "When someone bumps into me without without saying 'excuse me'",
+    sentence: `When someone bumps into me without without saying "excuse me"`,
   }),
   new SentenceCard({
     sentence: "Bad hair day",
@@ -291,12 +288,141 @@ const sentenceCards = [
   new SentenceCard({
     sentence: "How to lower your household expenses",
   }),
+  new SentenceCard({
+  sentence: "FALSE",
+  }),
+  new SentenceCard({
+    sentence: "I’m on a seafood diet. I see food, and then I eat it.",
+  }),
+  new SentenceCard({
+    sentence: "When Aunt Muriel asks when you’re going to have kids",
+  }),
+  new SentenceCard({
+    sentence: "When your friend complains about Weight Watchers",
+  }),
+  new SentenceCard({
+    sentence: "When Beyoncé concert tickets go on sale",
+  }),
+  new SentenceCard({
+    sentence: "When your friends give you the single raised eyebrow",
+  }),
+  new SentenceCard({
+    sentence: "When you’re told to get your butt off the couch",
+  }),
+  new SentenceCard({
+    sentence: "Nope",
+  }),
+  new SentenceCard({
+    sentence: "Can you not?!",
+  }),
+  new SentenceCard({
+    sentence: "When you’re stuck",
+  }),
+  new SentenceCard({
+    sentence: "You can’t have everything",
+  }),
+  new SentenceCard({
+    sentence: "Dude!",
+  }),
+  new SentenceCard({
+    sentence: "My ex",
+  }),
+  new SentenceCard({
+    sentence: "When your dentist suggests adult braces",
+  }),
+  new SentenceCard({
+    sentence: "When your family is concerned about your weight",
+  }),
+  new SentenceCard({
+    sentence: "When people ask why you’re still single",
+  }),
+  new SentenceCard({
+    sentence: "When you finally decide to stop procrastinating",
+  }),
+  new SentenceCard({
+    sentence: "When others second-guess your life choices",
+  }),
+  new SentenceCard({
+    sentence: "When your family jokes about you being over the hill",
+  }),
+  new SentenceCard({
+    sentence: "When your spouse addresses your late-night snacking",
+  }),
+  new SentenceCard({
+    sentence: "When it’s time to get a haircut",
+  }),
+  new SentenceCard({
+    sentence: "When you’re contemplating the advancements of humanity since the dawn of time",
+  }),
+  new SentenceCard({
+    sentence: "When someone asks how you like your job",
+  }),
+  new SentenceCard({
+    sentence: "When someone calls you crazy",
+  }),
+  new SentenceCard({
+    sentence: "When you’re asked about your religious beliefs",
+  }),
+  new SentenceCard({
+    sentence: "When you are the only child",
+  }),
+  new SentenceCard({
+    sentence: "When can we eat?",
+  }),
+  new SentenceCard({
+    sentence: "Rise and shine",
+  }),
+  new SentenceCard({
+    sentence: "When you think what to wear",
+  }),
+  new SentenceCard({
+    sentence: "Did she get a spoonful of virgin period in her tea this morning?",
+  }),
+  new SentenceCard({
+    sentence: "The idea is to die young...as late as possible",
+  }),
+  new SentenceCard({
+    sentence: "Whatever!",
+  }),
+  new SentenceCard({
+    sentence: "Please wash your hands",
+  }),
+  new SentenceCard({
+    sentence: "We lost Tom",
+  }),
+  new SentenceCard({
+    sentence: "That is the key!",
+  }),
+  new SentenceCard({
+    sentence: "My secret dream",
+  }),
+  new SentenceCard({
+    sentence: "Why do not you like me?!",
+  }),
+  new SentenceCard({
+    sentence: "When you think like a proton",
+  }),
+  new SentenceCard({
+    sentence: "Stay off!",
+  }),
+  new SentenceCard({
+    sentence: "When I stepped on a Corn Flake and now I'm a Cereal Killer",
+  }),
+  new SentenceCard({
+    sentence: "When a demonic starbucks napkin stole my goldfish crackers",
+  }),
+  new SentenceCard({
+    sentence: "Banana error",
+  }),
+  new SentenceCard({
+    sentence: "When cloth is yum like paper",
+  }),
+  new SentenceCard({
+    sentence: "Screw world peace, I want a pony",
+  }),
+  new SentenceCard({
+    sentence: "There's a purple mushroom in my backyard, screaming Taco's!",
+  })
 ];
 
 module.exports = sentenceCards;
-// new SentenceCard({
-//   sentence: "",
-// }),
-// new SentenceCard({
-//   sentence: "",
-// }),

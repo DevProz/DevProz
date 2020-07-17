@@ -53,7 +53,6 @@ class Home extends React.Component {
               value={this.state.name}
               />
               </label>
-              <p className="iconicfill-pen-alt2"><i className="fas fa-pencil-alt"></i></p>
               <Button disabled={this.state.name.length < 2} className="button-enter-name" variant="outline-light" type="submit">Submit</Button>
           </form>
         </div>
