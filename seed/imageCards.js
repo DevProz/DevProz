@@ -103,13 +103,13 @@ new ImageCard({
   image: "https://cdn.pocket-lint.com/r/s/660x/assets/images/140427-apps-news-the-best-stupidest-and-most-famous-internet-memes-around-image14-t8xdzkveuw-jpg.webp?v1",
 }),
 new ImageCard({
-  image: "https://cdn.pocket-lint.com/r/s/660x/assets/images/140427-apps-news-the-best-stupidest-and-most-famous-internet-memes-around-image19-18djwreakh-jpg.webp?v1",
+  image: "https://assets.londonist.com/uploads/2016/04/pelican.jpg",
 }),
 new ImageCard ({
-  image: "https://cdn.pocket-lint.com/r/s/660x/assets/images/140427-apps-news-the-best-stupidest-and-most-famous-internet-memes-around-image23-w4px8e3kso-jpg.webp?v1",
+  image: "https://everywherewild.com/wp-content/uploads/2019/04/Weird-Animals.jpg",
 }),
 new ImageCard({
-  image: "https://cdn.pocket-lint.com/r/s/660x/assets/images/140427-apps-news-the-best-stupidest-and-most-famous-internet-memes-around-image28-y6z02lcaxg-jpg.webp?v1",
+  image: "https://www.travelportland.com/wp-content/uploads/fly-images/15169/Weird-Division-Street-Festival-1440x864-c.jpg",
 }),
 new ImageCard({
   image: "https://api.time.com/wp-content/uploads/2016/11/evil-kermit-the-frog-meme-dark-side.jpg?quality=85&w=1024&h=512&crop=1",
@@ -249,7 +249,96 @@ new ImageCard({
 new ImageCard({
   image: "https://akns-images.eonline.com/eol_images/Entire_Site/2020313/rs_600x600-200413145437-600.tyra.jpg?fit=around|1080:1080&output-quality=90&crop=1080:1080;center,top",
 }),
-
+new ImageCard({
+  image: "https://i.ytimg.com/vi/q_YxKeTxTtk/maxresdefault.jpg",
+}),
+new ImageCard({
+  image: "https://i.pinimg.com/originals/27/c8/f8/27c8f8e5d021e4364f09566a29d4d23c.jpg",
+}),
+new ImageCard({
+  image: "https://www.sarahtylerphotography.com/wp-content/uploads/2015/12/27-3881-post/funny-faces-kids-make.jpg",
+}),
+new ImageCard({
+  image: "https://funnyneel.com/image/files/i/03-2014/10-weird-faces-lips-and-eyes.preview.jpg",
+}),
+new ImageCard({
+  image: "https://images.ctfassets.net/x4nvfpejxuu4/1NvTagrtEd54IQJurNSIc2/bd199bd6abc155f8a3e2b8ecb45dd9d7/Funny_Faces.png?w=800&q=50",
+}),
+new ImageCard({
+  image: "https://imgix.bustle.com/uploads/shutterstock/2019/9/20/b738bcd2-fb8e-4f07-88e6-28f00d302cf8-shutterstock-436940638.jpg?w=960&h=540&fit=crop&crop=faces&auto=format%2Ccompress&cs=srgb&q=70",
+}),
+new ImageCard({
+  image: "https://images.unsplash.com/photo-1515536765-9b2a70c4b333?ixlib=rb-1.2.1&w=1000&q=80",
+}),
+new ImageCard({
+  image: "https://cdn.cdnparenting.com/articles/2020/01/23181558/464300804.jpg",
+}),
+new ImageCard({
+  image: "https://assets.wbeme.com/1000/image/a6/o/2018/03/12/a6654f8310d34a37aad58869ba5a6870.png",
+}),
+new ImageCard({
+  image: "https://www.foxharbr.com/wp-content/uploads/2019/05/PND8TF.jpg",
+}),
+new ImageCard({
+  image: "https://images.pexels.com/photos/1183434/pexels-photo-1183434.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+}),
+new ImageCard({
+  image: "https://static.boredpanda.com/blog/wp-content/uploads/2020/01/funny-dog-teeth-toofers-coverimage.jpg",
+}),
+new ImageCard({
+  image: "https://cdn.cnn.com/cnnnext/dam/assets/190913153756-comedy-wildlife-photography-awards-9.jpg",
+}),
+new ImageCard({
+  image: "https://media1.popsugar-assets.com/files/thumbor/N5DZcJIlVmBmbqWbk0OPBvzldjo/0x0:1660x1660/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2019/10/29/927/n/44701584/0fd997f65db8abf1796548.77940914_/i/short-funny-pet-videos.png",
+}),
+new ImageCard({
+  image: "https://i.ytimg.com/vi/oMAn1AXXEu0/maxresdefault.jpg",
+}),
+new ImageCard({
+  image: "https://www.legacy.com/wp-content/uploads/2019/09/funny-obituaries-1600x500-1-1200x900.jpg",
+}),
+new ImageCard({
+  image: "https://s.yimg.com/lo/api/res/1.2/GJXQ_z9DJTAAWZZUozhuBg--/YXBwaWQ9YXBlY21lZGlhO3NtPTE7dz04MDA-/https://media.zenfs.com/en-US/reuters.com/ea32207a427d6781a947dbb3440415af",
+}),
+new ImageCard({
+  image: "https://wagandtrain.com/wp-content/uploads/2015/11/aggressive-dogs.jpg",
+}),
+new ImageCard({
+  image: "https://oldprimaryhead.files.wordpress.com/2013/08/crazy.jpg",
+}),
+new ImageCard({
+  image: "https://akm-img-a-in.tosshub.com/indiatoday/styles/photo_slider_753x543/public/images/photogallery/201406/sleep_061214054645.jpg?FvCjgBZq15FB6V.P_bdXHc0CxRPb9r0Y",
+}),
+new ImageCard({
+  image: "https://i.insider.com/522fab04eab8eaad08897f50?width=600&format=jpeg&auto=webp",
+}),
+new ImageCard({
+  image: "https://runt-of-the-web.com/wordpress/wp-content/uploads/2016/04/weird-pictures.jpg",
+}),
+new ImageCard({
+  image: "https://www.dictionary.com/e/wp-content/uploads/2017/10/Mad_Habits3.jpg",
+}),
+new ImageCard({
+  image: "https://azbigmedia.com/wp-content/uploads/2019/12/CATS2.jpg",
+}),
+new ImageCard({
+  image: "https://i.redd.it/u4vh5sc7az831.jpg",
+}),
+new ImageCard({
+  image: "https://www.nationalgeographic.com/content/dam/animals/2019/09/tira-zebra-rare/01-frank-zebra-tira-8.adapt.885.1.jpg",
+}),
+new ImageCard({
+  image: "https://nexter.org/wp-content/uploads/2019/07/weird-stock-images-photos-funny-pic.jpg",
+}),
+new ImageCard({
+  image: "https://images.ctfassets.net/cnu0m8re1exe/7915luIvTadwvgyO1wNvdL/750e77a5404cbd97f0493d3cebf5c60f/shutterstock_1673017684__2_.jpg?w=650&h=433&fit=fill",
+}),
+new ImageCard({
+  image: "https://miro.medium.com/max/1080/1*8qEmetB3_KwVnrZdjsr6cw.jpeg",
+}),
+new ImageCard({
+  image: "https://www.cbc.ca/parents/content/imgs/weird-kids-youtube.jpg",
+}),
 ];
 
 
