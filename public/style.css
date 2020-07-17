@@ -758,6 +758,7 @@ not needed aat the moment
 
 .score-board-name-2 {
   color: yellow;
+  font-weight: bolder;
 }
 
 .countdown-style {
@@ -774,9 +775,9 @@ not needed aat the moment
   color: yellow;
 }
 @keyframes blinkingText{
-  0%{     color: #000;    }
-  49%{    color: #000; }
+  0%{     color: red;    }
+  49%{    color: red; }
   60%{    color: transparent; }
   99%{    color: transparent;  }
-  100%{   color: #000;    }
+  100%{   color: red;    }
 }

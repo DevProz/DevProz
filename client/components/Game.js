@@ -9,6 +9,7 @@ import socket from "../socket";
 import { FaCrown } from "react-icons/fa";
 import { GiReturnArrow } from "react-icons/gi";
 import { GiPodiumWinner } from "react-icons/gi";
+import { GiSandsOfTime } from "react-icons/gi";
 
 class Game extends React.Component {
     constructor(){
@@ -55,7 +56,7 @@ class Game extends React.Component {
                             <Col style={{ width: "33%"}}>
                             <Card className="score">
                                 <Card.Header className="countdown-style blinking">
-                                    Hurry up: {this.props.countdown} 
+                                <GiSandsOfTime /> HURRY UP: {this.props.countdown} 
                                 </Card.Header>
                             </Card>
                             <Card  className="score">
