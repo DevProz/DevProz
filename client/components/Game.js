@@ -7,7 +7,6 @@ import Chat from "./Chat";
 import SelectedCards from "./SelectedCards";
 import socket from "../socket";
 import { FaCrown } from "react-icons/fa";
-import { GiReturnArrow } from "react-icons/gi";
 import { GiPodiumWinner } from "react-icons/gi";
 import { GiSandsOfTime } from "react-icons/gi";
 
@@ -82,10 +81,8 @@ class Game extends React.Component {
                             </Card>
                             </Col>
                             <Col className="image-column" style={{ width: "33%"}}>
-                            <ImageCard currentImage={this.props.game.currentImage}/>
+                                <ImageCard currentImage={this.props.game.currentImage}/>
                             </Col>
-                            
-
                             <Col style={{ width: "33%"}}>
                                 <Card className="score">
                                 <Card.Header> Live Chat:  </Card.Header>
@@ -103,9 +100,6 @@ class Game extends React.Component {
                     </Row>
                     {(this.props.player._id !== this.props.game.host) ? <MySentenceCards sentenceCards={this.props.game.sentenceCards}/>: console.log("hi")}
                 </div>
-                {/* <Row className="selectedCardButton-Row">
-                        {(this.props.game.host === this.props.player._id) && (this.props.game.selectedCards.length === this.props.game.players.length-1) ? <Button className="button-choose-winner" variant="outline-light" type="button" onClick={this.handleWinningSubmit}>Submit Winner Card</Button> : console.log("A winner has not been submitted yet")}
-                </Row> */}
                 <Row>
                 {(this.props.player._id === this.props.game.host && this.props.game.status == "ALL_SELECTING") ? <div className="loader-back-two">
                         <div className="ex-container-two">
@@ -129,7 +123,7 @@ class Game extends React.Component {
                     <h1>Congratulations {winningPlayer.name}! You are the winner!</h1>
                     <Button className="button-winning-page" type="submit" onClick ={this.handleSubmit} variant="outline-light">Play Again</Button>
                   </Jumbotron>
-              )
+            )
           }
         }  
     }
