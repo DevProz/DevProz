@@ -2,7 +2,6 @@ li {
   list-style-type: none;
 }
 
-/* front-page page */
 .title-front-page {
   font-style: oblique;
   font-size: 50px;
@@ -46,7 +45,6 @@ li {
   text-align: center;
 }
 
-/* New Game Component */
 .title-new-game-join-game {
   font-size: 50px;
   font-weight: bolder;
@@ -106,7 +104,6 @@ li {
   font-size: 1.25rem;
 }
 
-/* Start Game Component */
 .title-new-game {
   font-style: oblique;
   font-size: 50px;
@@ -172,10 +169,6 @@ li {
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js);
 @import url(https://fonts.googleapis.com/css?family=Arvo);
 
-/* iconicfill */
-[class*="iconicfill-"]:before {
-  font-family: "IconicFill", sans-serif;
-}
 
 body,
 html {
@@ -279,38 +272,9 @@ label {
   flex-direction: column;
 }
 
-.iconicfill-pen-alt2 {
-  position: absolute;
-  left: 10px;
-  color: #fff;
-  font-size: 19px;
-  opacity: 1;
-  top: -2px;
-  transform: translateX(-100px);
-}
-
-/* ==== Pen animation ==== */
-.move-pen {
-  animation: move-pen 1s ease-in infinite alternate;
-}
-
-@keyframes move-pen {
-  from {
-    transform: translateX(-4px) rotate(6deg);
-  }
-
-  to {
-    transform: translateX(4px) rotate(-3deg);
-  }
-}
-
 .shrink-row{
   display: flex; 
 }
-
-
-
-
 
 .image-meme-style {
   display: flex;
@@ -330,12 +294,6 @@ label {
 .card:hover {
   cursor: pointer;
 }
-
-
-/* .active {
-  border: 5px solid yellow;
-} */
-
 
 .buttons-align-left {
     /* margin-left: auto; */
@@ -406,10 +364,6 @@ label {
   text-decoration: underline;
   display: flex; 
 }
-
-/* .text-chat {
-not needed aat the moment
-} */
 
 .chat-box {
   display: flex;
@@ -543,8 +497,8 @@ not needed aat the moment
   -ms-transform: rotate(-3deg);
   transform: rotate(-3deg);
 }
-.winning-card-pop-up:after
-{
+
+.winning-card-pop-up:after {
   -webkit-transform: rotate(3deg);
   -moz-transform: rotate(3deg);
   -o-transform: rotate(3deg);
@@ -725,28 +679,25 @@ not needed aat the moment
   color: gold;
 }
 
-/* DEMO-SPECIFIC STYLES */
 .typewriter {
   color: #fff;
   font-family: monospace;
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid orange; /* The typwriter cursor */
-  white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: .15em; /* Adjust as needed */
+  overflow: hidden; 
+  border-right: .15em solid orange;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .15em;
   width: 70%;
   animation: 
     typing 3.5s steps(30, end),
     blink-caret .5s step-end infinite;
 }
 
-/* The typing effect */
 @keyframes typing {
   from { width: 0 }
   to { width: 70% }
 }
 
-/* The typewriter cursor effect */
 @keyframes blink-caret {
   from, to { border-color: transparent }
   70% { border-color: orange }
@@ -769,3 +720,28 @@ not needed aat the moment
   align-self: flex-end;
 }
 
+.score-board-name-2 {
+  color: yellow;
+  font-weight: bolder;
+}
+
+.countdown-style {
+  font-weight: bolder;
+  animation: glowing2 2000ms infinite;
+  color: yellow;
+}
+
+.blinking{
+  animation:blinkingText 1s infinite;
+}
+
+.blinking:active{
+  color: yellow;
+}
+@keyframes blinkingText{
+  0%{     color: red;    }
+  49%{    color: red; }
+  60%{    color: transparent; }
+  99%{    color: transparent;  }
+  100%{   color: red;    }
+}

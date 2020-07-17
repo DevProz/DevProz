@@ -8,6 +8,8 @@ import SelectedCards from "./SelectedCards";
 import socket from "../socket";
 import { FaCrown } from "react-icons/fa";
 import { GiReturnArrow } from "react-icons/gi";
+import { GiPodiumWinner } from "react-icons/gi";
+import { GiSandsOfTime } from "react-icons/gi";
 
 class Game extends React.Component {
     constructor(){
@@ -53,8 +55,8 @@ class Game extends React.Component {
                         <Row className="shrink-row">
                             <Col style={{ width: "33%"}}>
                             <Card className="score">
-                                <Card.Header className="countdown-style">
-                                    Countdown: {this.props.countdown}
+                                <Card.Header className="countdown-style blinking">
+                                <GiSandsOfTime /> HURRY UP: {this.props.countdown} 
                                 </Card.Header>
                             </Card>
                             <Card  className="score">
@@ -64,7 +66,9 @@ class Game extends React.Component {
                                         return (
                                             <table className="table">
                                             <tr className="score-board">
-                                                <td className="score-board-name">{player.name}:</td>
+                                                {(player._id == this.props.game.host) 
+                                                ? <td className="score-board-name-2"><GiPodiumWinner size={20} color="yellow" /> {player.name} </td> 
+                                                :  <td className="score-board-name">{player.name}</td>}
                                                 <td className="score-board-score">{player.score}</td>
                                             </tr>
                                             </table>
