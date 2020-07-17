@@ -103,9 +103,6 @@ const sentenceCards = [
     sentence: "When someone calls me instead of texting like a normal person",
   }),
   new SentenceCard({
-    sentence: "When someone calls me instead of texting like a normal person",
-  }),
-  new SentenceCard({
     sentence: "'Where do you see yourslf in 50 years?' Me: ",
   }),
   new SentenceCard({
