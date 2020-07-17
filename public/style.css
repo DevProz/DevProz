@@ -380,7 +380,7 @@ label {
 .type-message-input {
   background-color: white;
   color: black;
-  width: -webkit-fill-available;
+  width: 100%;
   border: solid 1px black;
 }
 
@@ -402,6 +402,7 @@ label {
   margin-right: 3px;
   color: purple;
   text-decoration: underline;
+  display: flex; 
 }
 
 /* .text-chat {

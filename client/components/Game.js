@@ -81,7 +81,7 @@ class Game extends React.Component {
                                 <Card className='score'>
                                 <Card.Header> Live Chat:  </Card.Header>
 
-                                <Card.Body>
+                                <Card.Body >
                                         <Card.Text className='chat-text'>
                                             <Chat/>
                                         </Card.Text>
