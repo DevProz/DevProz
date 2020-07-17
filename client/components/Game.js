@@ -54,8 +54,8 @@ class Game extends React.Component {
                         <Row className="shrink-row">
                             <Col style={{ width: "33%"}}>
                             <Card className="score">
-                                <Card.Header className="countdown-style">
-                                    Countdown: {this.props.countdown}
+                                <Card.Header className="countdown-style blinking">
+                                    Hurry up: {this.props.countdown} 
                                 </Card.Header>
                             </Card>
                             <Card  className="score">
