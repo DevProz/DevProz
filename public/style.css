@@ -417,6 +417,7 @@ label {
     margin-right: 5px;
     font-weight: lighter;
     color: white;
+    max-width: 100%;
 }
 
 .messages {
@@ -742,10 +743,12 @@ label {
 
 .score-header {
   padding-bottom: 0;
+  max-width: 100%;
 }
 
 .score-body {
-  padding: 10px
+  padding: 10px;
+  max-width: 100%;
 }
 
 
@@ -799,6 +802,7 @@ label {
 .score-board-name-2 {
   color: yellow;
   font-weight: bolder;
+  max-width: 100%;
 }
 
 .countdown-style {
