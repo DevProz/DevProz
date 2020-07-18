@@ -9,20 +9,20 @@ MERN stack, Redux, Bootstrap, Socket.io.
 
 ## Home Page 
 Welcome to our game! Thank you for playing.
-![HomePage](public/front-page.png)
+![HomePage](/public/front-page.png)
 
 ## Directions Page: 
 On this page the user has the option to read rules and directions on how to play the game. The user is also presented with the option to change their name. From there, a user may generate a new game code or join an existing game with the code. 
-![StartGame](public/start-game-page.png)
+![StartGame](/public/start-game-page.png)
 
 ## Generate Game: 
 After the start game option is chosen, a new code is generated. The player who starts the game is the first player listed (host). Subsequent players are listed upon entering game code. Once all players are listed, the host clicks the button to begin the new game. 
-![StartGame](public/start-game-page.png)
-![NewGamePlayer](public/new-game-player.png)
+![StartGame](/public/start-game-page.png)
+![NewGamePlayer](/public/new-game-player.png)
 
 ## Join Game: 
 There are two ways a player will join the game. If the game has already begun, upon entering a valid code, the user will be directed to the game screen. Otherwise, the user will enter a valid code and be added to the queue of players waiting to begin the game.
-![NewGameHost](public/new-game-host.png) 
+![NewGameHost](/public/new-game-host.png) 
 
 ## Active Game: 
 During a game, the user has many options. If the user wants to leave, restart the game, chat with players, check their score, reference the game code, or see how much time is left, they are able to do so on one screen. The main image (the meme) is rendered to all players of the game. Sentence cards, however, are rendered to all players except the chooser of each round. 
