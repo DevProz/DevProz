@@ -320,7 +320,7 @@ module.exports = io => {
   };
 
   async function startAllSelectCountdown(entranceCode) {
-    let countdown = 30;
+    let countdown = 60;
     async function countdownFunction() {
       const countdownGame = await Game.findOne({
         entranceCode: entranceCode

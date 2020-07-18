@@ -72,7 +72,7 @@ class  SelectedCards extends React.Component {
           {this.props.selectedCards.map((card) => 
             <Card style={{ width: "10rem" }} key={card._id}>
               <Card.Body className = {this.state.active === card._id ? "winner" : null}
-              id={card._id} title={card.player} onClick = {() => this.handleClick(card._id, card.player._id)} style={{ width: "10rem" }}>
+              id={card._id} title={card.player} onMouseUp = {() => this.handleClick(card._id, card.player._id)} style={{ width: "10rem" }}>
                  {card.sentenceCard.sentence}
               </Card.Body>
             </Card>
