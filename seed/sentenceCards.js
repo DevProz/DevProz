@@ -558,6 +558,45 @@ const sentenceCards = [
   new SentenceCard({
     sentence: "When restaurants put calorie counts on their menu",
   }),
+  new SentenceCard({
+    sentence: "When your crush borrows your ruler and asks why there is a mark at 2.5 inches",
+  }),
+  new SentenceCard({
+    sentence: "That face you make while people are signing your 'Happy Birthday'",
+  }),
+  new SentenceCard({
+    sentence: "When you realize that the most supportive person in your life is DJ Khaled",
+  }),
+  new SentenceCard({
+    sentence: "When you hear your mom bragging about you to her book club",
+  }),
+  new SentenceCard({
+    sentence: "When the bouncer accepts your fake ID",
+  }),
+  new SentenceCard({
+    sentence: "Did I hear Pizza?",
+  }),
+  new SentenceCard({
+    sentence: "When you sprout your first pube",
+  }),
+  new SentenceCard({
+    sentence: "When you can finally take the tissues out of your bra after a long day",
+  }),
+  new SentenceCard({
+    sentence: "When you have to explain to your therapist what a meme is",
+  }),
+  new SentenceCard({
+    sentence: "When you squeeze the ketchup and the bottle farts",
+  }),
+  new SentenceCard({
+    sentence: "When you find the perfect rock to skip but fuck up the throw",
+  }),
+  new SentenceCard({
+    sentence: "When you look in mirror and think 'f*ck you",
+  }),
+  new SentenceCard({
+    sentence: "When your vibrator runs out of battery right before you finish",
+  }),
 ];
 
 module.exports = sentenceCards;
