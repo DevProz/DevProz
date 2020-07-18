@@ -33,8 +33,3 @@ Each player submits 1 sentence card per round and maintains 7 sentence cards thr
  
 #Chooser: 
 As the chooser, there is no need to submit your own cards for the round. While the other players are selecting cards, the host will see a waiting screen. After all players submit their cards, the host has 60 to choose a winning card for the round. If host does not choose a winning card in the time given, the host looses one point. 
-
- 
-  
- 
- 
