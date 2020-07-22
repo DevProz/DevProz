@@ -4,7 +4,7 @@ Real time multi-player virtual version of the classic card game. Each player wil
 
 [Check out our website here!](https://devproz.herokuapp.com/)
 
-[Watch our screencast!](https://drive.google.com/file/d/19BMcUuqG1UxOTW2Rp3lx8kg5xojTWLRU/view)
+[Watch our screencast!](https://www.youtube.com/watch?v=Xfd3xXaCGpM&list=PLx0iOsdUOUmkqg_8ixMky0s59-C2RJnDB&index=4&t=21s)
 
 Fullstack appplication running on....
 MERN stack, Redux, Bootstrap, Socket.io.
